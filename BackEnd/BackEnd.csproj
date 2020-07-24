@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BE5EB79B-B842-42FC-B126-76F5A8F761A1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BackEnd</RootNamespace>
+    <AssemblyName>BackEnd</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DAL\DALGenericoImpl.cs" />
+    <Compile Include="DAL\IDALGenerico.cs" />
+    <Compile Include="DAL\IUsuarioDAL.cs" />
+    <Compile Include="DAL\UsuarioDALImpl.cs" />
+    <Compile Include="entities\Actividades_Economicas.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Cantone.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Categorias_Productos.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Cliente.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Codigo_Impuestos.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Compania.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Condiciones_de_Ventas.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Consecutivos_Facturas.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Detalle_Facturas.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Distrito.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Factura.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Factura_DigitalModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura_DigitalModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Factura_DigitalModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Factura_DigitalModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura_DigitalModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Formas_de_pagos.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Identificacion_Tipos.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Inventario.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Mantenimiento.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Padron_Electoral.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Padron_Electoral_codelec.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Pais.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Proveedore.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Provincia.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Role.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Sucursale.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\sysdiagram.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Tipo_Comprobantes.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Tipo_de_cambio.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\UnidadMedida.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\User_Roles.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Usuarios.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Usuarios_Companias.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="entities\Usuarios_Logins.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EntityDeploy Include="entities\Factura_DigitalModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Factura_DigitalModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="entities\Factura_DigitalModel.edmx.diagram">
+      <DependentUpon>Factura_DigitalModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="entities\Factura_DigitalModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Factura_DigitalModel.Context.cs</LastGenOutput>
+      <DependentUpon>Factura_DigitalModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="entities\Factura_DigitalModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Factura_DigitalModel.edmx</DependentUpon>
+      <LastGenOutput>Factura_DigitalModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
