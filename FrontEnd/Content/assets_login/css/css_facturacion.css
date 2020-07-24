@@ -1,0 +1,67 @@
+input.error {
+    background-color: #FFEBEE !important;
+}
+ 
+label.error {
+    color: red !important;
+}
+
+textarea.error {
+    background-color: #FFEBEE !important;
+}
+
+.form-group {
+    max-width: 100% !important;
+}
+
+.puntero {
+   cursor: pointer; 
+}
+
+.linea_factura {
+    padding-right: 0px !important;
+    padding-left: 5px !important;
+}
+
+.top-nav-item a:link,.top-nav-item  a:visited,.top-nav-item  a:hover, .top-nav-item a:active {
+	color:#FFF !important;
+}
+
+.top-nav-item a:link,.top-nav-item  a:visited,.top-nav-item  a:hover, .top-nav-item a:active {
+	text-decoration: none;	
+}
+
+.ui-dialog-titlebar-close {
+  background-image: url("/Assets/jquery-ui-1.12.1.custom/images/ui-icons_0078ae_256x240.png") !important;
+}
+
+.ui-dialog-titlebar-close {
+    background-position: -96px -128px;
+}
+
+
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('/Assets/images/pre-video.jpg') no-repeat;
+    background-size: cover;
+    transition: 1s opacity;
+}
+
+ /*
+ @media screen and (max-width: 500px) { 
+    div{width:70%;} 
+  }
+ */
+ @media screen and (max-device-width: 800px) {
+    #bgvid { display: none; }
+}
+
+ 

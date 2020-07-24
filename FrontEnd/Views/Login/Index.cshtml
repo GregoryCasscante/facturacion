@@ -1,0 +1,82 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Login</title>
+    <link rel="stylesheet" href="/Content/assets_login/node_modules/font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/Content/assets_login/node_modules/perfect-scrollbar/dist/css/perfect-scrollbar.min.css" />
+    <link rel="stylesheet" href="/Content/assets_login/css/style.css" />
+    <link rel="stylesheet" href="/Content/assets_login/css/css_facturacion.css" />
+
+    <link rel="shortcut icon" href="/Content/assets_login/images/favicon.ico" />
+
+    <style>
+        .content-wrapper {
+            background: none !important;
+        }
+
+        .card {
+            border-radius: 9px;
+            border: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container-scroller">
+
+
+        <video poster="/Content/assets_login/images/pre-video.jpg" id="bgvid" playsinline autoplay muted loop>
+            <source src="/Content/assets_login/images/video/High_Tech_Website_Background_Video.mp4" type="video/mp4">
+        </video>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="content-wrapper full-page-wrapper d-flex align-items-center auth-pages">
+                    <div class="card col-lg-4 mx-auto">
+
+                        <div class="card-body px-5 py-5">
+                            <h3 class="card-title text-left mb-3">Login</h3>
+                            <form method="post" id="loginform" role="form" data-toggle="validator" action="/Login/Auth">
+                                <input name="CMD" type=hidden value="login">
+                                <div class="form-group">
+                                    <input name="cod_usuario" id="cod_usuario" type="text" class="form-control p_input" placeholder="Usuario" required>
+                                </div>
+                                <div class="form-group">
+                                    <input name="clave" id="clave" type="password" class="form-control p_input" placeholder="Clave">
+                                </div>
+
+                                <div class="text-center">
+                                    <button class="btn btn-primary btn-block enter-btn">LOG IN</button>
+                                    <label class="text-danger"></label>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/Content/assets_login/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/Content/assets_login/node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="/Content/assets_login/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/Content/assets_login/node_modules/perfect-scrollbar/dist/js/perfect-scrollbar.jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/additional-methods.min.js"></script>
+
+    <script src="/Content/assets_login/js/misc.js"></script>
+    <script src="/Content/assets_login/js/proyecto.js"></script>
+</body>
+
+</html>
