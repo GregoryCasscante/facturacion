@@ -10,6 +10,7 @@ public class MyBaseController : Controller
     protected override void Initialize(RequestContext requestContext)
     {
         base.Initialize(requestContext);
+        /*
 
         if (Session["Autentificado"] != null)
         {
@@ -31,5 +32,6 @@ public class MyBaseController : Controller
             Response.Redirect("/login?error=Session_Expirada");
 
         }
+        */
     }
 }

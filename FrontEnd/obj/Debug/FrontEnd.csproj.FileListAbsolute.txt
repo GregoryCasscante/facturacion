@@ -72,7 +72,6 @@ D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\S
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\Newtonsoft.Json.xml
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\Antlr3.Runtime.pdb
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csprojAssemblyReference.cache
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csproj.CoreCompileInputs.cache
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csproj.CopyComplete
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.dll
