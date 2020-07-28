@@ -13,10 +13,10 @@ namespace BackEnd.entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class FACTURA_DIGITALEntities : DbContext
+    public partial class BDContext : DbContext
     {
-        public FACTURA_DIGITALEntities()
-            : base("name=FACTURA_DIGITALEntities")
+        public BDContext()
+            : base("name=BDContext")
         {
         }
     

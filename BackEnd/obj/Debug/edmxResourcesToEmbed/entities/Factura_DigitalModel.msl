@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FACTURA_DIGITALModelStoreContainer" CdmEntityContainer="FACTURA_DIGITALEntities">
-    <EntitySetMapping Name="Usuarios1">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuarios">
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario">
         <MappingFragment StoreEntitySet="Usuarios">
           <ScalarProperty Name="direccion" ColumnName="direccion" />
           <ScalarProperty Name="distrito" ColumnName="distrito" />
@@ -26,16 +26,16 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Actividades_Economicas">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividades_Economicas">
+    <EntitySetMapping Name="Actividades_Economica">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividades_Economica">
         <MappingFragment StoreEntitySet="Actividades_Economicas">
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Cantones">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Cantone">
+    <EntitySetMapping Name="Cantons">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Canton">
         <MappingFragment StoreEntitySet="Cantones">
           <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           <ScalarProperty Name="canton" ColumnName="canton" />
@@ -104,8 +104,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Detalle_Facturas">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Detalle_Facturas">
+    <EntitySetMapping Name="Detalle_Factura">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Detalle_Factura">
         <MappingFragment StoreEntitySet="Detalle_Facturas">
           <ScalarProperty Name="TotalLinea" ColumnName="TotalLinea" />
           <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
@@ -240,8 +240,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Proveedores">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Proveedore">
+    <EntitySetMapping Name="Proveedors">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Proveedor">
         <MappingFragment StoreEntitySet="Proveedores">
           <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
           <ScalarProperty Name="direccion" ColumnName="direccion" />
@@ -279,8 +279,8 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Sucursales">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Sucursale">
+    <EntitySetMapping Name="Sucursals">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Sucursal">
         <MappingFragment StoreEntitySet="Sucursales">
           <ScalarProperty Name="dirrecion" ColumnName="dirrecion" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
