@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace BackEnd.entities
+namespace BackEnd.Entities
 {
     using System;
     using System.Collections.Generic;

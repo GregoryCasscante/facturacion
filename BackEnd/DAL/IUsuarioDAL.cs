@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BackEnd.entities;
+using BackEnd.Entities;
 
 namespace BackEnd.DAL
 {
@@ -14,5 +14,6 @@ namespace BackEnd.DAL
         bool Update(Usuario category);
         List<Usuario> Get();
         Usuario Get(int idCategory);
+
     }
 }

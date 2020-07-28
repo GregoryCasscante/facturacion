@@ -76,4 +76,3 @@ D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\D
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csproj.CopyComplete
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.dll
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.pdb
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csprojAssemblyReference.cache
