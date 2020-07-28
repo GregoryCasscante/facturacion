@@ -17,7 +17,7 @@ namespace BackEnd.entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Provincia()
         {
-            this.Cantones = new HashSet<Cantone>();
+            this.Cantones = new HashSet<Canton>();
         }
     
         public int id { get; set; }
@@ -25,7 +25,7 @@ namespace BackEnd.entities
         public string Nombre { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cantone> Cantones { get; set; }
+        public virtual ICollection<Canton> Cantones { get; set; }
         public virtual Pais Pais1 { get; set; }
     }
 }

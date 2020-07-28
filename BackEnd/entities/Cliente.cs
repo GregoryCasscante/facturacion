@@ -38,7 +38,7 @@ namespace BackEnd.entities
         public string dirrecion { get; set; }
         public System.DateTime fecha_creacion { get; set; }
     
-        public virtual Actividades_Economicas Actividades_Economicas { get; set; }
+        public virtual Actividades_Economica Actividades_Economicas { get; set; }
         public virtual Compania Compania { get; set; }
         public virtual Identificacion_Tipos Identificacion_Tipos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

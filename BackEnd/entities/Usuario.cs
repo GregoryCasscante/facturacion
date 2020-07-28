@@ -12,10 +12,10 @@ namespace BackEnd.entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios
+    public partial class Usuario
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuarios()
+        public Usuario()
         {
             this.Facturas = new HashSet<Factura>();
             this.User_Roles = new HashSet<User_Roles>();

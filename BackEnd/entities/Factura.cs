@@ -17,7 +17,7 @@ namespace BackEnd.entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Factura()
         {
-            this.Detalle_Facturas = new HashSet<Detalle_Facturas>();
+            this.Detalle_Facturas = new HashSet<Detalle_Factura>();
         }
     
         public int numero_factura { get; set; }
@@ -53,16 +53,16 @@ namespace BackEnd.entities
         public decimal total_comprobante { get; set; }
         public string notas { get; set; }
     
-        public virtual Actividades_Economicas Actividades_Economicas { get; set; }
+        public virtual Actividades_Economica Actividades_Economicas { get; set; }
         public virtual Cliente Cliente1 { get; set; }
         public virtual Compania Compania1 { get; set; }
         public virtual Condiciones_de_Ventas Condiciones_de_Ventas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detalle_Facturas> Detalle_Facturas { get; set; }
+        public virtual ICollection<Detalle_Factura> Detalle_Facturas { get; set; }
         public virtual Tipo_Comprobantes Tipo_Comprobantes { get; set; }
         public virtual Formas_de_pagos Formas_de_pagos { get; set; }
-        public virtual Sucursale Sucursale { get; set; }
+        public virtual Sucursal Sucursale { get; set; }
         public virtual Tipo_de_cambio Tipo_de_cambio { get; set; }
-        public virtual Usuarios Usuario1 { get; set; }
+        public virtual Usuario Usuario1 { get; set; }
     }
 }

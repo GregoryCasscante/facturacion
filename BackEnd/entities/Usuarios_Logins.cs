@@ -20,6 +20,6 @@ namespace BackEnd.entities
         public string ip { get; set; }
         public Nullable<System.DateTime> fecha { get; set; }
     
-        public virtual Usuarios Usuario1 { get; set; }
+        public virtual Usuario Usuario1 { get; set; }
     }
 }

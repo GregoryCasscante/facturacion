@@ -20,24 +20,24 @@ namespace BackEnd.entities
             this.Clientes = new HashSet<Cliente>();
             this.Facturas = new HashSet<Factura>();
             this.Usuarios_Companias = new HashSet<Usuarios_Companias>();
-            this.Proveedores = new HashSet<Proveedore>();
+            this.Proveedores = new HashSet<Proveedor>();
         }
     
         public int id { get; set; }
         public int actividad_economica { get; set; }
         public int nombre { get; set; }
     
-        public virtual Actividades_Economicas Actividades_Economicas { get; set; }
+        public virtual Actividades_Economica Actividades_Economicas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cliente> Clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
-        public virtual Proveedore Proveedore { get; set; }
-        public virtual Sucursale Sucursale { get; set; }
+        public virtual Proveedor Proveedore { get; set; }
+        public virtual Sucursal Sucursale { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuarios_Companias> Usuarios_Companias { get; set; }
         public virtual Consecutivos_Facturas Consecutivos_Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proveedore> Proveedores { get; set; }
+        public virtual ICollection<Proveedor> Proveedores { get; set; }
     }
 }

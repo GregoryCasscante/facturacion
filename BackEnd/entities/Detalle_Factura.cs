@@ -12,7 +12,7 @@ namespace BackEnd.entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Detalle_Facturas
+    public partial class Detalle_Factura
     {
         public int numero_factura { get; set; }
         public int NumeroLinea { get; set; }

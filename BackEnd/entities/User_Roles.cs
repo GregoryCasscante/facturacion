@@ -19,6 +19,6 @@ namespace BackEnd.entities
         public int role { get; set; }
     
         public virtual Role Role1 { get; set; }
-        public virtual Usuarios Usuario1 { get; set; }
+        public virtual Usuario Usuario1 { get; set; }
     }
 }

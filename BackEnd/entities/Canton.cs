@@ -12,7 +12,7 @@ namespace BackEnd.entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Cantone
+    public partial class Canton
     {
         public int provincia { get; set; }
         public int canton { get; set; }
