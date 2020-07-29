@@ -26,7 +26,7 @@ namespace BackEnd.Entities
         public int id { get; set; }
         public int id_persona { get; set; }
         public int estado { get; set; }
-        public string usuario1 { get; set; }
+        public string usuario { get; set; }
         public string salt { get; set; }
         public string clave { get; set; }
         public int tipo { get; set; }

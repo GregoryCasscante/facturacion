@@ -240,8 +240,6 @@ namespace BackEnd.Libraries
 
         public string generarSalt()
         {
-            
-            string password = "12345678";
 
             // generate a 128-bit salt using a secure PRNG
             byte[] salt = new byte[128 / 8];
@@ -249,21 +247,44 @@ namespace BackEnd.Libraries
             {
                 rng.GetBytes(salt);
             }
-            Console.WriteLine($"Salt: {Convert.ToBase64String(salt)}");
+
+            //Console.WriteLine($"Salt: {Convert.ToBase64String(salt)}");
+
+            return Convert.ToBase64String(salt);
+
+        }
+
+        /*
+        For example, if the byte array was created like this:
+        byte[] bytes = Encoding.ASCII.GetBytes(someString);
+        You will need to turn it back into a string like this:
+
+        string someString = Encoding.ASCII.GetString(bytes);         
+        */
+        public string hash_password(string password, string salt_string)
+        {
+
+            if (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(salt_string))
+            {
+                Console.WriteLine("Password or Salt Null Or Empty");
+                return "";
+            }
+
+            byte[] salt = Encoding.ASCII.GetBytes(salt_string);
 
             // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
             string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
                 password: password,
                 salt: salt,
-                prf: KeyDerivationPrf.HMACSHA1,
+                prf: KeyDerivationPrf.HMACSHA512,
                 iterationCount: 10000,
                 numBytesRequested: 256 / 8));
-            Console.WriteLine($"Hashed: {hashed}");
 
-            return Convert.ToBase64String(salt);
+            Console.WriteLine("Hashed Password: " + hashed);
+
+            return hashed;
         }
 
-         
 
 
     }

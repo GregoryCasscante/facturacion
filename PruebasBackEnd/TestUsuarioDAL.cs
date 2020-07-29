@@ -21,15 +21,24 @@ namespace PruebasBackEnd
         {
             IUsuarioDAL usuarioDAL = new UsuarioDALImpl();
 
-            Usuario usuario = new Usuario
+            //Crear salted password
+            Auth auth = new Auth();
+            string salt = auth.generarSalt();
+            Console.WriteLine("Salt:" + auth.generarSalt());
+            string clave = auth.hash_password("12345678", salt);
+            Console.WriteLine("Hashed Password :" + clave);
+
+
+            Usuario usuario = new Usuario()
             {
-                estado = 1
+                estado = 1,
+                usuario = "gregory@santafe.co.cr",
+                salt    = salt, 
+                clave   = clave,
+                tipo    = 1
+
             };
 
-            Auth auth = new Auth();
-
-            Console.WriteLine("HOLA");
-            Console.WriteLine(auth.generarSalt());
 
             //Assert.AreEqual(true, categoryDAL.Add(category));
         }
