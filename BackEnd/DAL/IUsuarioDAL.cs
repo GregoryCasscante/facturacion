@@ -9,11 +9,10 @@ namespace BackEnd.DAL
 {
     public interface IUsuarioDAL : IDisposable
     {
-        bool Add(Usuarios usuario);
+        bool Add(Usuario usuario);
         bool Delete(int id);
-        bool Update(Usuarios usuario);
-        List<Usuarios> Get();
-        Usuarios Get(int id);
-
+        bool Update(Usuario usuario);
+        List<Usuario> Get();
+        Usuario Get(int id);
     }
 }

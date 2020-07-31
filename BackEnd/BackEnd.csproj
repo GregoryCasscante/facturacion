@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -12,6 +13,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -32,10 +35,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNetCore.Cryptography.Internal, Version=3.1.6.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNetCore.Cryptography.Internal.3.1.6\lib\netstandard2.0\Microsoft.AspNetCore.Cryptography.Internal.dll</HintPath>
@@ -60,37 +63,37 @@
     <Compile Include="DAL\IDALGenerico.cs" />
     <Compile Include="DAL\IUsuarioDAL.cs" />
     <Compile Include="DAL\UsuarioDALImpl.cs" />
-    <Compile Include="Entities\Actividades_Economicas.cs">
+    <Compile Include="Entities\Actividad_Economica.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Cantones.cs">
+    <Compile Include="Entities\Canton.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Categorias_Productos.cs">
+    <Compile Include="Entities\Categoria_Producto.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Clientes.cs">
+    <Compile Include="Entities\Cliente.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Codigo_Impuestos.cs">
+    <Compile Include="Entities\Codigo_Impuesto.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Companias.cs">
+    <Compile Include="Entities\Compania.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Condiciones_de_Ventas.cs">
+    <Compile Include="Entities\Condicion_de_Venta.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Consecutivos_Facturas.cs">
+    <Compile Include="Entities\Consecutivo_Factura.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Detalle_Facturas.cs">
+    <Compile Include="Entities\Detalle_Factura.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Distritos.cs">
+    <Compile Include="Entities\Distrito.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Facturas.cs">
+    <Compile Include="Entities\Factura.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Factura_DigitalModel.Context.cs">
@@ -108,16 +111,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Factura_DigitalModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Formas_de_pagos.cs">
+    <Compile Include="Entities\Forma_de_pago.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Identificacion_Tipos.cs">
+    <Compile Include="Entities\Identificacion_Tipo.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Inventarios.cs">
+    <Compile Include="Entities\Inventario.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Mantenimientos.cs">
+    <Compile Include="Entities\Mantenimiento.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Padron_Electoral.cs">
@@ -126,43 +129,44 @@
     <Compile Include="Entities\Padron_Electoral_codelec.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Paises.cs">
+    <Compile Include="Entities\Pais.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Proveedores.cs">
+    <Compile Include="Entities\Proveedor.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Provincias.cs">
+    <Compile Include="Entities\Provincia.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Roles.cs">
+    <Compile Include="Entities\Role.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Sucursales.cs">
+    <Compile Include="Entities\Sucursale.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Tipo_Comprobantes.cs">
+    <Compile Include="Entities\Tipo_Comprobante.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Tipo_de_cambio.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\UnidadMedidas.cs">
+    <Compile Include="Entities\UnidadMedida.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\User_Roles.cs">
+    <Compile Include="Entities\User_Role.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Usuarios.cs">
-      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Entities\Usuarios_Companias.cs">
+    <Compile Include="Entities\Usuario.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Usuarios_Logins.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Usuario_Compania.cs">
+      <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Libraries\Auth.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
@@ -193,4 +197,12 @@
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
 </Project>

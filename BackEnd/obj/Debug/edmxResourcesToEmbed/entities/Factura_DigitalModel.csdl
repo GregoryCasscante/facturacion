@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="FACTURA_DIGITALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Actividades_Economicas">
+  <EntityType Name="Actividad_Economica">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -10,7 +10,7 @@
     <NavigationProperty Name="Companias" Relationship="Self.FK_Companias_act_ecom" FromRole="Actividades_Economicas" ToRole="Companias" />
     <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Actividad_ecom" FromRole="Actividades_Economicas" ToRole="Facturas" />
   </EntityType>
-  <EntityType Name="Cantones">
+  <EntityType Name="Canton">
     <Key>
       <PropertyRef Name="provincia" />
       <PropertyRef Name="canton" />
@@ -20,7 +20,7 @@
     <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Provincias" Relationship="Self.FK_Cantones_Provincias" FromRole="Cantones" ToRole="Provincias" />
   </EntityType>
-  <EntityType Name="Categorias_Productos">
+  <EntityType Name="Categoria_Producto">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -33,7 +33,7 @@
     <Property Name="precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
     <NavigationProperty Name="Inventarios" Relationship="Self.FK_Inventario_Inventario" FromRole="Categorias_Productos" ToRole="Inventarios" />
   </EntityType>
-  <EntityType Name="Clientes">
+  <EntityType Name="Cliente">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -59,7 +59,7 @@
     <NavigationProperty Name="Identificacion_Tipos" Relationship="Self.FK_Clientes_DNI_tipos" FromRole="Clientes" ToRole="Identificacion_Tipos" />
     <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Clientes" FromRole="Clientes" ToRole="Facturas" />
   </EntityType>
-  <EntityType Name="Codigo_Impuestos">
+  <EntityType Name="Codigo_Impuesto">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -67,7 +67,7 @@
     <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Detalle_Facturas" Relationship="Self.FK_Detalle_Facturas_Cod_Impuesto" FromRole="Codigo_Impuestos" ToRole="Detalle_Facturas" />
   </EntityType>
-  <EntityType Name="Companias">
+  <EntityType Name="Compania">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -82,7 +82,7 @@
     <NavigationProperty Name="Sucursales" Relationship="Self.FK_Sucursales_Companias" FromRole="Companias" ToRole="Sucursales" />
     <NavigationProperty Name="Usuarios_Companias" Relationship="Self.FK_Usuarios_Companias_Companias" FromRole="Companias" ToRole="Usuarios_Companias" />
   </EntityType>
-  <EntityType Name="Condiciones_de_Ventas">
+  <EntityType Name="Condicion_de_Venta">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -90,7 +90,7 @@
     <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Cond_Venta" FromRole="Condiciones_de_Ventas" ToRole="Facturas" />
   </EntityType>
-  <EntityType Name="Consecutivos_Facturas">
+  <EntityType Name="Consecutivo_Factura">
     <Key>
       <PropertyRef Name="compania" />
     </Key>
@@ -98,7 +98,7 @@
     <Property Name="consecutivo_factura" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Companias" Relationship="Self.FK_Consecutivos_Facturas_Compania" FromRole="Consecutivos_Facturas" ToRole="Companias" />
   </EntityType>
-  <EntityType Name="Detalle_Facturas">
+  <EntityType Name="Detalle_Factura">
     <Key>
       <PropertyRef Name="numero_factura" />
       <PropertyRef Name="NumeroLinea" />
@@ -119,7 +119,7 @@
     <NavigationProperty Name="UnidadMedidas" Relationship="Self.FK_Detalle_Facturas_UnidadMedidas" FromRole="Detalle_Facturas" ToRole="UnidadMedidas" />
     <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_detalle_Facturas" FromRole="Detalle_Facturas" ToRole="Facturas" />
   </EntityType>
-  <EntityType Name="Distritos">
+  <EntityType Name="Distrito">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -127,7 +127,7 @@
     <Property Name="canton" Type="Int32" Nullable="false" />
     <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
   </EntityType>
-  <EntityType Name="Facturas">
+  <EntityType Name="Factura">
     <Key>
       <PropertyRef Name="numero_factura" />
     </Key>
@@ -174,7 +174,7 @@
     <NavigationProperty Name="Tipo_de_cambio" Relationship="Self.FK_Facturas_Tipo_Cambio" FromRole="Facturas" ToRole="Tipo_de_cambio" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_Facturas_Usuarios" FromRole="Facturas" ToRole="Usuarios" />
   </EntityType>
-  <EntityType Name="Formas_de_pagos">
+  <EntityType Name="Forma_de_pago">
     <Key>
       <PropertyRef Name="id_forma_pago" />
     </Key>
@@ -182,7 +182,7 @@
     <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Facturas" FromRole="Formas_de_pagos" ToRole="Facturas" />
   </EntityType>
-  <EntityType Name="Identificacion_Tipos">
+  <EntityType Name="Identificacion_Tipo">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -190,7 +190,7 @@
     <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_DNI_tipos" FromRole="Identificacion_Tipos" ToRole="Clientes" />
   </EntityType>
-  <EntityType Name="Inventarios">
+  <EntityType Name="Inventario">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -206,7 +206,7 @@
     <NavigationProperty Name="Categorias_Productos" Relationship="Self.FK_Inventario_Inventario" FromRole="Inventarios" ToRole="Categorias_Productos" />
     <NavigationProperty Name="Proveedores" Relationship="Self.FK_Inventario_Proveedores" FromRole="Inventarios" ToRole="Proveedores" />
   </EntityType>
-  <EntityType Name="Mantenimientos">
+  <EntityType Name="Mantenimiento">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -236,7 +236,7 @@
     <Property Name="distrito" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Padron_Electoral" Relationship="Self.FK_Padron_Electoral_Padron_Electoral_codelec" FromRole="Padron_Electoral_codelec" ToRole="Padron_Electoral" />
   </EntityType>
-  <EntityType Name="Paises">
+  <EntityType Name="Pais">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -246,7 +246,7 @@
     <Property Name="iso3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Provincias" Relationship="Self.FK_Provincias_Paises" FromRole="Paises" ToRole="Provincias" />
   </EntityType>
-  <EntityType Name="Proveedores">
+  <EntityType Name="Proveedor">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -269,7 +269,7 @@
     <NavigationProperty Name="Companias" Relationship="Self.FK_Proveedores_Companias" FromRole="Proveedores" ToRole="Companias" />
     <NavigationProperty Name="Inventarios" Relationship="Self.FK_Inventario_Proveedores" FromRole="Proveedores" ToRole="Inventarios" />
   </EntityType>
-  <EntityType Name="Provincias">
+  <EntityType Name="Provincia">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -279,7 +279,7 @@
     <NavigationProperty Name="Cantones" Relationship="Self.FK_Cantones_Provincias" FromRole="Provincias" ToRole="Cantones" />
     <NavigationProperty Name="Paises" Relationship="Self.FK_Provincias_Paises" FromRole="Provincias" ToRole="Paises" />
   </EntityType>
-  <EntityType Name="Roles">
+  <EntityType Name="Role">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -288,7 +288,7 @@
     <NavigationProperty Name="User_Roles" Relationship="Self.FK_User_Roles_Usuarios" FromRole="Roles" ToRole="User_Roles" />
     <NavigationProperty Name="Mantenimientos" Relationship="Self.Role_Access" FromRole="Roles" ToRole="Mantenimientos" />
   </EntityType>
-  <EntityType Name="Sucursales">
+  <EntityType Name="Sucursale">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -299,7 +299,7 @@
     <NavigationProperty Name="Companias" Relationship="Self.FK_Sucursales_Companias" FromRole="Sucursales" ToRole="Companias" />
     <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Sucursal" FromRole="Sucursales" ToRole="Facturas" />
   </EntityType>
-  <EntityType Name="Tipo_Comprobantes">
+  <EntityType Name="Tipo_Comprobante">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -318,7 +318,7 @@
     <Property Name="fecha_actualizacion" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Tipo_Cambio" FromRole="Tipo_de_cambio" ToRole="Facturas" />
   </EntityType>
-  <EntityType Name="UnidadMedidas">
+  <EntityType Name="UnidadMedida">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -327,7 +327,7 @@
     <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Detalle_Facturas" Relationship="Self.FK_Detalle_Facturas_UnidadMedidas" FromRole="UnidadMedidas" ToRole="Detalle_Facturas" />
   </EntityType>
-  <EntityType Name="User_Roles">
+  <EntityType Name="User_Role">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -337,7 +337,7 @@
     <NavigationProperty Name="Roles" Relationship="Self.FK_User_Roles_Usuarios" FromRole="User_Roles" ToRole="Roles" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_User_Roles_Usuarios1" FromRole="User_Roles" ToRole="Usuarios" />
   </EntityType>
-  <EntityType Name="Usuarios">
+  <EntityType Name="Usuario">
     <Key>
       <PropertyRef Name="id" />
     </Key>
@@ -365,7 +365,7 @@
     <NavigationProperty Name="Usuarios_Companias" Relationship="Self.FK_Usuarios_Companias_Usuarios" FromRole="Usuarios" ToRole="Usuarios_Companias" />
     <NavigationProperty Name="Usuarios_Logins" Relationship="Self.FK_Usuarios_Logins_Usuarios1" FromRole="Usuarios" ToRole="Usuarios_Logins" />
   </EntityType>
-  <EntityType Name="Usuarios_Companias">
+  <EntityType Name="Usuario_Compania">
     <Key>
       <PropertyRef Name="id_usuario" />
       <PropertyRef Name="id_compania" />
@@ -388,8 +388,8 @@
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Logins_Usuarios1" FromRole="Usuarios_Logins" ToRole="Usuarios" />
   </EntityType>
   <Association Name="FK_Clientes_Act_Econo">
-    <End Role="Actividades_Economicas" Type="Self.Actividades_Economicas" Multiplicity="1" />
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividad_Economica" Multiplicity="1" />
+    <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Actividades_Economicas">
         <PropertyRef Name="id" />
@@ -400,8 +400,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Companias_act_ecom">
-    <End Role="Actividades_Economicas" Type="Self.Actividades_Economicas" Multiplicity="1" />
-    <End Role="Companias" Type="Self.Companias" Multiplicity="*" />
+    <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividad_Economica" Multiplicity="1" />
+    <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Actividades_Economicas">
         <PropertyRef Name="id" />
@@ -412,8 +412,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Actividad_ecom">
-    <End Role="Actividades_Economicas" Type="Self.Actividades_Economicas" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividad_Economica" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Actividades_Economicas">
         <PropertyRef Name="id" />
@@ -424,8 +424,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Cantones_Provincias">
-    <End Role="Provincias" Type="Self.Provincias" Multiplicity="1" />
-    <End Role="Cantones" Type="Self.Cantones" Multiplicity="*" />
+    <End Role="Provincias" Type="FACTURA_DIGITALModel.Provincia" Multiplicity="1" />
+    <End Role="Cantones" Type="FACTURA_DIGITALModel.Canton" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Provincias">
         <PropertyRef Name="id" />
@@ -436,8 +436,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Inventario_Inventario">
-    <End Role="Categorias_Productos" Type="Self.Categorias_Productos" Multiplicity="1" />
-    <End Role="Inventarios" Type="Self.Inventarios" Multiplicity="*" />
+    <End Role="Categorias_Productos" Type="FACTURA_DIGITALModel.Categoria_Producto" Multiplicity="1" />
+    <End Role="Inventarios" Type="FACTURA_DIGITALModel.Inventario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Categorias_Productos">
         <PropertyRef Name="id" />
@@ -448,8 +448,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Clientes_Compania">
-    <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+    <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="id" />
@@ -460,8 +460,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Clientes_DNI_tipos">
-    <End Role="Identificacion_Tipos" Type="Self.Identificacion_Tipos" Multiplicity="1" />
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+    <End Role="Identificacion_Tipos" Type="FACTURA_DIGITALModel.Identificacion_Tipo" Multiplicity="1" />
+    <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Identificacion_Tipos">
         <PropertyRef Name="id" />
@@ -472,8 +472,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Clientes">
-    <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Clientes">
         <PropertyRef Name="id" />
@@ -484,8 +484,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Detalle_Facturas_Cod_Impuesto">
-    <End Role="Codigo_Impuestos" Type="Self.Codigo_Impuestos" Multiplicity="1" />
-    <End Role="Detalle_Facturas" Type="Self.Detalle_Facturas" Multiplicity="*" />
+    <End Role="Codigo_Impuestos" Type="FACTURA_DIGITALModel.Codigo_Impuesto" Multiplicity="1" />
+    <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Codigo_Impuestos">
         <PropertyRef Name="id" />
@@ -496,8 +496,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Consecutivos_Facturas_Compania">
-    <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
-    <End Role="Consecutivos_Facturas" Type="Self.Consecutivos_Facturas" Multiplicity="0..1" />
+    <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+    <End Role="Consecutivos_Facturas" Type="FACTURA_DIGITALModel.Consecutivo_Factura" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="id" />
@@ -508,8 +508,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Companias">
-    <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="id" />
@@ -520,8 +520,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Proveedores_Companias">
-    <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
-    <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="*" />
+    <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+    <End Role="Proveedores" Type="FACTURA_DIGITALModel.Proveedor" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="id" />
@@ -532,8 +532,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Sucursales_Companias">
-    <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
-    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+    <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+    <End Role="Sucursales" Type="FACTURA_DIGITALModel.Sucursale" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="id" />
@@ -544,8 +544,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Usuarios_Companias_Companias">
-    <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
-    <End Role="Usuarios_Companias" Type="Self.Usuarios_Companias" Multiplicity="*" />
+    <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+    <End Role="Usuarios_Companias" Type="FACTURA_DIGITALModel.Usuario_Compania" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="id" />
@@ -556,8 +556,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Cond_Venta">
-    <End Role="Condiciones_de_Ventas" Type="Self.Condiciones_de_Ventas" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Condiciones_de_Ventas" Type="FACTURA_DIGITALModel.Condicion_de_Venta" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Condiciones_de_Ventas">
         <PropertyRef Name="id" />
@@ -568,8 +568,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Detalle_Facturas_UnidadMedidas">
-    <End Role="UnidadMedidas" Type="Self.UnidadMedidas" Multiplicity="1" />
-    <End Role="Detalle_Facturas" Type="Self.Detalle_Facturas" Multiplicity="*" />
+    <End Role="UnidadMedidas" Type="FACTURA_DIGITALModel.UnidadMedida" Multiplicity="1" />
+    <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="UnidadMedidas">
         <PropertyRef Name="id" />
@@ -580,8 +580,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_detalle_Facturas">
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
-    <End Role="Detalle_Facturas" Type="Self.Detalle_Facturas" Multiplicity="*" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="1" />
+    <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Facturas">
         <PropertyRef Name="numero_factura" />
@@ -592,8 +592,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Comprobante">
-    <End Role="Tipo_Comprobantes" Type="Self.Tipo_Comprobantes" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Tipo_Comprobantes" Type="FACTURA_DIGITALModel.Tipo_Comprobante" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Tipo_Comprobantes">
         <PropertyRef Name="id" />
@@ -604,8 +604,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Facturas">
-    <End Role="Formas_de_pagos" Type="Self.Formas_de_pagos" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Formas_de_pagos" Type="FACTURA_DIGITALModel.Forma_de_pago" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Formas_de_pagos">
         <PropertyRef Name="id_forma_pago" />
@@ -616,8 +616,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Sucursal">
-    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Sucursales" Type="FACTURA_DIGITALModel.Sucursale" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Sucursales">
         <PropertyRef Name="id" />
@@ -629,7 +629,7 @@
   </Association>
   <Association Name="FK_Facturas_Tipo_Cambio">
     <End Role="Tipo_de_cambio" Type="Self.Tipo_de_cambio" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="0..1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Tipo_de_cambio">
         <PropertyRef Name="id" />
@@ -640,8 +640,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Facturas_Usuarios">
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-    <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+    <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
+    <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuarios">
         <PropertyRef Name="id" />
@@ -652,8 +652,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Inventario_Proveedores">
-    <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
-    <End Role="Inventarios" Type="Self.Inventarios" Multiplicity="*" />
+    <End Role="Proveedores" Type="FACTURA_DIGITALModel.Proveedor" Multiplicity="1" />
+    <End Role="Inventarios" Type="FACTURA_DIGITALModel.Inventario" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Proveedores">
         <PropertyRef Name="id" />
@@ -676,8 +676,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Provincias_Paises">
-    <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
-    <End Role="Provincias" Type="Self.Provincias" Multiplicity="0..1" />
+    <End Role="Paises" Type="FACTURA_DIGITALModel.Pais" Multiplicity="1" />
+    <End Role="Provincias" Type="FACTURA_DIGITALModel.Provincia" Multiplicity="0..1" />
     <ReferentialConstraint>
       <Principal Role="Paises">
         <PropertyRef Name="id" />
@@ -688,8 +688,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_Roles_Usuarios">
-    <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
-    <End Role="User_Roles" Type="Self.User_Roles" Multiplicity="*" />
+    <End Role="Roles" Type="FACTURA_DIGITALModel.Role" Multiplicity="1" />
+    <End Role="User_Roles" Type="FACTURA_DIGITALModel.User_Role" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Roles">
         <PropertyRef Name="id" />
@@ -700,8 +700,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_User_Roles_Usuarios1">
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-    <End Role="User_Roles" Type="Self.User_Roles" Multiplicity="*" />
+    <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
+    <End Role="User_Roles" Type="FACTURA_DIGITALModel.User_Role" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuarios">
         <PropertyRef Name="id" />
@@ -712,8 +712,8 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Usuarios_Companias_Usuarios">
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
-    <End Role="Usuarios_Companias" Type="Self.Usuarios_Companias" Multiplicity="*" />
+    <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
+    <End Role="Usuarios_Companias" Type="FACTURA_DIGITALModel.Usuario_Compania" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuarios">
         <PropertyRef Name="id" />
@@ -724,7 +724,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Usuarios_Logins_Usuarios1">
-    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="1" />
+    <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
     <End Role="Usuarios_Logins" Type="Self.Usuarios_Logins" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Usuarios">
@@ -736,38 +736,38 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="Role_Access">
-    <End Role="Mantenimientos" Type="Self.Mantenimientos" Multiplicity="*" />
-    <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
+    <End Role="Mantenimientos" Type="FACTURA_DIGITALModel.Mantenimiento" Multiplicity="*" />
+    <End Role="Roles" Type="FACTURA_DIGITALModel.Role" Multiplicity="*" />
   </Association>
   <EntityContainer Name="BDContext" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Actividades_Economicas" EntityType="Self.Actividades_Economicas" />
-    <EntitySet Name="Cantones" EntityType="Self.Cantones" />
-    <EntitySet Name="Categorias_Productos" EntityType="Self.Categorias_Productos" />
-    <EntitySet Name="Clientes" EntityType="Self.Clientes" />
-    <EntitySet Name="Codigo_Impuestos" EntityType="Self.Codigo_Impuestos" />
-    <EntitySet Name="Companias" EntityType="Self.Companias" />
-    <EntitySet Name="Condiciones_de_Ventas" EntityType="Self.Condiciones_de_Ventas" />
-    <EntitySet Name="Consecutivos_Facturas" EntityType="Self.Consecutivos_Facturas" />
-    <EntitySet Name="Detalle_Facturas" EntityType="Self.Detalle_Facturas" />
-    <EntitySet Name="Distritos" EntityType="Self.Distritos" />
-    <EntitySet Name="Facturas" EntityType="Self.Facturas" />
-    <EntitySet Name="Formas_de_pagos" EntityType="Self.Formas_de_pagos" />
-    <EntitySet Name="Identificacion_Tipos" EntityType="Self.Identificacion_Tipos" />
-    <EntitySet Name="Inventarios" EntityType="Self.Inventarios" />
-    <EntitySet Name="Mantenimientos" EntityType="Self.Mantenimientos" />
+    <EntitySet Name="Actividades_Economicas" EntityType="FACTURA_DIGITALModel.Actividad_Economica" />
+    <EntitySet Name="Cantones" EntityType="FACTURA_DIGITALModel.Canton" />
+    <EntitySet Name="Categorias_Productos" EntityType="FACTURA_DIGITALModel.Categoria_Producto" />
+    <EntitySet Name="Clientes" EntityType="FACTURA_DIGITALModel.Cliente" />
+    <EntitySet Name="Codigo_Impuestos" EntityType="FACTURA_DIGITALModel.Codigo_Impuesto" />
+    <EntitySet Name="Companias" EntityType="FACTURA_DIGITALModel.Compania" />
+    <EntitySet Name="Condiciones_de_Ventas" EntityType="FACTURA_DIGITALModel.Condicion_de_Venta" />
+    <EntitySet Name="Consecutivos_Facturas" EntityType="FACTURA_DIGITALModel.Consecutivo_Factura" />
+    <EntitySet Name="Detalle_Facturas" EntityType="FACTURA_DIGITALModel.Detalle_Factura" />
+    <EntitySet Name="Distritos" EntityType="FACTURA_DIGITALModel.Distrito" />
+    <EntitySet Name="Facturas" EntityType="FACTURA_DIGITALModel.Factura" />
+    <EntitySet Name="Formas_de_pagos" EntityType="FACTURA_DIGITALModel.Forma_de_pago" />
+    <EntitySet Name="Identificacion_Tipos" EntityType="FACTURA_DIGITALModel.Identificacion_Tipo" />
+    <EntitySet Name="Inventarios" EntityType="FACTURA_DIGITALModel.Inventario" />
+    <EntitySet Name="Mantenimientos" EntityType="FACTURA_DIGITALModel.Mantenimiento" />
     <EntitySet Name="Padron_Electoral" EntityType="Self.Padron_Electoral" />
     <EntitySet Name="Padron_Electoral_codelec" EntityType="Self.Padron_Electoral_codelec" />
-    <EntitySet Name="Paises" EntityType="Self.Paises" />
-    <EntitySet Name="Proveedores" EntityType="Self.Proveedores" />
-    <EntitySet Name="Provincias" EntityType="Self.Provincias" />
-    <EntitySet Name="Roles" EntityType="Self.Roles" />
-    <EntitySet Name="Sucursales" EntityType="Self.Sucursales" />
-    <EntitySet Name="Tipo_Comprobantes" EntityType="Self.Tipo_Comprobantes" />
+    <EntitySet Name="Paises" EntityType="FACTURA_DIGITALModel.Pais" />
+    <EntitySet Name="Proveedores" EntityType="FACTURA_DIGITALModel.Proveedor" />
+    <EntitySet Name="Provincias" EntityType="FACTURA_DIGITALModel.Provincia" />
+    <EntitySet Name="Roles" EntityType="FACTURA_DIGITALModel.Role" />
+    <EntitySet Name="Sucursales" EntityType="FACTURA_DIGITALModel.Sucursale" />
+    <EntitySet Name="Tipo_Comprobantes" EntityType="FACTURA_DIGITALModel.Tipo_Comprobante" />
     <EntitySet Name="Tipo_de_cambio" EntityType="Self.Tipo_de_cambio" />
-    <EntitySet Name="UnidadMedidas" EntityType="Self.UnidadMedidas" />
-    <EntitySet Name="User_Roles" EntityType="Self.User_Roles" />
-    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
-    <EntitySet Name="Usuarios_Companias" EntityType="Self.Usuarios_Companias" />
+    <EntitySet Name="UnidadMedidas" EntityType="FACTURA_DIGITALModel.UnidadMedida" />
+    <EntitySet Name="User_Roles" EntityType="FACTURA_DIGITALModel.User_Role" />
+    <EntitySet Name="Usuarios" EntityType="FACTURA_DIGITALModel.Usuario" />
+    <EntitySet Name="Usuarios_Companias" EntityType="FACTURA_DIGITALModel.Usuario_Compania" />
     <EntitySet Name="Usuarios_Logins" EntityType="Self.Usuarios_Logins" />
     <AssociationSet Name="FK_Clientes_Act_Econo" Association="Self.FK_Clientes_Act_Econo">
       <End Role="Actividades_Economicas" EntitySet="Actividades_Economicas" />

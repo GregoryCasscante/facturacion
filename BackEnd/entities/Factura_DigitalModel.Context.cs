@@ -25,34 +25,34 @@ namespace BackEnd.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Actividad_Economica> Actividad_Economica { get; set; }
-        public virtual DbSet<Canton> Canton { get; set; }
-        public virtual DbSet<Categoria_Producto> Categoria_Producto { get; set; }
-        public virtual DbSet<Cliente> Cliente { get; set; }
-        public virtual DbSet<Codigo_Impuesto> Codigo_Impuesto { get; set; }
-        public virtual DbSet<Compania> Compania { get; set; }
-        public virtual DbSet<Condicion_de_Venta> Condicion_de_Venta { get; set; }
-        public virtual DbSet<Consecutivo_Factura> Consecutivo_Factura { get; set; }
+        public virtual DbSet<Actividad_Economica> Actividades_Economicas { get; set; }
+        public virtual DbSet<Canton> Cantones { get; set; }
+        public virtual DbSet<Categoria_Producto> Categorias_Productos { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Codigo_Impuesto> Codigo_Impuestos { get; set; }
+        public virtual DbSet<Compania> Companias { get; set; }
+        public virtual DbSet<Condicion_de_Venta> Condiciones_de_Ventas { get; set; }
+        public virtual DbSet<Consecutivo_Factura> Consecutivos_Facturas { get; set; }
         public virtual DbSet<Detalle_Factura> Detalle_Facturas { get; set; }
-        public virtual DbSet<Distrito> Distrito { get; set; }
-        public virtual DbSet<Factura> Factura { get; set; }
-        public virtual DbSet<Forma_de_pago> Forma_de_pago { get; set; }
-        public virtual DbSet<Identificacion_Tipo> Identificacion_Tipo { get; set; }
-        public virtual DbSet<Inventario> Inventario { get; set; }
-        public virtual DbSet<Mantenimiento> Mantenimiento { get; set; }
+        public virtual DbSet<Distrito> Distritos { get; set; }
+        public virtual DbSet<Factura> Facturas { get; set; }
+        public virtual DbSet<Forma_de_pago> Formas_de_pagos { get; set; }
+        public virtual DbSet<Identificacion_Tipo> Identificacion_Tipos { get; set; }
+        public virtual DbSet<Inventario> Inventarios { get; set; }
+        public virtual DbSet<Mantenimiento> Mantenimientos { get; set; }
         public virtual DbSet<Padron_Electoral> Padron_Electoral { get; set; }
         public virtual DbSet<Padron_Electoral_codelec> Padron_Electoral_codelec { get; set; }
-        public virtual DbSet<Pais> Pais { get; set; }
-        public virtual DbSet<Proveedor> Proveedor { get; set; }
-        public virtual DbSet<Provincia> Provincia { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
-        public virtual DbSet<Sucursale> Sucursale { get; set; }
-        public virtual DbSet<Tipo_Comprobante> Tipo_Comprobante { get; set; }
+        public virtual DbSet<Pais> Paises { get; set; }
+        public virtual DbSet<Proveedor> Proveedores { get; set; }
+        public virtual DbSet<Provincia> Provincias { get; set; }
+        public virtual DbSet<Role> Roles { get; set; }
+        public virtual DbSet<Sucursale> Sucursales { get; set; }
+        public virtual DbSet<Tipo_Comprobante> Tipo_Comprobantes { get; set; }
         public virtual DbSet<Tipo_de_cambio> Tipo_de_cambio { get; set; }
-        public virtual DbSet<UnidadMedida> UnidadMedida { get; set; }
-        public virtual DbSet<User_Role> User_Role { get; set; }
-        public virtual DbSet<Usuario> Usuario { get; set; }
-        public virtual DbSet<Usuario_Compania> Usuario_Compania { get; set; }
-        public virtual DbSet<Usuarios_Logins> Usuario_Login { get; set; }
+        public virtual DbSet<UnidadMedida> UnidadMedidas { get; set; }
+        public virtual DbSet<User_Role> User_Roles { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
+        public virtual DbSet<Usuario_Compania> Usuarios_Companias { get; set; }
+        public virtual DbSet<Usuarios_Logins> Usuarios_Logins { get; set; }
     }
 }

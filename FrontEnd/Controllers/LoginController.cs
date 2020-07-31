@@ -25,24 +25,26 @@ namespace FrontEnd.Controllers
             Console.WriteLine("Hashed Password :" + clave);
 
 
-            Usuarios usuario = new Usuarios()
+            Usuario usuario = new Usuario()
             {
-                estado = 1,
-                usuario = "gcascante",
-                salt = salt,
-                clave = clave,
-                tipo = 1,
+                estado     = 1,
+                usuario    = "gcascante",
+                salt       = salt,
+                clave      = clave,
+                tipo       = 1,
                 fecha_creacion = DateTime.Now,
                 ultimo_login = DateTime.Now,
                 identificacion = "112560518",
                 nombre = "Gregory Cascante Aviles",
                 email1 = "gregory@santafe.co.cr",
+                email2 = "gregory@santafe.co.cr",
                 telefono1 = "88493551",
+                telefono2 = "88493551",
                 pais = 53,
                 provincia = 1,
                 canton = 101,
                 distrito = 10201,
-                direccion = "Escazu"
+                direccion = "Escazu"                   
 
             };
 

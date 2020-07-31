@@ -1,9 +1,7 @@
-﻿using System;
+﻿using BackEnd.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using BackEnd.Entities;
 
 namespace BackEnd.DAL
 {
@@ -12,7 +10,7 @@ namespace BackEnd.DAL
 
         private BDContext context;
 
-        public bool Add(Usuarios Usuario)
+        public bool Add(Usuario Usuario)
         {
             try
             {
@@ -36,7 +34,7 @@ namespace BackEnd.DAL
         {
             try
             {
-                Usuarios Usuario = this.Get(idCategory);
+                Usuario Usuario = this.Get(idCategory);
                 using (context = new BDContext())
                 {
                     context.Usuarios.Attach(Usuario);
@@ -54,9 +52,9 @@ namespace BackEnd.DAL
 
         }
 
-        public List<Usuarios> Get()
+        public List<Usuario> Get()
         {
-            List<Usuarios> result;
+            List<Usuario> result;
             using (context = new BDContext())
             {
                 result = (from c in context.Usuarios
@@ -66,10 +64,10 @@ namespace BackEnd.DAL
             return result;
         }
 
-        public Usuarios Get(int id)
+        public Usuario Get(int id)
         {
 
-            Usuarios result;
+            Usuario result;
             using (context = new BDContext())
             {
                 result = (from c in context.Usuarios
@@ -79,7 +77,7 @@ namespace BackEnd.DAL
             return result;
         }
 
-        public bool Update(Usuarios Usuario)
+        public bool Update(Usuario Usuario)
         {
             try
             {

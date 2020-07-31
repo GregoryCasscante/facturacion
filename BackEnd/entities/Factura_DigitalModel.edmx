@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="FACTURA_DIGITALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="FACTURA_DIGITALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividades_Economicas">
           <Key>
             <PropertyRef Name="id" />
@@ -871,8 +871,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             <End Role="Usuarios_Logins" EntitySet="Usuarios_Logins" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FACTURA_DIGITALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1616,154 +1615,154 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <End Role="Roles" Type="FACTURA_DIGITALModel.Role" Multiplicity="*" />
         </Association>
         <EntityContainer Name="BDContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Actividad_Economica" EntityType="FACTURA_DIGITALModel.Actividad_Economica" />
-          <EntitySet Name="Canton" EntityType="FACTURA_DIGITALModel.Canton" />
-          <EntitySet Name="Categoria_Producto" EntityType="FACTURA_DIGITALModel.Categoria_Producto" />
-          <EntitySet Name="Cliente" EntityType="FACTURA_DIGITALModel.Cliente" />
-          <EntitySet Name="Codigo_Impuesto" EntityType="FACTURA_DIGITALModel.Codigo_Impuesto" />
-          <EntitySet Name="Compania" EntityType="FACTURA_DIGITALModel.Compania" />
-          <EntitySet Name="Condicion_de_Venta" EntityType="FACTURA_DIGITALModel.Condicion_de_Venta" />
-          <EntitySet Name="Consecutivo_Factura" EntityType="FACTURA_DIGITALModel.Consecutivo_Factura" />
+          <EntitySet Name="Actividades_Economicas" EntityType="FACTURA_DIGITALModel.Actividad_Economica" />
+          <EntitySet Name="Cantones" EntityType="FACTURA_DIGITALModel.Canton" />
+          <EntitySet Name="Categorias_Productos" EntityType="FACTURA_DIGITALModel.Categoria_Producto" />
+          <EntitySet Name="Clientes" EntityType="FACTURA_DIGITALModel.Cliente" />
+          <EntitySet Name="Codigo_Impuestos" EntityType="FACTURA_DIGITALModel.Codigo_Impuesto" />
+          <EntitySet Name="Companias" EntityType="FACTURA_DIGITALModel.Compania" />
+          <EntitySet Name="Condiciones_de_Ventas" EntityType="FACTURA_DIGITALModel.Condicion_de_Venta" />
+          <EntitySet Name="Consecutivos_Facturas" EntityType="FACTURA_DIGITALModel.Consecutivo_Factura" />
           <EntitySet Name="Detalle_Facturas" EntityType="FACTURA_DIGITALModel.Detalle_Factura" />
-          <EntitySet Name="Distrito" EntityType="FACTURA_DIGITALModel.Distrito" />
-          <EntitySet Name="Factura" EntityType="FACTURA_DIGITALModel.Factura" />
-          <EntitySet Name="Forma_de_pago" EntityType="FACTURA_DIGITALModel.Forma_de_pago" />
-          <EntitySet Name="Identificacion_Tipo" EntityType="FACTURA_DIGITALModel.Identificacion_Tipo" />
-          <EntitySet Name="Inventario" EntityType="FACTURA_DIGITALModel.Inventario" />
-          <EntitySet Name="Mantenimiento" EntityType="FACTURA_DIGITALModel.Mantenimiento" />
+          <EntitySet Name="Distritos" EntityType="FACTURA_DIGITALModel.Distrito" />
+          <EntitySet Name="Facturas" EntityType="FACTURA_DIGITALModel.Factura" />
+          <EntitySet Name="Formas_de_pagos" EntityType="FACTURA_DIGITALModel.Forma_de_pago" />
+          <EntitySet Name="Identificacion_Tipos" EntityType="FACTURA_DIGITALModel.Identificacion_Tipo" />
+          <EntitySet Name="Inventarios" EntityType="FACTURA_DIGITALModel.Inventario" />
+          <EntitySet Name="Mantenimientos" EntityType="FACTURA_DIGITALModel.Mantenimiento" />
           <EntitySet Name="Padron_Electoral" EntityType="Self.Padron_Electoral" />
           <EntitySet Name="Padron_Electoral_codelec" EntityType="Self.Padron_Electoral_codelec" />
-          <EntitySet Name="Pais" EntityType="FACTURA_DIGITALModel.Pais" />
-          <EntitySet Name="Proveedor" EntityType="FACTURA_DIGITALModel.Proveedor" />
-          <EntitySet Name="Provincia" EntityType="FACTURA_DIGITALModel.Provincia" />
-          <EntitySet Name="Role" EntityType="FACTURA_DIGITALModel.Role" />
-          <EntitySet Name="Sucursale" EntityType="FACTURA_DIGITALModel.Sucursale" />
-          <EntitySet Name="Tipo_Comprobante" EntityType="FACTURA_DIGITALModel.Tipo_Comprobante" />
+          <EntitySet Name="Paises" EntityType="FACTURA_DIGITALModel.Pais" />
+          <EntitySet Name="Proveedores" EntityType="FACTURA_DIGITALModel.Proveedor" />
+          <EntitySet Name="Provincias" EntityType="FACTURA_DIGITALModel.Provincia" />
+          <EntitySet Name="Roles" EntityType="FACTURA_DIGITALModel.Role" />
+          <EntitySet Name="Sucursales" EntityType="FACTURA_DIGITALModel.Sucursale" />
+          <EntitySet Name="Tipo_Comprobantes" EntityType="FACTURA_DIGITALModel.Tipo_Comprobante" />
           <EntitySet Name="Tipo_de_cambio" EntityType="Self.Tipo_de_cambio" />
-          <EntitySet Name="UnidadMedida" EntityType="FACTURA_DIGITALModel.UnidadMedida" />
-          <EntitySet Name="User_Role" EntityType="FACTURA_DIGITALModel.User_Role" />
-          <EntitySet Name="Usuario" EntityType="FACTURA_DIGITALModel.Usuario" />
-          <EntitySet Name="Usuario_Compania" EntityType="FACTURA_DIGITALModel.Usuario_Compania" />
-          <EntitySet Name="Usuario_Login" EntityType="Self.Usuarios_Logins" />
+          <EntitySet Name="UnidadMedidas" EntityType="FACTURA_DIGITALModel.UnidadMedida" />
+          <EntitySet Name="User_Roles" EntityType="FACTURA_DIGITALModel.User_Role" />
+          <EntitySet Name="Usuarios" EntityType="FACTURA_DIGITALModel.Usuario" />
+          <EntitySet Name="Usuarios_Companias" EntityType="FACTURA_DIGITALModel.Usuario_Compania" />
+          <EntitySet Name="Usuarios_Logins" EntityType="Self.Usuarios_Logins" />
           <AssociationSet Name="FK_Clientes_Act_Econo" Association="Self.FK_Clientes_Act_Econo">
-            <End Role="Actividades_Economicas" EntitySet="Actividad_Economica" />
-            <End Role="Clientes" EntitySet="Cliente" />
+            <End Role="Actividades_Economicas" EntitySet="Actividades_Economicas" />
+            <End Role="Clientes" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK_Companias_act_ecom" Association="Self.FK_Companias_act_ecom">
-            <End Role="Actividades_Economicas" EntitySet="Actividad_Economica" />
-            <End Role="Companias" EntitySet="Compania" />
+            <End Role="Actividades_Economicas" EntitySet="Actividades_Economicas" />
+            <End Role="Companias" EntitySet="Companias" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Actividad_ecom" Association="Self.FK_Facturas_Actividad_ecom">
-            <End Role="Actividades_Economicas" EntitySet="Actividad_Economica" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Actividades_Economicas" EntitySet="Actividades_Economicas" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Cantones_Provincias" Association="Self.FK_Cantones_Provincias">
-            <End Role="Provincias" EntitySet="Provincia" />
-            <End Role="Cantones" EntitySet="Canton" />
+            <End Role="Provincias" EntitySet="Provincias" />
+            <End Role="Cantones" EntitySet="Cantones" />
           </AssociationSet>
           <AssociationSet Name="FK_Inventario_Inventario" Association="Self.FK_Inventario_Inventario">
-            <End Role="Categorias_Productos" EntitySet="Categoria_Producto" />
-            <End Role="Inventarios" EntitySet="Inventario" />
+            <End Role="Categorias_Productos" EntitySet="Categorias_Productos" />
+            <End Role="Inventarios" EntitySet="Inventarios" />
           </AssociationSet>
           <AssociationSet Name="FK_Clientes_Compania" Association="Self.FK_Clientes_Compania">
-            <End Role="Companias" EntitySet="Compania" />
-            <End Role="Clientes" EntitySet="Cliente" />
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Clientes" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK_Clientes_DNI_tipos" Association="Self.FK_Clientes_DNI_tipos">
-            <End Role="Identificacion_Tipos" EntitySet="Identificacion_Tipo" />
-            <End Role="Clientes" EntitySet="Cliente" />
+            <End Role="Identificacion_Tipos" EntitySet="Identificacion_Tipos" />
+            <End Role="Clientes" EntitySet="Clientes" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Clientes" Association="Self.FK_Facturas_Clientes">
-            <End Role="Clientes" EntitySet="Cliente" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Detalle_Facturas_Cod_Impuesto" Association="Self.FK_Detalle_Facturas_Cod_Impuesto">
-            <End Role="Codigo_Impuestos" EntitySet="Codigo_Impuesto" />
+            <End Role="Codigo_Impuestos" EntitySet="Codigo_Impuestos" />
             <End Role="Detalle_Facturas" EntitySet="Detalle_Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Consecutivos_Facturas_Compania" Association="Self.FK_Consecutivos_Facturas_Compania">
-            <End Role="Companias" EntitySet="Compania" />
-            <End Role="Consecutivos_Facturas" EntitySet="Consecutivo_Factura" />
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Consecutivos_Facturas" EntitySet="Consecutivos_Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Companias" Association="Self.FK_Facturas_Companias">
-            <End Role="Companias" EntitySet="Compania" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Proveedores_Companias" Association="Self.FK_Proveedores_Companias">
-            <End Role="Companias" EntitySet="Compania" />
-            <End Role="Proveedores" EntitySet="Proveedor" />
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
           </AssociationSet>
           <AssociationSet Name="FK_Sucursales_Companias" Association="Self.FK_Sucursales_Companias">
-            <End Role="Companias" EntitySet="Compania" />
-            <End Role="Sucursales" EntitySet="Sucursale" />
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Sucursales" EntitySet="Sucursales" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Companias_Companias" Association="Self.FK_Usuarios_Companias_Companias">
-            <End Role="Companias" EntitySet="Compania" />
-            <End Role="Usuarios_Companias" EntitySet="Usuario_Compania" />
+            <End Role="Companias" EntitySet="Companias" />
+            <End Role="Usuarios_Companias" EntitySet="Usuarios_Companias" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Cond_Venta" Association="Self.FK_Facturas_Cond_Venta">
-            <End Role="Condiciones_de_Ventas" EntitySet="Condicion_de_Venta" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Condiciones_de_Ventas" EntitySet="Condiciones_de_Ventas" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Detalle_Facturas_UnidadMedidas" Association="Self.FK_Detalle_Facturas_UnidadMedidas">
-            <End Role="UnidadMedidas" EntitySet="UnidadMedida" />
+            <End Role="UnidadMedidas" EntitySet="UnidadMedidas" />
             <End Role="Detalle_Facturas" EntitySet="Detalle_Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_detalle_Facturas" Association="Self.FK_Facturas_detalle_Facturas">
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Facturas" EntitySet="Facturas" />
             <End Role="Detalle_Facturas" EntitySet="Detalle_Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Comprobante" Association="Self.FK_Facturas_Comprobante">
-            <End Role="Tipo_Comprobantes" EntitySet="Tipo_Comprobante" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Tipo_Comprobantes" EntitySet="Tipo_Comprobantes" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Facturas" Association="Self.FK_Facturas_Facturas">
-            <End Role="Formas_de_pagos" EntitySet="Forma_de_pago" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Formas_de_pagos" EntitySet="Formas_de_pagos" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Sucursal" Association="Self.FK_Facturas_Sucursal">
-            <End Role="Sucursales" EntitySet="Sucursale" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Sucursales" EntitySet="Sucursales" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Tipo_Cambio" Association="Self.FK_Facturas_Tipo_Cambio">
             <End Role="Tipo_de_cambio" EntitySet="Tipo_de_cambio" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Facturas_Usuarios" Association="Self.FK_Facturas_Usuarios">
-            <End Role="Usuarios" EntitySet="Usuario" />
-            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Facturas" EntitySet="Facturas" />
           </AssociationSet>
           <AssociationSet Name="FK_Inventario_Proveedores" Association="Self.FK_Inventario_Proveedores">
-            <End Role="Proveedores" EntitySet="Proveedor" />
-            <End Role="Inventarios" EntitySet="Inventario" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="Inventarios" EntitySet="Inventarios" />
           </AssociationSet>
           <AssociationSet Name="FK_Padron_Electoral_Padron_Electoral_codelec" Association="Self.FK_Padron_Electoral_Padron_Electoral_codelec">
             <End Role="Padron_Electoral_codelec" EntitySet="Padron_Electoral_codelec" />
             <End Role="Padron_Electoral" EntitySet="Padron_Electoral" />
           </AssociationSet>
           <AssociationSet Name="FK_Provincias_Paises" Association="Self.FK_Provincias_Paises">
-            <End Role="Paises" EntitySet="Pais" />
-            <End Role="Provincias" EntitySet="Provincia" />
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Provincias" EntitySet="Provincias" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Roles_Usuarios" Association="Self.FK_User_Roles_Usuarios">
-            <End Role="Roles" EntitySet="Role" />
-            <End Role="User_Roles" EntitySet="User_Role" />
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="User_Roles" EntitySet="User_Roles" />
           </AssociationSet>
           <AssociationSet Name="FK_User_Roles_Usuarios1" Association="Self.FK_User_Roles_Usuarios1">
-            <End Role="Usuarios" EntitySet="Usuario" />
-            <End Role="User_Roles" EntitySet="User_Role" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="User_Roles" EntitySet="User_Roles" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Companias_Usuarios" Association="Self.FK_Usuarios_Companias_Usuarios">
-            <End Role="Usuarios" EntitySet="Usuario" />
-            <End Role="Usuarios_Companias" EntitySet="Usuario_Compania" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Usuarios_Companias" EntitySet="Usuarios_Companias" />
           </AssociationSet>
           <AssociationSet Name="FK_Usuarios_Logins_Usuarios1" Association="Self.FK_Usuarios_Logins_Usuarios1">
-            <End Role="Usuarios" EntitySet="Usuario" />
-            <End Role="Usuarios_Logins" EntitySet="Usuario_Login" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Usuarios_Logins" EntitySet="Usuarios_Logins" />
           </AssociationSet>
           <AssociationSet Name="Role_Access" Association="Self.Role_Access">
-            <End Role="Mantenimientos" EntitySet="Mantenimiento" />
-            <End Role="Roles" EntitySet="Role" />
+            <End Role="Mantenimientos" EntitySet="Mantenimientos" />
+            <End Role="Roles" EntitySet="Roles" />
           </AssociationSet>
         </EntityContainer>
       </Schema>
@@ -1772,7 +1771,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FACTURA_DIGITALModelStoreContainer" CdmEntityContainer="BDContext">
-          <EntitySetMapping Name="Actividad_Economica">
+          <EntitySetMapping Name="Actividades_Economicas">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividad_Economica">
               <MappingFragment StoreEntitySet="Actividades_Economicas">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1780,7 +1779,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Canton">
+          <EntitySetMapping Name="Cantones">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Canton">
               <MappingFragment StoreEntitySet="Cantones">
                 <ScalarProperty Name="provincia" ColumnName="provincia" />
@@ -1789,7 +1788,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categoria_Producto">
+          <EntitySetMapping Name="Categorias_Productos">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Categoria_Producto">
               <MappingFragment StoreEntitySet="Categorias_Productos">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1802,7 +1801,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cliente">
+          <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Cliente">
               <MappingFragment StoreEntitySet="Clientes">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1825,7 +1824,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Codigo_Impuesto">
+          <EntitySetMapping Name="Codigo_Impuestos">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Codigo_Impuesto">
               <MappingFragment StoreEntitySet="Codigo_Impuestos">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1833,7 +1832,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Compania">
+          <EntitySetMapping Name="Companias">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Compania">
               <MappingFragment StoreEntitySet="Companias">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1842,7 +1841,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Condicion_de_Venta">
+          <EntitySetMapping Name="Condiciones_de_Ventas">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Condicion_de_Venta">
               <MappingFragment StoreEntitySet="Condiciones_de_Ventas">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1850,7 +1849,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Consecutivo_Factura">
+          <EntitySetMapping Name="Consecutivos_Facturas">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Consecutivo_Factura">
               <MappingFragment StoreEntitySet="Consecutivos_Facturas">
                 <ScalarProperty Name="compania" ColumnName="compania" />
@@ -1876,7 +1875,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Distrito">
+          <EntitySetMapping Name="Distritos">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Distrito">
               <MappingFragment StoreEntitySet="Distritos">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1885,7 +1884,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Factura">
+          <EntitySetMapping Name="Facturas">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Factura">
               <MappingFragment StoreEntitySet="Facturas">
                 <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
@@ -1923,7 +1922,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Forma_de_pago">
+          <EntitySetMapping Name="Formas_de_pagos">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Forma_de_pago">
               <MappingFragment StoreEntitySet="Formas_de_pagos">
                 <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
@@ -1931,7 +1930,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Identificacion_Tipo">
+          <EntitySetMapping Name="Identificacion_Tipos">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Identificacion_Tipo">
               <MappingFragment StoreEntitySet="Identificacion_Tipos">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1939,7 +1938,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Inventario">
+          <EntitySetMapping Name="Inventarios">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Inventario">
               <MappingFragment StoreEntitySet="Inventarios">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1954,7 +1953,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mantenimiento">
+          <EntitySetMapping Name="Mantenimientos">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Mantenimiento">
               <MappingFragment StoreEntitySet="Mantenimientos">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1984,7 +1983,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Pais">
+          <EntitySetMapping Name="Paises">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Pais">
               <MappingFragment StoreEntitySet="Paises">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -1994,7 +1993,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Proveedor">
+          <EntitySetMapping Name="Proveedores">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Proveedor">
               <MappingFragment StoreEntitySet="Proveedores">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2016,7 +2015,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Provincia">
+          <EntitySetMapping Name="Provincias">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Provincia">
               <MappingFragment StoreEntitySet="Provincias">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2025,7 +2024,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Role">
+          <EntitySetMapping Name="Roles">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Role">
               <MappingFragment StoreEntitySet="Roles">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2033,7 +2032,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sucursale">
+          <EntitySetMapping Name="Sucursales">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Sucursale">
               <MappingFragment StoreEntitySet="Sucursales">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2043,7 +2042,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Tipo_Comprobante">
+          <EntitySetMapping Name="Tipo_Comprobantes">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Tipo_Comprobante">
               <MappingFragment StoreEntitySet="Tipo_Comprobantes">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2062,7 +2061,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UnidadMedida">
+          <EntitySetMapping Name="UnidadMedidas">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.UnidadMedida">
               <MappingFragment StoreEntitySet="UnidadMedidas">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2071,7 +2070,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User_Role">
+          <EntitySetMapping Name="User_Roles">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.User_Role">
               <MappingFragment StoreEntitySet="User_Roles">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2080,7 +2079,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuario">
+          <EntitySetMapping Name="Usuarios">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario">
               <MappingFragment StoreEntitySet="Usuarios">
                 <ScalarProperty Name="id" ColumnName="id" />
@@ -2105,7 +2104,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuario_Compania">
+          <EntitySetMapping Name="Usuarios_Companias">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario_Compania">
               <MappingFragment StoreEntitySet="Usuarios_Companias">
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
@@ -2114,7 +2113,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuario_Login">
+          <EntitySetMapping Name="Usuarios_Logins">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuarios_Logins">
               <MappingFragment StoreEntitySet="Usuarios_Logins">
                 <ScalarProperty Name="login_id" ColumnName="login_id" />
