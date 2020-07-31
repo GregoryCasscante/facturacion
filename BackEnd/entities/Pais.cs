@@ -19,6 +19,6 @@ namespace BackEnd.Entities
         public string iso2 { get; set; }
         public string iso3 { get; set; }
     
-        public virtual Provincia Provincia { get; set; }
+        public virtual Provincia Provincias { get; set; }
     }
 }

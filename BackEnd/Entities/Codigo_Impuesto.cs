@@ -12,10 +12,10 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Codigo_Impuestos
+    public partial class Codigo_Impuesto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Codigo_Impuestos()
+        public Codigo_Impuesto()
         {
             this.Detalle_Facturas = new HashSet<Detalle_Factura>();
         }

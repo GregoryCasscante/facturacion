@@ -13,4 +13,3 @@ D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\bin\De
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\obj\Debug\BackEnd.csprojAssemblyReference.cache

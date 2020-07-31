@@ -27,8 +27,8 @@ namespace BackEnd.Entities
         public decimal Impuesto { get; set; }
         public decimal TotalLinea { get; set; }
     
-        public virtual Codigo_Impuestos Codigo_Impuestos { get; set; }
-        public virtual UnidadMedida UnidadMedida1 { get; set; }
-        public virtual Factura Factura { get; set; }
+        public virtual Codigo_Impuesto Codigo_Impuestos { get; set; }
+        public virtual UnidadMedida UnidadMedidas { get; set; }
+        public virtual Factura Facturas { get; set; }
     }
 }

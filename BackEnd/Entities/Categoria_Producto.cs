@@ -12,10 +12,10 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Categorias_Productos
+    public partial class Categoria_Producto
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categorias_Productos()
+        public Categoria_Producto()
         {
             this.Inventarios = new HashSet<Inventario>();
         }

@@ -18,21 +18,19 @@ namespace BackEnd.Entities
         public Usuario()
         {
             this.Facturas = new HashSet<Factura>();
-            this.User_Roles = new HashSet<User_Roles>();
-            this.Usuarios_Companias = new HashSet<Usuarios_Companias>();
+            this.User_Roles = new HashSet<User_Role>();
+            this.Usuarios_Companias = new HashSet<Usuario_Compania>();
             this.Usuarios_Logins = new HashSet<Usuarios_Logins>();
         }
     
         public int id { get; set; }
-        public int id_persona { get; set; }
         public int estado { get; set; }
         public string usuario { get; set; }
         public string salt { get; set; }
         public string clave { get; set; }
         public int tipo { get; set; }
-        public System.DateTime creado { get; set; }
-        public Nullable<System.DateTime> ultimo_login { get; set; }
         public System.DateTime fecha_creacion { get; set; }
+        public Nullable<System.DateTime> ultimo_login { get; set; }
         public string identificacion { get; set; }
         public string nombre { get; set; }
         public string email1 { get; set; }
@@ -40,17 +38,17 @@ namespace BackEnd.Entities
         public string telefono1 { get; set; }
         public string telefono2 { get; set; }
         public int pais { get; set; }
-        public string provincia { get; set; }
-        public string canton { get; set; }
-        public string distrito { get; set; }
+        public int provincia { get; set; }
+        public int canton { get; set; }
+        public int distrito { get; set; }
         public string direccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User_Roles> User_Roles { get; set; }
+        public virtual ICollection<User_Role> User_Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuarios_Companias> Usuarios_Companias { get; set; }
+        public virtual ICollection<Usuario_Compania> Usuarios_Companias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuarios_Logins> Usuarios_Logins { get; set; }
     }

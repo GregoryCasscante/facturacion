@@ -17,7 +17,7 @@ namespace BackEnd.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Role()
         {
-            this.User_Roles = new HashSet<User_Roles>();
+            this.User_Roles = new HashSet<User_Role>();
             this.Mantenimientos = new HashSet<Mantenimiento>();
         }
     
@@ -25,7 +25,7 @@ namespace BackEnd.Entities
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User_Roles> User_Roles { get; set; }
+        public virtual ICollection<User_Role> User_Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Mantenimiento> Mantenimientos { get; set; }
     }

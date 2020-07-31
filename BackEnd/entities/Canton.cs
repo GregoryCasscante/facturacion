@@ -18,6 +18,6 @@ namespace BackEnd.Entities
         public int canton { get; set; }
         public string Nombre { get; set; }
     
-        public virtual Provincia Provincia1 { get; set; }
+        public virtual Provincia Provincias { get; set; }
     }
 }

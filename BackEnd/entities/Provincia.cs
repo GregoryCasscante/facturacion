@@ -26,6 +26,6 @@ namespace BackEnd.Entities
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Canton> Cantones { get; set; }
-        public virtual Pais Pais1 { get; set; }
+        public virtual Pais Paises { get; set; }
     }
 }

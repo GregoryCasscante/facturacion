@@ -12,17 +12,20 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Formas_de_pagos
+    public partial class Sucursale
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Formas_de_pagos()
+        public Sucursale()
         {
             this.Facturas = new HashSet<Factura>();
         }
     
-        public int id_forma_pago { get; set; }
-        public string descripcion { get; set; }
+        public int id { get; set; }
+        public int compania { get; set; }
+        public string nombre { get; set; }
+        public string dirrecion { get; set; }
     
+        public virtual Compania Companias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Factura> Facturas { get; set; }
     }

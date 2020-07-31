@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="FACTURA_DIGITALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="FACTURA_DIGITALModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Actividades_Economicas">
           <Key>
             <PropertyRef Name="id" />
@@ -165,7 +165,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="categoria" Type="int" Nullable="false" />
           <Property Name="proveedor" Type="int" Nullable="false" />
           <Property Name="cantidad" Type="int" Nullable="false" />
@@ -179,7 +179,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="120" />
         </EntityType>
         <EntityType Name="Padron_Electoral">
@@ -252,27 +252,17 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
         </EntityType>
         <EntityType Name="Sucursales">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="compania" Type="int" Nullable="false" />
           <Property Name="nombre" Type="varchar" MaxLength="150" Nullable="false" />
           <Property Name="dirrecion" Type="text" />
-        </EntityType>
-        <EntityType Name="sysdiagrams">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="version" Type="int" />
-          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Tipo_Comprobantes">
           <Key>
@@ -303,7 +293,7 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="usuario" Type="int" Nullable="false" />
           <Property Name="role" Type="int" Nullable="false" />
         </EntityType>
@@ -320,16 +310,16 @@
           <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
           <Property Name="ultimo_login" Type="datetime" />
           <Property Name="identificacion" Type="varchar" MaxLength="50" />
-          <Property Name="nombre" Type="varchar" MaxLength="90" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="120" Nullable="false" />
           <Property Name="email1" Type="varchar" MaxLength="120" Nullable="false" />
           <Property Name="email2" Type="varchar" MaxLength="120" />
           <Property Name="telefono1" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="telefono2" Type="varchar" MaxLength="15" />
           <Property Name="pais" Type="int" Nullable="false" />
-          <Property Name="provincia" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="canton" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="distrito" Type="nchar" MaxLength="10" Nullable="false" />
-          <Property Name="direccion" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="provincia" Type="int" Nullable="false" />
+          <Property Name="canton" Type="int" Nullable="false" />
+          <Property Name="distrito" Type="int" Nullable="false" />
+          <Property Name="direccion" Type="varchar" MaxLength="500" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuarios_Companias">
           <Key>
@@ -749,7 +739,6 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <EntitySet Name="Role_Access" EntityType="Self.Role_Access" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_Comprobantes" EntityType="Self.Tipo_Comprobantes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Tipo_de_cambio" EntityType="Self.Tipo_de_cambio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UnidadMedidas" EntityType="Self.UnidadMedidas" Schema="dbo" store:Type="Tables" />
@@ -882,205 +871,20 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             <End Role="Usuarios_Logins" EntitySet="Usuarios_Logins" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FACTURA_DIGITALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Usuario">
+        <EntityType Name="Actividad_Economica">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="id_persona" Type="Int32" Nullable="false" />
-          <Property Name="estado" Type="Int32" Nullable="false" />
-          <Property Name="usuario1" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="salt" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="clave" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="tipo" Type="Int32" Nullable="false" />
-          <Property Name="creado" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ultimo_login" Type="DateTime" Precision="3" />
-          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="90" FixedLength="false" Unicode="false" />
-          <Property Name="email1" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="email2" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="telefono1" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="telefono2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="pais" Type="Int32" Nullable="false" />
-          <Property Name="provincia" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="canton" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="distrito" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="direccion" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Usuarios" FromRole="Usuario" ToRole="Factura" />
-          <NavigationProperty Name="User_Roles" Relationship="FACTURA_DIGITALModel.FK_User_Roles_Usuarios1" FromRole="Usuario" ToRole="User_Roles" />
-          <NavigationProperty Name="Usuarios_Companias" Relationship="FACTURA_DIGITALModel.FK_Usuarios_Companias_Usuarios" FromRole="Usuario" ToRole="Usuarios_Companias" />
-          <NavigationProperty Name="Usuarios_Logins" Relationship="FACTURA_DIGITALModel.FK_Usuarios_Logins_Usuarios1" FromRole="Usuario" ToRole="Usuarios_Logins" />
-        </EntityType>
-        <EntityContainer Name="FACTURA_DIGITALEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Usuarios" EntityType="FACTURA_DIGITALModel.Usuario" />
-          <EntitySet Name="Actividades_Economica" EntityType="FACTURA_DIGITALModel.Actividades_Economica" />
-          <EntitySet Name="Cantons" EntityType="FACTURA_DIGITALModel.Canton" />
-          <EntitySet Name="Categorias_Productos" EntityType="FACTURA_DIGITALModel.Categorias_Productos" />
-          <EntitySet Name="Clientes" EntityType="FACTURA_DIGITALModel.Cliente" />
-          <EntitySet Name="Codigo_Impuestos" EntityType="FACTURA_DIGITALModel.Codigo_Impuestos" />
-          <EntitySet Name="Companias" EntityType="FACTURA_DIGITALModel.Compania" />
-          <EntitySet Name="Condiciones_de_Ventas" EntityType="FACTURA_DIGITALModel.Condiciones_de_Ventas" />
-          <EntitySet Name="Detalle_Factura" EntityType="FACTURA_DIGITALModel.Detalle_Factura" />
-          <EntitySet Name="Distritos" EntityType="FACTURA_DIGITALModel.Distrito" />
-          <EntitySet Name="Facturas" EntityType="FACTURA_DIGITALModel.Factura" />
-          <EntitySet Name="Formas_de_pagos" EntityType="FACTURA_DIGITALModel.Formas_de_pagos" />
-          <EntitySet Name="Identificacion_Tipos" EntityType="FACTURA_DIGITALModel.Identificacion_Tipos" />
-          <EntitySet Name="Inventarios" EntityType="FACTURA_DIGITALModel.Inventario" />
-          <EntitySet Name="Mantenimientos" EntityType="FACTURA_DIGITALModel.Mantenimiento" />
-          <EntitySet Name="Padron_Electoral" EntityType="FACTURA_DIGITALModel.Padron_Electoral" />
-          <EntitySet Name="Padron_Electoral_codelec" EntityType="FACTURA_DIGITALModel.Padron_Electoral_codelec" />
-          <EntitySet Name="Paises" EntityType="FACTURA_DIGITALModel.Pais" />
-          <EntitySet Name="Proveedors" EntityType="FACTURA_DIGITALModel.Proveedor" />
-          <EntitySet Name="Provincias" EntityType="FACTURA_DIGITALModel.Provincia" />
-          <EntitySet Name="Roles" EntityType="FACTURA_DIGITALModel.Role" />
-          <EntitySet Name="Sucursals" EntityType="FACTURA_DIGITALModel.Sucursal" />
-          <EntitySet Name="sysdiagrams" EntityType="FACTURA_DIGITALModel.sysdiagram" />
-          <EntitySet Name="Tipo_Comprobantes" EntityType="FACTURA_DIGITALModel.Tipo_Comprobantes" />
-          <EntitySet Name="Tipo_de_cambio" EntityType="FACTURA_DIGITALModel.Tipo_de_cambio" />
-          <EntitySet Name="UnidadMedidas" EntityType="FACTURA_DIGITALModel.UnidadMedida" />
-          <EntitySet Name="User_Roles" EntityType="FACTURA_DIGITALModel.User_Roles" />
-          <EntitySet Name="Usuarios_Companias" EntityType="FACTURA_DIGITALModel.Usuarios_Companias" />
-          <EntitySet Name="Usuarios_Logins" EntityType="FACTURA_DIGITALModel.Usuarios_Logins" />
-          <AssociationSet Name="FK_Clientes_Act_Econo" Association="FACTURA_DIGITALModel.FK_Clientes_Act_Econo">
-            <End Role="Actividades_Economicas" EntitySet="Actividades_Economica" />
-            <End Role="Cliente" EntitySet="Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Companias_act_ecom" Association="FACTURA_DIGITALModel.FK_Companias_act_ecom">
-            <End Role="Actividades_Economicas" EntitySet="Actividades_Economica" />
-            <End Role="Compania" EntitySet="Companias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Actividad_ecom" Association="FACTURA_DIGITALModel.FK_Facturas_Actividad_ecom">
-            <End Role="Actividades_Economicas" EntitySet="Actividades_Economica" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Cantones_Provincias" Association="FACTURA_DIGITALModel.FK_Cantones_Provincias">
-            <End Role="Provincia" EntitySet="Provincias" />
-            <End Role="Cantone" EntitySet="Cantons" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Inventario_Inventario" Association="FACTURA_DIGITALModel.FK_Inventario_Inventario">
-            <End Role="Categorias_Productos" EntitySet="Categorias_Productos" />
-            <End Role="Inventario" EntitySet="Inventarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Clientes_Compania" Association="FACTURA_DIGITALModel.FK_Clientes_Compania">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Cliente" EntitySet="Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Clientes_DNI_tipos" Association="FACTURA_DIGITALModel.FK_Clientes_DNI_tipos">
-            <End Role="Identificacion_Tipos" EntitySet="Identificacion_Tipos" />
-            <End Role="Cliente" EntitySet="Clientes" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Clientes" Association="FACTURA_DIGITALModel.FK_Facturas_Clientes">
-            <End Role="Cliente" EntitySet="Clientes" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Detalle_Facturas_Cod_Impuesto" Association="FACTURA_DIGITALModel.FK_Detalle_Facturas_Cod_Impuesto">
-            <End Role="Codigo_Impuestos" EntitySet="Codigo_Impuestos" />
-            <End Role="Detalle_Facturas" EntitySet="Detalle_Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Companias" Association="FACTURA_DIGITALModel.FK_Facturas_Companias">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Proveedores_Companias" Association="FACTURA_DIGITALModel.FK_Proveedores_Companias">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Proveedore" EntitySet="Proveedors" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Sucursales_Companias" Association="FACTURA_DIGITALModel.FK_Sucursales_Companias">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Sucursale" EntitySet="Sucursals" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Companias_Companias" Association="FACTURA_DIGITALModel.FK_Usuarios_Companias_Companias">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Usuarios_Companias" EntitySet="Usuarios_Companias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Cond_Venta" Association="FACTURA_DIGITALModel.FK_Facturas_Cond_Venta">
-            <End Role="Condiciones_de_Ventas" EntitySet="Condiciones_de_Ventas" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Detalle_Facturas_UnidadMedidas" Association="FACTURA_DIGITALModel.FK_Detalle_Facturas_UnidadMedidas">
-            <End Role="UnidadMedida" EntitySet="UnidadMedidas" />
-            <End Role="Detalle_Facturas" EntitySet="Detalle_Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_detalle_Facturas" Association="FACTURA_DIGITALModel.FK_Facturas_detalle_Facturas">
-            <End Role="Factura" EntitySet="Facturas" />
-            <End Role="Detalle_Facturas" EntitySet="Detalle_Factura" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Comprobante" Association="FACTURA_DIGITALModel.FK_Facturas_Comprobante">
-            <End Role="Tipo_Comprobantes" EntitySet="Tipo_Comprobantes" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Facturas" Association="FACTURA_DIGITALModel.FK_Facturas_Facturas">
-            <End Role="Formas_de_pagos" EntitySet="Formas_de_pagos" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Sucursal" Association="FACTURA_DIGITALModel.FK_Facturas_Sucursal">
-            <End Role="Sucursale" EntitySet="Sucursals" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Tipo_Cambio" Association="FACTURA_DIGITALModel.FK_Facturas_Tipo_Cambio">
-            <End Role="Tipo_de_cambio" EntitySet="Tipo_de_cambio" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Facturas_Usuarios" Association="FACTURA_DIGITALModel.FK_Facturas_Usuarios">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="Factura" EntitySet="Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Inventario_Proveedores" Association="FACTURA_DIGITALModel.FK_Inventario_Proveedores">
-            <End Role="Proveedore" EntitySet="Proveedors" />
-            <End Role="Inventario" EntitySet="Inventarios" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Padron_Electoral_Padron_Electoral_codelec" Association="FACTURA_DIGITALModel.FK_Padron_Electoral_Padron_Electoral_codelec">
-            <End Role="Padron_Electoral_codelec" EntitySet="Padron_Electoral_codelec" />
-            <End Role="Padron_Electoral" EntitySet="Padron_Electoral" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Provincias_Paises" Association="FACTURA_DIGITALModel.FK_Provincias_Paises">
-            <End Role="Pais" EntitySet="Paises" />
-            <End Role="Provincia" EntitySet="Provincias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Roles_Usuarios" Association="FACTURA_DIGITALModel.FK_User_Roles_Usuarios">
-            <End Role="Role" EntitySet="Roles" />
-            <End Role="User_Roles" EntitySet="User_Roles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_User_Roles_Usuarios1" Association="FACTURA_DIGITALModel.FK_User_Roles_Usuarios1">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="User_Roles" EntitySet="User_Roles" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Companias_Usuarios" Association="FACTURA_DIGITALModel.FK_Usuarios_Companias_Usuarios">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="Usuarios_Companias" EntitySet="Usuarios_Companias" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Usuarios_Logins_Usuarios1" Association="FACTURA_DIGITALModel.FK_Usuarios_Logins_Usuarios1">
-            <End Role="Usuario" EntitySet="Usuarios" />
-            <End Role="Usuarios_Logins" EntitySet="Usuarios_Logins" />
-          </AssociationSet>
-          <AssociationSet Name="Role_Access" Association="FACTURA_DIGITALModel.Role_Access">
-            <End Role="Mantenimiento" EntitySet="Mantenimientos" />
-            <End Role="Role" EntitySet="Roles" />
-          </AssociationSet>
-          <EntitySet Name="Consecutivos_Facturas" EntityType="FACTURA_DIGITALModel.Consecutivos_Facturas" />
-          <AssociationSet Name="FK_Consecutivos_Facturas_Compania" Association="FACTURA_DIGITALModel.FK_Consecutivos_Facturas_Compania">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Consecutivos_Facturas" EntitySet="Consecutivos_Facturas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Proveedores_Companias1" Association="FACTURA_DIGITALModel.FK_Proveedores_Companias1">
-            <End Role="Compania" EntitySet="Companias" />
-            <End Role="Proveedore" EntitySet="Proveedors" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Actividades_Economica">
-          <Key>
-            <PropertyRef Name="id" />
-          </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Clientes" Relationship="FACTURA_DIGITALModel.FK_Clientes_Act_Econo" FromRole="Actividades_Economicas" ToRole="Cliente" />
-          <NavigationProperty Name="Companias" Relationship="FACTURA_DIGITALModel.FK_Companias_act_ecom" FromRole="Actividades_Economicas" ToRole="Compania" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Actividad_ecom" FromRole="Actividades_Economicas" ToRole="Factura" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Act_Econo" FromRole="Actividades_Economicas" ToRole="Clientes" />
+          <NavigationProperty Name="Companias" Relationship="Self.FK_Companias_act_ecom" FromRole="Actividades_Economicas" ToRole="Companias" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Actividad_ecom" FromRole="Actividades_Economicas" ToRole="Facturas" />
         </EntityType>
         <EntityType Name="Canton">
           <Key>
@@ -1089,36 +893,36 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </Key>
           <Property Name="provincia" Type="Int32" Nullable="false" />
           <Property Name="canton" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Provincia1" Relationship="FACTURA_DIGITALModel.FK_Cantones_Provincias" FromRole="Cantone" ToRole="Provincia" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Provincias" Relationship="Self.FK_Cantones_Provincias" FromRole="Cantones" ToRole="Provincias" />
         </EntityType>
-        <EntityType Name="Categorias_Productos">
+        <EntityType Name="Categoria_Producto">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="detalle" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="detalle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="minimo" Type="Int32" Nullable="false" />
           <Property Name="ventaMinimo" Type="Int32" Nullable="false" />
           <Property Name="execento" Type="Int32" Nullable="false" />
-          <Property Name="precio" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <NavigationProperty Name="Inventarios" Relationship="FACTURA_DIGITALModel.FK_Inventario_Inventario" FromRole="Categorias_Productos" ToRole="Inventario" />
+          <Property Name="precio" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="Inventarios" Relationship="Self.FK_Inventario_Inventario" FromRole="Categorias_Productos" ToRole="Inventarios" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_compania" Type="Int32" Nullable="false" />
-          <Property Name="identificacion" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="identificacion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tipo_identificacion" Type="Int32" Nullable="false" />
           <Property Name="actividad_economica" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <Property Name="genero" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="email1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="genero" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="telefono1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="telefono1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefono2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="pais" Type="Int32" Nullable="false" />
           <Property Name="provincia" Type="Int32" Nullable="false" />
@@ -1126,42 +930,49 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="distrito" Type="Int32" Nullable="false" />
           <Property Name="dirrecion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Actividades_Economicas" Relationship="FACTURA_DIGITALModel.FK_Clientes_Act_Econo" FromRole="Cliente" ToRole="Actividades_Economicas" />
-          <NavigationProperty Name="Compania" Relationship="FACTURA_DIGITALModel.FK_Clientes_Compania" FromRole="Cliente" ToRole="Compania" />
-          <NavigationProperty Name="Identificacion_Tipos" Relationship="FACTURA_DIGITALModel.FK_Clientes_DNI_tipos" FromRole="Cliente" ToRole="Identificacion_Tipos" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Clientes" FromRole="Cliente" ToRole="Factura" />
+          <NavigationProperty Name="Actividades_Economicas" Relationship="Self.FK_Clientes_Act_Econo" FromRole="Clientes" ToRole="Actividades_Economicas" />
+          <NavigationProperty Name="Companias" Relationship="Self.FK_Clientes_Compania" FromRole="Clientes" ToRole="Companias" />
+          <NavigationProperty Name="Identificacion_Tipos" Relationship="Self.FK_Clientes_DNI_tipos" FromRole="Clientes" ToRole="Identificacion_Tipos" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Clientes" FromRole="Clientes" ToRole="Facturas" />
         </EntityType>
-        <EntityType Name="Codigo_Impuestos">
+        <EntityType Name="Codigo_Impuesto">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Detalle_Facturas" Relationship="FACTURA_DIGITALModel.FK_Detalle_Facturas_Cod_Impuesto" FromRole="Codigo_Impuestos" ToRole="Detalle_Facturas" />
+          <Property Name="descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Detalle_Facturas" Relationship="Self.FK_Detalle_Facturas_Cod_Impuesto" FromRole="Codigo_Impuestos" ToRole="Detalle_Facturas" />
         </EntityType>
         <EntityType Name="Compania">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="actividad_economica" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Actividades_Economicas" Relationship="FACTURA_DIGITALModel.FK_Companias_act_ecom" FromRole="Compania" ToRole="Actividades_Economicas" />
-          <NavigationProperty Name="Clientes" Relationship="FACTURA_DIGITALModel.FK_Clientes_Compania" FromRole="Compania" ToRole="Cliente" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Companias" FromRole="Compania" ToRole="Factura" />
-          <NavigationProperty Name="Proveedore" Relationship="FACTURA_DIGITALModel.FK_Proveedores_Companias" FromRole="Compania" ToRole="Proveedore" />
-          <NavigationProperty Name="Sucursale" Relationship="FACTURA_DIGITALModel.FK_Sucursales_Companias" FromRole="Compania" ToRole="Sucursale" />
-          <NavigationProperty Name="Usuarios_Companias" Relationship="FACTURA_DIGITALModel.FK_Usuarios_Companias_Companias" FromRole="Compania" ToRole="Usuarios_Companias" />
-          <NavigationProperty Name="Consecutivos_Facturas" Relationship="FACTURA_DIGITALModel.FK_Consecutivos_Facturas_Compania" FromRole="Compania" ToRole="Consecutivos_Facturas" />
-          <NavigationProperty Name="Proveedores" Relationship="FACTURA_DIGITALModel.FK_Proveedores_Companias1" FromRole="Compania" ToRole="Proveedore" />
+          <NavigationProperty Name="Actividades_Economicas" Relationship="Self.FK_Companias_act_ecom" FromRole="Companias" ToRole="Actividades_Economicas" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_Compania" FromRole="Companias" ToRole="Clientes" />
+          <NavigationProperty Name="Consecutivos_Facturas" Relationship="Self.FK_Consecutivos_Facturas_Compania" FromRole="Companias" ToRole="Consecutivos_Facturas" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Companias" FromRole="Companias" ToRole="Facturas" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.FK_Proveedores_Companias" FromRole="Companias" ToRole="Proveedores" />
+          <NavigationProperty Name="Sucursales" Relationship="Self.FK_Sucursales_Companias" FromRole="Companias" ToRole="Sucursales" />
+          <NavigationProperty Name="Usuarios_Companias" Relationship="Self.FK_Usuarios_Companias_Companias" FromRole="Companias" ToRole="Usuarios_Companias" />
         </EntityType>
-        <EntityType Name="Condiciones_de_Ventas">
+        <EntityType Name="Condicion_de_Venta">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Cond_Venta" FromRole="Condiciones_de_Ventas" ToRole="Factura" />
+          <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Cond_Venta" FromRole="Condiciones_de_Ventas" ToRole="Facturas" />
+        </EntityType>
+        <EntityType Name="Consecutivo_Factura">
+          <Key>
+            <PropertyRef Name="compania" />
+          </Key>
+          <Property Name="compania" Type="Int32" Nullable="false" />
+          <Property Name="consecutivo_factura" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Companias" Relationship="Self.FK_Consecutivos_Facturas_Compania" FromRole="Consecutivos_Facturas" ToRole="Companias" />
         </EntityType>
         <EntityType Name="Detalle_Factura">
           <Key>
@@ -1171,18 +982,18 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="numero_factura" Type="Int32" Nullable="false" />
           <Property Name="NumeroLinea" Type="Int32" Nullable="false" />
           <Property Name="producto" Type="Int32" Nullable="false" />
-          <Property Name="LineaDetalle" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="PartidaArancelaria" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="LineaDetalle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PartidaArancelaria" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="UnidadMedida" Type="Int32" Nullable="false" />
-          <Property Name="Cantidad" Type="Decimal" Nullable="false" Precision="16" Scale="3" />
-          <Property Name="PrecioUnitario" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="MontoDescuento" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="Cantidad" Type="Decimal" Precision="16" Scale="3" Nullable="false" />
+          <Property Name="PrecioUnitario" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="MontoDescuento" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
           <Property Name="codigo_impuesto" Type="Int32" Nullable="false" />
-          <Property Name="Impuesto" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="TotalLinea" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <NavigationProperty Name="Codigo_Impuestos" Relationship="FACTURA_DIGITALModel.FK_Detalle_Facturas_Cod_Impuesto" FromRole="Detalle_Facturas" ToRole="Codigo_Impuestos" />
-          <NavigationProperty Name="UnidadMedida1" Relationship="FACTURA_DIGITALModel.FK_Detalle_Facturas_UnidadMedidas" FromRole="Detalle_Facturas" ToRole="UnidadMedida" />
-          <NavigationProperty Name="Factura" Relationship="FACTURA_DIGITALModel.FK_Facturas_detalle_Facturas" FromRole="Detalle_Facturas" ToRole="Factura" />
+          <Property Name="Impuesto" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="TotalLinea" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <NavigationProperty Name="Codigo_Impuestos" Relationship="Self.FK_Detalle_Facturas_Cod_Impuesto" FromRole="Detalle_Facturas" ToRole="Codigo_Impuestos" />
+          <NavigationProperty Name="UnidadMedidas" Relationship="Self.FK_Detalle_Facturas_UnidadMedidas" FromRole="Detalle_Facturas" ToRole="UnidadMedidas" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_detalle_Facturas" FromRole="Detalle_Facturas" ToRole="Facturas" />
         </EntityType>
         <EntityType Name="Distrito">
           <Key>
@@ -1190,7 +1001,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="canton" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
         <EntityType Name="Factura">
           <Key>
@@ -1203,93 +1014,93 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="monera" Type="Int32" Nullable="false" />
           <Property Name="condicion_venta" Type="Int32" Nullable="false" />
           <Property Name="forma_de_pago" Type="Int32" Nullable="false" />
-          <Property Name="NumeroConsecutivo" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="clave" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroConsecutivo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="CodigoActividad" Type="Int32" Nullable="false" />
-          <Property Name="Emisor" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Emisor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="sucursal" Type="Int32" Nullable="false" />
           <Property Name="cliente" Type="Int32" Nullable="false" />
           <Property Name="moneda" Type="Int32" Nullable="false" />
           <Property Name="FechaEmision" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="FechaVencimiento" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="detalle" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="total_servicios_gravados" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_servicios_exentos" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_servicios_exonerados" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_mercaderia_gravados" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_mecaderia_exentas" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_mecaderia_exoneradas" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_gravado" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_exento" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_exonerado" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_venta" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_descuentos" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_venta_neta" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_impuesto" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
-          <Property Name="total_comprobante" Type="Decimal" Nullable="false" Precision="18" Scale="3" />
+          <Property Name="total_servicios_gravados" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_servicios_exentos" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_servicios_exonerados" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_mercaderia_gravados" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_mecaderia_exentas" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_mecaderia_exoneradas" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_gravado" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_exento" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_exonerado" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_venta" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_descuentos" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_venta_neta" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_impuesto" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
+          <Property Name="total_comprobante" Type="Decimal" Precision="18" Scale="3" Nullable="false" />
           <Property Name="notas" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Actividades_Economicas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Actividad_ecom" FromRole="Factura" ToRole="Actividades_Economicas" />
-          <NavigationProperty Name="Cliente1" Relationship="FACTURA_DIGITALModel.FK_Facturas_Clientes" FromRole="Factura" ToRole="Cliente" />
-          <NavigationProperty Name="Compania1" Relationship="FACTURA_DIGITALModel.FK_Facturas_Companias" FromRole="Factura" ToRole="Compania" />
-          <NavigationProperty Name="Condiciones_de_Ventas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Cond_Venta" FromRole="Factura" ToRole="Condiciones_de_Ventas" />
-          <NavigationProperty Name="Detalle_Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_detalle_Facturas" FromRole="Factura" ToRole="Detalle_Facturas" />
-          <NavigationProperty Name="Tipo_Comprobantes" Relationship="FACTURA_DIGITALModel.FK_Facturas_Comprobante" FromRole="Factura" ToRole="Tipo_Comprobantes" />
-          <NavigationProperty Name="Formas_de_pagos" Relationship="FACTURA_DIGITALModel.FK_Facturas_Facturas" FromRole="Factura" ToRole="Formas_de_pagos" />
-          <NavigationProperty Name="Sucursale" Relationship="FACTURA_DIGITALModel.FK_Facturas_Sucursal" FromRole="Factura" ToRole="Sucursale" />
-          <NavigationProperty Name="Tipo_de_cambio" Relationship="FACTURA_DIGITALModel.FK_Facturas_Tipo_Cambio" FromRole="Factura" ToRole="Tipo_de_cambio" />
-          <NavigationProperty Name="Usuario1" Relationship="FACTURA_DIGITALModel.FK_Facturas_Usuarios" FromRole="Factura" ToRole="Usuario" />
+          <NavigationProperty Name="Actividades_Economicas" Relationship="Self.FK_Facturas_Actividad_ecom" FromRole="Facturas" ToRole="Actividades_Economicas" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Facturas_Clientes" FromRole="Facturas" ToRole="Clientes" />
+          <NavigationProperty Name="Companias" Relationship="Self.FK_Facturas_Companias" FromRole="Facturas" ToRole="Companias" />
+          <NavigationProperty Name="Condiciones_de_Ventas" Relationship="Self.FK_Facturas_Cond_Venta" FromRole="Facturas" ToRole="Condiciones_de_Ventas" />
+          <NavigationProperty Name="Detalle_Facturas" Relationship="Self.FK_Facturas_detalle_Facturas" FromRole="Facturas" ToRole="Detalle_Facturas" />
+          <NavigationProperty Name="Tipo_Comprobantes" Relationship="Self.FK_Facturas_Comprobante" FromRole="Facturas" ToRole="Tipo_Comprobantes" />
+          <NavigationProperty Name="Formas_de_pagos" Relationship="Self.FK_Facturas_Facturas" FromRole="Facturas" ToRole="Formas_de_pagos" />
+          <NavigationProperty Name="Sucursales" Relationship="Self.FK_Facturas_Sucursal" FromRole="Facturas" ToRole="Sucursales" />
+          <NavigationProperty Name="Tipo_de_cambio" Relationship="Self.FK_Facturas_Tipo_Cambio" FromRole="Facturas" ToRole="Tipo_de_cambio" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Facturas_Usuarios" FromRole="Facturas" ToRole="Usuarios" />
         </EntityType>
-        <EntityType Name="Formas_de_pagos">
+        <EntityType Name="Forma_de_pago">
           <Key>
             <PropertyRef Name="id_forma_pago" />
           </Key>
           <Property Name="id_forma_pago" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Facturas" FromRole="Formas_de_pagos" ToRole="Factura" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Facturas" FromRole="Formas_de_pagos" ToRole="Facturas" />
         </EntityType>
-        <EntityType Name="Identificacion_Tipos">
+        <EntityType Name="Identificacion_Tipo">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="Descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Clientes" Relationship="FACTURA_DIGITALModel.FK_Clientes_DNI_tipos" FromRole="Identificacion_Tipos" ToRole="Cliente" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Clientes_DNI_tipos" FromRole="Identificacion_Tipos" ToRole="Clientes" />
         </EntityType>
         <EntityType Name="Inventario">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="categoria" Type="Int32" Nullable="false" />
           <Property Name="proveedor" Type="Int32" Nullable="false" />
           <Property Name="cantidad" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="minimo" Type="Int32" Nullable="false" />
           <Property Name="ventaMinima" Type="Int32" Nullable="false" />
           <Property Name="exento" Type="Int32" Nullable="false" />
           <Property Name="precio" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Categorias_Productos" Relationship="FACTURA_DIGITALModel.FK_Inventario_Inventario" FromRole="Inventario" ToRole="Categorias_Productos" />
-          <NavigationProperty Name="Proveedore" Relationship="FACTURA_DIGITALModel.FK_Inventario_Proveedores" FromRole="Inventario" ToRole="Proveedore" />
+          <NavigationProperty Name="Categorias_Productos" Relationship="Self.FK_Inventario_Inventario" FromRole="Inventarios" ToRole="Categorias_Productos" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.FK_Inventario_Proveedores" FromRole="Inventarios" ToRole="Proveedores" />
         </EntityType>
         <EntityType Name="Mantenimiento">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="descripcion" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Roles" Relationship="FACTURA_DIGITALModel.Role_Access" FromRole="Mantenimiento" ToRole="Role" />
+          <NavigationProperty Name="Roles" Relationship="Self.Role_Access" FromRole="Mantenimientos" ToRole="Roles" />
         </EntityType>
         <EntityType Name="Padron_Electoral">
           <Key>
             <PropertyRef Name="cedula" />
           </Key>
-          <Property Name="cedula" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cedula" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="codelec" Type="Int32" Nullable="false" />
-          <Property Name="sexo" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="apellido1" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="apellido2" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Padron_Electoral_codelec" Relationship="FACTURA_DIGITALModel.FK_Padron_Electoral_Padron_Electoral_codelec" FromRole="Padron_Electoral" ToRole="Padron_Electoral_codelec" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="apellido2" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Padron_Electoral_codelec" Relationship="Self.FK_Padron_Electoral_Padron_Electoral_codelec" FromRole="Padron_Electoral" ToRole="Padron_Electoral_codelec" />
         </EntityType>
         <EntityType Name="Padron_Electoral_codelec">
           <Key>
@@ -1299,17 +1110,17 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="distrito" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Padron_Electoral" Relationship="FACTURA_DIGITALModel.FK_Padron_Electoral_Padron_Electoral_codelec" FromRole="Padron_Electoral_codelec" ToRole="Padron_Electoral" />
+          <NavigationProperty Name="Padron_Electoral" Relationship="Self.FK_Padron_Electoral_Padron_Electoral_codelec" FromRole="Padron_Electoral_codelec" ToRole="Padron_Electoral" />
         </EntityType>
         <EntityType Name="Pais">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="country_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="iso2" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="false" />
-          <Property Name="iso3" Type="String" Nullable="false" MaxLength="3" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Provincia" Relationship="FACTURA_DIGITALModel.FK_Provincias_Paises" FromRole="Pais" ToRole="Provincia" />
+          <Property Name="country_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="iso2" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="iso3" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Provincias" Relationship="Self.FK_Provincias_Paises" FromRole="Paises" ToRole="Provincias" />
         </EntityType>
         <EntityType Name="Proveedor">
           <Key>
@@ -1317,23 +1128,22 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="id_compania" Type="Int32" Nullable="false" />
-          <Property Name="nombre_comercial" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="dni" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nombre_comercial" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dni" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="tipo_dni" Type="Int32" Nullable="false" />
           <Property Name="actividad_economica" Type="Int32" Nullable="false" />
-          <Property Name="email1" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="email1" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="email2" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
-          <Property Name="telefono1" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="telefono1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="telefono2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
           <Property Name="pais" Type="Int32" Nullable="false" />
           <Property Name="provincia" Type="Int32" Nullable="false" />
           <Property Name="canton" Type="Int32" Nullable="false" />
           <Property Name="distrito" Type="Int32" Nullable="false" />
-          <Property Name="direccion" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="direccion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fecha_creacion" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Compania" Relationship="FACTURA_DIGITALModel.FK_Proveedores_Companias" FromRole="Proveedore" ToRole="Compania" />
-          <NavigationProperty Name="Inventarios" Relationship="FACTURA_DIGITALModel.FK_Inventario_Proveedores" FromRole="Proveedore" ToRole="Inventario" />
-          <NavigationProperty Name="Compania1" Relationship="FACTURA_DIGITALModel.FK_Proveedores_Companias1" FromRole="Proveedore" ToRole="Compania" />
+          <NavigationProperty Name="Companias" Relationship="Self.FK_Proveedores_Companias" FromRole="Proveedores" ToRole="Companias" />
+          <NavigationProperty Name="Inventarios" Relationship="Self.FK_Inventario_Proveedores" FromRole="Proveedores" ToRole="Inventarios" />
         </EntityType>
         <EntityType Name="Provincia">
           <Key>
@@ -1341,79 +1151,97 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
           <Property Name="pais" Type="Int32" Nullable="false" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Cantones" Relationship="FACTURA_DIGITALModel.FK_Cantones_Provincias" FromRole="Provincia" ToRole="Cantone" />
-          <NavigationProperty Name="Pais1" Relationship="FACTURA_DIGITALModel.FK_Provincias_Paises" FromRole="Provincia" ToRole="Pais" />
+          <Property Name="Nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cantones" Relationship="Self.FK_Cantones_Provincias" FromRole="Provincias" ToRole="Cantones" />
+          <NavigationProperty Name="Paises" Relationship="Self.FK_Provincias_Paises" FromRole="Provincias" ToRole="Paises" />
         </EntityType>
         <EntityType Name="Role">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="User_Roles" Relationship="FACTURA_DIGITALModel.FK_User_Roles_Usuarios" FromRole="Role" ToRole="User_Roles" />
-          <NavigationProperty Name="Mantenimientos" Relationship="FACTURA_DIGITALModel.Role_Access" FromRole="Role" ToRole="Mantenimiento" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="User_Roles" Relationship="Self.FK_User_Roles_Usuarios" FromRole="Roles" ToRole="User_Roles" />
+          <NavigationProperty Name="Mantenimientos" Relationship="Self.Role_Access" FromRole="Roles" ToRole="Mantenimientos" />
         </EntityType>
-        <EntityType Name="Sucursal">
+        <EntityType Name="Sucursale">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="compania" Type="Int32" Nullable="false" />
-          <Property Name="nombre" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="dirrecion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Compania1" Relationship="FACTURA_DIGITALModel.FK_Sucursales_Companias" FromRole="Sucursale" ToRole="Compania" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Sucursal" FromRole="Sucursale" ToRole="Factura" />
+          <NavigationProperty Name="Companias" Relationship="Self.FK_Sucursales_Companias" FromRole="Sucursales" ToRole="Companias" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Sucursal" FromRole="Sucursales" ToRole="Facturas" />
         </EntityType>
-        <EntityType Name="sysdiagram">
-          <Key>
-            <PropertyRef Name="diagram_id" />
-          </Key>
-          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-          <Property Name="principal_id" Type="Int32" Nullable="false" />
-          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="version" Type="Int32" />
-          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-        </EntityType>
-        <EntityType Name="Tipo_Comprobantes">
+        <EntityType Name="Tipo_Comprobante">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Facturas" Relationship="FACTURA_DIGITALModel.FK_Facturas_Comprobante" FromRole="Tipo_Comprobantes" ToRole="Factura" />
+          <Property Name="Descripcion" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Comprobante" FromRole="Tipo_Comprobantes" ToRole="Facturas" />
         </EntityType>
         <EntityType Name="Tipo_de_cambio">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="compra" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
-          <Property Name="venta" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+          <Property Name="Nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="compra" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="venta" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="fecha_actualizacion" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Factura" Relationship="FACTURA_DIGITALModel.FK_Facturas_Tipo_Cambio" FromRole="Tipo_de_cambio" ToRole="Factura" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Tipo_Cambio" FromRole="Tipo_de_cambio" ToRole="Facturas" />
         </EntityType>
         <EntityType Name="UnidadMedida">
           <Key>
             <PropertyRef Name="id" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="value" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="descripcion" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Detalle_Facturas" Relationship="FACTURA_DIGITALModel.FK_Detalle_Facturas_UnidadMedidas" FromRole="UnidadMedida" ToRole="Detalle_Facturas" />
+          <Property Name="value" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="descripcion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Detalle_Facturas" Relationship="Self.FK_Detalle_Facturas_UnidadMedidas" FromRole="UnidadMedidas" ToRole="Detalle_Facturas" />
         </EntityType>
-        <EntityType Name="User_Roles">
+        <EntityType Name="User_Role">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="usuario" Type="Int32" Nullable="false" />
           <Property Name="role" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Role1" Relationship="FACTURA_DIGITALModel.FK_User_Roles_Usuarios" FromRole="User_Roles" ToRole="Role" />
-          <NavigationProperty Name="Usuario1" Relationship="FACTURA_DIGITALModel.FK_User_Roles_Usuarios1" FromRole="User_Roles" ToRole="Usuario" />
+          <NavigationProperty Name="Roles" Relationship="Self.FK_User_Roles_Usuarios" FromRole="User_Roles" ToRole="Roles" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_User_Roles_Usuarios1" FromRole="User_Roles" ToRole="Usuarios" />
         </EntityType>
-        <EntityType Name="Usuarios_Companias">
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="Int32" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="salt" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="clave" Type="String" MaxLength="256" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo" Type="Int32" Nullable="false" />
+          <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ultimo_login" Type="DateTime" Precision="3" />
+          <Property Name="identificacion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nombre" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email1" Type="String" MaxLength="120" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email2" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="telefono1" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="telefono2" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="pais" Type="Int32" Nullable="false" />
+          <Property Name="provincia" Type="Int32" Nullable="false" />
+          <Property Name="canton" Type="Int32" Nullable="false" />
+          <Property Name="distrito" Type="Int32" Nullable="false" />
+          <Property Name="direccion" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Facturas" Relationship="Self.FK_Facturas_Usuarios" FromRole="Usuarios" ToRole="Facturas" />
+          <NavigationProperty Name="User_Roles" Relationship="Self.FK_User_Roles_Usuarios1" FromRole="Usuarios" ToRole="User_Roles" />
+          <NavigationProperty Name="Usuarios_Companias" Relationship="Self.FK_Usuarios_Companias_Usuarios" FromRole="Usuarios" ToRole="Usuarios_Companias" />
+          <NavigationProperty Name="Usuarios_Logins" Relationship="Self.FK_Usuarios_Logins_Usuarios1" FromRole="Usuarios" ToRole="Usuarios_Logins" />
+        </EntityType>
+        <EntityType Name="Usuario_Compania">
           <Key>
             <PropertyRef Name="id_usuario" />
             <PropertyRef Name="id_compania" />
@@ -1421,8 +1249,8 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="id_usuario" Type="Int32" Nullable="false" />
           <Property Name="id_compania" Type="Int32" Nullable="false" />
           <Property Name="creado" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="Compania" Relationship="FACTURA_DIGITALModel.FK_Usuarios_Companias_Companias" FromRole="Usuarios_Companias" ToRole="Compania" />
-          <NavigationProperty Name="Usuario" Relationship="FACTURA_DIGITALModel.FK_Usuarios_Companias_Usuarios" FromRole="Usuarios_Companias" ToRole="Usuario" />
+          <NavigationProperty Name="Companias" Relationship="Self.FK_Usuarios_Companias_Companias" FromRole="Usuarios_Companias" ToRole="Companias" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Companias_Usuarios" FromRole="Usuarios_Companias" ToRole="Usuarios" />
         </EntityType>
         <EntityType Name="Usuarios_Logins">
           <Key>
@@ -1433,107 +1261,107 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="nombre" Type="String" MaxLength="65" FixedLength="false" Unicode="false" />
           <Property Name="ip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="fecha" Type="DateTime" Precision="3" />
-          <NavigationProperty Name="Usuario1" Relationship="FACTURA_DIGITALModel.FK_Usuarios_Logins_Usuarios1" FromRole="Usuarios_Logins" ToRole="Usuario" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Logins_Usuarios1" FromRole="Usuarios_Logins" ToRole="Usuarios" />
         </EntityType>
         <Association Name="FK_Clientes_Act_Econo">
-          <End Type="FACTURA_DIGITALModel.Actividades_Economica" Role="Actividades_Economicas" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Cliente" Role="Cliente" Multiplicity="*" />
+          <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividad_Economica" Multiplicity="1" />
+          <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actividades_Economicas">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Cliente">
+            <Dependent Role="Clientes">
               <PropertyRef Name="actividad_economica" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Companias_act_ecom">
-          <End Type="FACTURA_DIGITALModel.Actividades_Economica" Role="Actividades_Economicas" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="*" />
+          <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividad_Economica" Multiplicity="1" />
+          <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actividades_Economicas">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Compania">
+            <Dependent Role="Companias">
               <PropertyRef Name="actividad_economica" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Actividad_ecom">
-          <End Type="FACTURA_DIGITALModel.Actividades_Economica" Role="Actividades_Economicas" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+          <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividad_Economica" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actividades_Economicas">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="CodigoActividad" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Cantones_Provincias">
-          <End Type="FACTURA_DIGITALModel.Provincia" Role="Provincia" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Canton" Role="Cantone" Multiplicity="*" />
+          <End Role="Provincias" Type="FACTURA_DIGITALModel.Provincia" Multiplicity="1" />
+          <End Role="Cantones" Type="FACTURA_DIGITALModel.Canton" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Provincia">
+            <Principal Role="Provincias">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Cantone">
+            <Dependent Role="Cantones">
               <PropertyRef Name="provincia" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Inventario_Inventario">
-          <End Type="FACTURA_DIGITALModel.Categorias_Productos" Role="Categorias_Productos" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Inventario" Role="Inventario" Multiplicity="*" />
+          <End Role="Categorias_Productos" Type="FACTURA_DIGITALModel.Categoria_Producto" Multiplicity="1" />
+          <End Role="Inventarios" Type="FACTURA_DIGITALModel.Inventario" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categorias_Productos">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Inventario">
+            <Dependent Role="Inventarios">
               <PropertyRef Name="categoria" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Clientes_Compania">
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Cliente" Role="Cliente" Multiplicity="*" />
+          <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+          <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Compania">
+            <Principal Role="Companias">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Cliente">
+            <Dependent Role="Clientes">
               <PropertyRef Name="id_compania" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Clientes_DNI_tipos">
-          <End Type="FACTURA_DIGITALModel.Identificacion_Tipos" Role="Identificacion_Tipos" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Cliente" Role="Cliente" Multiplicity="*" />
+          <End Role="Identificacion_Tipos" Type="FACTURA_DIGITALModel.Identificacion_Tipo" Multiplicity="1" />
+          <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Identificacion_Tipos">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Cliente">
+            <Dependent Role="Clientes">
               <PropertyRef Name="tipo_identificacion" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Clientes">
-          <End Type="FACTURA_DIGITALModel.Cliente" Role="Cliente" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+          <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Cliente">
+            <Principal Role="Clientes">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="cliente" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Detalle_Facturas_Cod_Impuesto">
-          <End Type="FACTURA_DIGITALModel.Codigo_Impuestos" Role="Codigo_Impuestos" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Detalle_Factura" Role="Detalle_Facturas" Multiplicity="*" />
+          <End Role="Codigo_Impuestos" Type="FACTURA_DIGITALModel.Codigo_Impuesto" Multiplicity="1" />
+          <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Codigo_Impuestos">
               <PropertyRef Name="id" />
@@ -1543,47 +1371,59 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Facturas_Companias">
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+        <Association Name="FK_Consecutivos_Facturas_Compania">
+          <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+          <End Role="Consecutivos_Facturas" Type="FACTURA_DIGITALModel.Consecutivo_Factura" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Compania">
+            <Principal Role="Companias">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Consecutivos_Facturas">
+              <PropertyRef Name="compania" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Facturas_Companias">
+          <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Companias">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Facturas">
               <PropertyRef Name="compania" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Proveedores_Companias">
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Proveedor" Role="Proveedore" Multiplicity="0..1" />
+          <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+          <End Role="Proveedores" Type="FACTURA_DIGITALModel.Proveedor" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Compania">
+            <Principal Role="Companias">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Proveedore">
-              <PropertyRef Name="id" />
+            <Dependent Role="Proveedores">
+              <PropertyRef Name="id_compania" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Sucursales_Companias">
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Sucursal" Role="Sucursale" Multiplicity="0..1" />
+          <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+          <End Role="Sucursales" Type="FACTURA_DIGITALModel.Sucursale" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Compania">
+            <Principal Role="Companias">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Sucursale">
+            <Dependent Role="Sucursales">
               <PropertyRef Name="id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Usuarios_Companias_Companias">
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Usuarios_Companias" Role="Usuarios_Companias" Multiplicity="*" />
+          <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
+          <End Role="Usuarios_Companias" Type="FACTURA_DIGITALModel.Usuario_Compania" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Compania">
+            <Principal Role="Companias">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Usuarios_Companias">
@@ -1592,22 +1432,22 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Cond_Venta">
-          <End Type="FACTURA_DIGITALModel.Condiciones_de_Ventas" Role="Condiciones_de_Ventas" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+          <End Role="Condiciones_de_Ventas" Type="FACTURA_DIGITALModel.Condicion_de_Venta" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Condiciones_de_Ventas">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="condicion_venta" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Detalle_Facturas_UnidadMedidas">
-          <End Type="FACTURA_DIGITALModel.UnidadMedida" Role="UnidadMedida" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Detalle_Factura" Role="Detalle_Facturas" Multiplicity="*" />
+          <End Role="UnidadMedidas" Type="FACTURA_DIGITALModel.UnidadMedida" Multiplicity="1" />
+          <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="UnidadMedida">
+            <Principal Role="UnidadMedidas">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Detalle_Facturas">
@@ -1616,10 +1456,10 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_detalle_Facturas">
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Detalle_Factura" Role="Detalle_Facturas" Multiplicity="*" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="1" />
+          <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Factura">
+            <Principal Role="Facturas">
               <PropertyRef Name="numero_factura" />
             </Principal>
             <Dependent Role="Detalle_Facturas">
@@ -1628,80 +1468,80 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Comprobante">
-          <End Type="FACTURA_DIGITALModel.Tipo_Comprobantes" Role="Tipo_Comprobantes" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+          <End Role="Tipo_Comprobantes" Type="FACTURA_DIGITALModel.Tipo_Comprobante" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_Comprobantes">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="tipo_comprobante" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Facturas">
-          <End Type="FACTURA_DIGITALModel.Formas_de_pagos" Role="Formas_de_pagos" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+          <End Role="Formas_de_pagos" Type="FACTURA_DIGITALModel.Forma_de_pago" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Formas_de_pagos">
               <PropertyRef Name="id_forma_pago" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="forma_de_pago" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Sucursal">
-          <End Type="FACTURA_DIGITALModel.Sucursal" Role="Sucursale" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+          <End Role="Sucursales" Type="FACTURA_DIGITALModel.Sucursale" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Sucursale">
+            <Principal Role="Sucursales">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="sucursal" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Tipo_Cambio">
-          <End Type="FACTURA_DIGITALModel.Tipo_de_cambio" Role="Tipo_de_cambio" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="0..1" />
+          <End Role="Tipo_de_cambio" Type="Self.Tipo_de_cambio" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Tipo_de_cambio">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="numero_factura" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Usuarios">
-          <End Type="FACTURA_DIGITALModel.Usuario" Role="Usuario" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Factura" Role="Factura" Multiplicity="*" />
+          <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuario">
+            <Principal Role="Usuarios">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Factura">
+            <Dependent Role="Facturas">
               <PropertyRef Name="usuario" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Inventario_Proveedores">
-          <End Type="FACTURA_DIGITALModel.Proveedor" Role="Proveedore" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Inventario" Role="Inventario" Multiplicity="*" />
+          <End Role="Proveedores" Type="FACTURA_DIGITALModel.Proveedor" Multiplicity="1" />
+          <End Role="Inventarios" Type="FACTURA_DIGITALModel.Inventario" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Proveedore">
+            <Principal Role="Proveedores">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Inventario">
+            <Dependent Role="Inventarios">
               <PropertyRef Name="proveedor" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Padron_Electoral_Padron_Electoral_codelec">
-          <End Type="FACTURA_DIGITALModel.Padron_Electoral_codelec" Role="Padron_Electoral_codelec" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Padron_Electoral" Role="Padron_Electoral" Multiplicity="*" />
+          <End Role="Padron_Electoral_codelec" Type="Self.Padron_Electoral_codelec" Multiplicity="1" />
+          <End Role="Padron_Electoral" Type="Self.Padron_Electoral" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Padron_Electoral_codelec">
               <PropertyRef Name="codelec" />
@@ -1712,22 +1552,22 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Provincias_Paises">
-          <End Type="FACTURA_DIGITALModel.Pais" Role="Pais" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Provincia" Role="Provincia" Multiplicity="0..1" />
+          <End Role="Paises" Type="FACTURA_DIGITALModel.Pais" Multiplicity="1" />
+          <End Role="Provincias" Type="FACTURA_DIGITALModel.Provincia" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="Pais">
+            <Principal Role="Paises">
               <PropertyRef Name="id" />
             </Principal>
-            <Dependent Role="Provincia">
+            <Dependent Role="Provincias">
               <PropertyRef Name="id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Roles_Usuarios">
-          <End Type="FACTURA_DIGITALModel.Role" Role="Role" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.User_Roles" Role="User_Roles" Multiplicity="*" />
+          <End Role="Roles" Type="FACTURA_DIGITALModel.Role" Multiplicity="1" />
+          <End Role="User_Roles" Type="FACTURA_DIGITALModel.User_Role" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Role">
+            <Principal Role="Roles">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="User_Roles">
@@ -1736,10 +1576,10 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_User_Roles_Usuarios1">
-          <End Type="FACTURA_DIGITALModel.Usuario" Role="Usuario" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.User_Roles" Role="User_Roles" Multiplicity="*" />
+          <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
+          <End Role="User_Roles" Type="FACTURA_DIGITALModel.User_Role" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuario">
+            <Principal Role="Usuarios">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="User_Roles">
@@ -1748,10 +1588,10 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Usuarios_Companias_Usuarios">
-          <End Type="FACTURA_DIGITALModel.Usuario" Role="Usuario" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Usuarios_Companias" Role="Usuarios_Companias" Multiplicity="*" />
+          <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
+          <End Role="Usuarios_Companias" Type="FACTURA_DIGITALModel.Usuario_Compania" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuario">
+            <Principal Role="Usuarios">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Usuarios_Companias">
@@ -1760,10 +1600,10 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Usuarios_Logins_Usuarios1">
-          <End Type="FACTURA_DIGITALModel.Usuario" Role="Usuario" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Usuarios_Logins" Role="Usuarios_Logins" Multiplicity="*" />
+          <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
+          <End Role="Usuarios_Logins" Type="Self.Usuarios_Logins" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="Usuario">
+            <Principal Role="Usuarios">
               <PropertyRef Name="id" />
             </Principal>
             <Dependent Role="Usuarios_Logins">
@@ -1772,419 +1612,527 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="Role_Access">
-          <End Type="FACTURA_DIGITALModel.Mantenimiento" Role="Mantenimiento" Multiplicity="*" />
-          <End Type="FACTURA_DIGITALModel.Role" Role="Role" Multiplicity="*" />
+          <End Role="Mantenimientos" Type="FACTURA_DIGITALModel.Mantenimiento" Multiplicity="*" />
+          <End Role="Roles" Type="FACTURA_DIGITALModel.Role" Multiplicity="*" />
         </Association>
-        <EntityType Name="Consecutivos_Facturas">
-          <Key>
-            <PropertyRef Name="compania" />
-          </Key>
-          <Property Name="compania" Type="Int32" Nullable="false" />
-          <Property Name="consecutivo_factura" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Compania1" Relationship="FACTURA_DIGITALModel.FK_Consecutivos_Facturas_Compania" FromRole="Consecutivos_Facturas" ToRole="Compania" />
-        </EntityType>
-        <Association Name="FK_Consecutivos_Facturas_Compania">
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Consecutivos_Facturas" Role="Consecutivos_Facturas" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Compania">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Consecutivos_Facturas">
-              <PropertyRef Name="compania" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Proveedores_Companias1">
-          <End Type="FACTURA_DIGITALModel.Compania" Role="Compania" Multiplicity="1" />
-          <End Type="FACTURA_DIGITALModel.Proveedor" Role="Proveedore" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Compania">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Proveedore">
-              <PropertyRef Name="id_compania" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityContainer Name="BDContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Actividad_Economica" EntityType="FACTURA_DIGITALModel.Actividad_Economica" />
+          <EntitySet Name="Canton" EntityType="FACTURA_DIGITALModel.Canton" />
+          <EntitySet Name="Categoria_Producto" EntityType="FACTURA_DIGITALModel.Categoria_Producto" />
+          <EntitySet Name="Cliente" EntityType="FACTURA_DIGITALModel.Cliente" />
+          <EntitySet Name="Codigo_Impuesto" EntityType="FACTURA_DIGITALModel.Codigo_Impuesto" />
+          <EntitySet Name="Compania" EntityType="FACTURA_DIGITALModel.Compania" />
+          <EntitySet Name="Condicion_de_Venta" EntityType="FACTURA_DIGITALModel.Condicion_de_Venta" />
+          <EntitySet Name="Consecutivo_Factura" EntityType="FACTURA_DIGITALModel.Consecutivo_Factura" />
+          <EntitySet Name="Detalle_Facturas" EntityType="FACTURA_DIGITALModel.Detalle_Factura" />
+          <EntitySet Name="Distrito" EntityType="FACTURA_DIGITALModel.Distrito" />
+          <EntitySet Name="Factura" EntityType="FACTURA_DIGITALModel.Factura" />
+          <EntitySet Name="Forma_de_pago" EntityType="FACTURA_DIGITALModel.Forma_de_pago" />
+          <EntitySet Name="Identificacion_Tipo" EntityType="FACTURA_DIGITALModel.Identificacion_Tipo" />
+          <EntitySet Name="Inventario" EntityType="FACTURA_DIGITALModel.Inventario" />
+          <EntitySet Name="Mantenimiento" EntityType="FACTURA_DIGITALModel.Mantenimiento" />
+          <EntitySet Name="Padron_Electoral" EntityType="Self.Padron_Electoral" />
+          <EntitySet Name="Padron_Electoral_codelec" EntityType="Self.Padron_Electoral_codelec" />
+          <EntitySet Name="Pais" EntityType="FACTURA_DIGITALModel.Pais" />
+          <EntitySet Name="Proveedor" EntityType="FACTURA_DIGITALModel.Proveedor" />
+          <EntitySet Name="Provincia" EntityType="FACTURA_DIGITALModel.Provincia" />
+          <EntitySet Name="Role" EntityType="FACTURA_DIGITALModel.Role" />
+          <EntitySet Name="Sucursale" EntityType="FACTURA_DIGITALModel.Sucursale" />
+          <EntitySet Name="Tipo_Comprobante" EntityType="FACTURA_DIGITALModel.Tipo_Comprobante" />
+          <EntitySet Name="Tipo_de_cambio" EntityType="Self.Tipo_de_cambio" />
+          <EntitySet Name="UnidadMedida" EntityType="FACTURA_DIGITALModel.UnidadMedida" />
+          <EntitySet Name="User_Role" EntityType="FACTURA_DIGITALModel.User_Role" />
+          <EntitySet Name="Usuario" EntityType="FACTURA_DIGITALModel.Usuario" />
+          <EntitySet Name="Usuario_Compania" EntityType="FACTURA_DIGITALModel.Usuario_Compania" />
+          <EntitySet Name="Usuario_Login" EntityType="Self.Usuarios_Logins" />
+          <AssociationSet Name="FK_Clientes_Act_Econo" Association="Self.FK_Clientes_Act_Econo">
+            <End Role="Actividades_Economicas" EntitySet="Actividad_Economica" />
+            <End Role="Clientes" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Companias_act_ecom" Association="Self.FK_Companias_act_ecom">
+            <End Role="Actividades_Economicas" EntitySet="Actividad_Economica" />
+            <End Role="Companias" EntitySet="Compania" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Actividad_ecom" Association="Self.FK_Facturas_Actividad_ecom">
+            <End Role="Actividades_Economicas" EntitySet="Actividad_Economica" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Cantones_Provincias" Association="Self.FK_Cantones_Provincias">
+            <End Role="Provincias" EntitySet="Provincia" />
+            <End Role="Cantones" EntitySet="Canton" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventario_Inventario" Association="Self.FK_Inventario_Inventario">
+            <End Role="Categorias_Productos" EntitySet="Categoria_Producto" />
+            <End Role="Inventarios" EntitySet="Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_Compania" Association="Self.FK_Clientes_Compania">
+            <End Role="Companias" EntitySet="Compania" />
+            <End Role="Clientes" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Clientes_DNI_tipos" Association="Self.FK_Clientes_DNI_tipos">
+            <End Role="Identificacion_Tipos" EntitySet="Identificacion_Tipo" />
+            <End Role="Clientes" EntitySet="Cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Clientes" Association="Self.FK_Facturas_Clientes">
+            <End Role="Clientes" EntitySet="Cliente" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Facturas_Cod_Impuesto" Association="Self.FK_Detalle_Facturas_Cod_Impuesto">
+            <End Role="Codigo_Impuestos" EntitySet="Codigo_Impuesto" />
+            <End Role="Detalle_Facturas" EntitySet="Detalle_Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Consecutivos_Facturas_Compania" Association="Self.FK_Consecutivos_Facturas_Compania">
+            <End Role="Companias" EntitySet="Compania" />
+            <End Role="Consecutivos_Facturas" EntitySet="Consecutivo_Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Companias" Association="Self.FK_Facturas_Companias">
+            <End Role="Companias" EntitySet="Compania" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Proveedores_Companias" Association="Self.FK_Proveedores_Companias">
+            <End Role="Companias" EntitySet="Compania" />
+            <End Role="Proveedores" EntitySet="Proveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sucursales_Companias" Association="Self.FK_Sucursales_Companias">
+            <End Role="Companias" EntitySet="Compania" />
+            <End Role="Sucursales" EntitySet="Sucursale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Companias_Companias" Association="Self.FK_Usuarios_Companias_Companias">
+            <End Role="Companias" EntitySet="Compania" />
+            <End Role="Usuarios_Companias" EntitySet="Usuario_Compania" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Cond_Venta" Association="Self.FK_Facturas_Cond_Venta">
+            <End Role="Condiciones_de_Ventas" EntitySet="Condicion_de_Venta" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Detalle_Facturas_UnidadMedidas" Association="Self.FK_Detalle_Facturas_UnidadMedidas">
+            <End Role="UnidadMedidas" EntitySet="UnidadMedida" />
+            <End Role="Detalle_Facturas" EntitySet="Detalle_Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_detalle_Facturas" Association="Self.FK_Facturas_detalle_Facturas">
+            <End Role="Facturas" EntitySet="Factura" />
+            <End Role="Detalle_Facturas" EntitySet="Detalle_Facturas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Comprobante" Association="Self.FK_Facturas_Comprobante">
+            <End Role="Tipo_Comprobantes" EntitySet="Tipo_Comprobante" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Facturas" Association="Self.FK_Facturas_Facturas">
+            <End Role="Formas_de_pagos" EntitySet="Forma_de_pago" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Sucursal" Association="Self.FK_Facturas_Sucursal">
+            <End Role="Sucursales" EntitySet="Sucursale" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Tipo_Cambio" Association="Self.FK_Facturas_Tipo_Cambio">
+            <End Role="Tipo_de_cambio" EntitySet="Tipo_de_cambio" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Facturas_Usuarios" Association="Self.FK_Facturas_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuario" />
+            <End Role="Facturas" EntitySet="Factura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Inventario_Proveedores" Association="Self.FK_Inventario_Proveedores">
+            <End Role="Proveedores" EntitySet="Proveedor" />
+            <End Role="Inventarios" EntitySet="Inventario" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Padron_Electoral_Padron_Electoral_codelec" Association="Self.FK_Padron_Electoral_Padron_Electoral_codelec">
+            <End Role="Padron_Electoral_codelec" EntitySet="Padron_Electoral_codelec" />
+            <End Role="Padron_Electoral" EntitySet="Padron_Electoral" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Provincias_Paises" Association="Self.FK_Provincias_Paises">
+            <End Role="Paises" EntitySet="Pais" />
+            <End Role="Provincias" EntitySet="Provincia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Roles_Usuarios" Association="Self.FK_User_Roles_Usuarios">
+            <End Role="Roles" EntitySet="Role" />
+            <End Role="User_Roles" EntitySet="User_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_Roles_Usuarios1" Association="Self.FK_User_Roles_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuario" />
+            <End Role="User_Roles" EntitySet="User_Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Companias_Usuarios" Association="Self.FK_Usuarios_Companias_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuario" />
+            <End Role="Usuarios_Companias" EntitySet="Usuario_Compania" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Logins_Usuarios1" Association="Self.FK_Usuarios_Logins_Usuarios1">
+            <End Role="Usuarios" EntitySet="Usuario" />
+            <End Role="Usuarios_Logins" EntitySet="Usuario_Login" />
+          </AssociationSet>
+          <AssociationSet Name="Role_Access" Association="Self.Role_Access">
+            <End Role="Mantenimientos" EntitySet="Mantenimiento" />
+            <End Role="Roles" EntitySet="Role" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="FACTURA_DIGITALModelStoreContainer" CdmEntityContainer="FACTURA_DIGITALEntities">
-          <EntitySetMapping Name="Usuarios">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario">
-              <MappingFragment StoreEntitySet="Usuarios">
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="distrito" ColumnName="distrito" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
-                <ScalarProperty Name="provincia" ColumnName="provincia" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
-                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
-                <ScalarProperty Name="email2" ColumnName="email2" />
-                <ScalarProperty Name="email1" ColumnName="email1" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="estado" ColumnName="estado" />
-                <ScalarProperty Name="usuario1" ColumnName="usuario" />
-                <ScalarProperty Name="salt" ColumnName="salt" />
-                <ScalarProperty Name="clave" ColumnName="clave" />
-                <ScalarProperty Name="tipo" ColumnName="tipo" />
-                <ScalarProperty Name="ultimo_login" ColumnName="ultimo_login" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Actividades_Economica">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividades_Economica">
+        <EntityContainerMapping StorageEntityContainer="FACTURA_DIGITALModelStoreContainer" CdmEntityContainer="BDContext">
+          <EntitySetMapping Name="Actividad_Economica">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividad_Economica">
               <MappingFragment StoreEntitySet="Actividades_Economicas">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Cantons">
+          <EntitySetMapping Name="Canton">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Canton">
               <MappingFragment StoreEntitySet="Cantones">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
                 <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Categorias_Productos">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Categorias_Productos">
+          <EntitySetMapping Name="Categoria_Producto">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Categoria_Producto">
               <MappingFragment StoreEntitySet="Categorias_Productos">
-                <ScalarProperty Name="precio" ColumnName="precio" />
-                <ScalarProperty Name="execento" ColumnName="execento" />
-                <ScalarProperty Name="ventaMinimo" ColumnName="ventaMinimo" />
-                <ScalarProperty Name="minimo" ColumnName="minimo" />
-                <ScalarProperty Name="detalle" ColumnName="detalle" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="minimo" ColumnName="minimo" />
+                <ScalarProperty Name="ventaMinimo" ColumnName="ventaMinimo" />
+                <ScalarProperty Name="execento" ColumnName="execento" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Clientes">
+          <EntitySetMapping Name="Cliente">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Cliente">
               <MappingFragment StoreEntitySet="Clientes">
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="dirrecion" ColumnName="dirrecion" />
-                <ScalarProperty Name="distrito" ColumnName="distrito" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
-                <ScalarProperty Name="provincia" ColumnName="provincia" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
-                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
-                <ScalarProperty Name="email2" ColumnName="email2" />
-                <ScalarProperty Name="email1" ColumnName="email1" />
-                <ScalarProperty Name="genero" ColumnName="genero" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="actividad_economica" ColumnName="actividad_economica" />
-                <ScalarProperty Name="tipo_identificacion" ColumnName="tipo_identificacion" />
-                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="id_compania" ColumnName="id_compania" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="tipo_identificacion" ColumnName="tipo_identificacion" />
+                <ScalarProperty Name="actividad_economica" ColumnName="actividad_economica" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+                <ScalarProperty Name="email1" ColumnName="email1" />
+                <ScalarProperty Name="email2" ColumnName="email2" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="dirrecion" ColumnName="dirrecion" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Codigo_Impuestos">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Codigo_Impuestos">
+          <EntitySetMapping Name="Codigo_Impuesto">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Codigo_Impuesto">
               <MappingFragment StoreEntitySet="Codigo_Impuestos">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Companias">
+          <EntitySetMapping Name="Compania">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Compania">
               <MappingFragment StoreEntitySet="Companias">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="actividad_economica" ColumnName="actividad_economica" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Condiciones_de_Ventas">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Condiciones_de_Ventas">
+          <EntitySetMapping Name="Condicion_de_Venta">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Condicion_de_Venta">
               <MappingFragment StoreEntitySet="Condiciones_de_Ventas">
-                <ScalarProperty Name="Description" ColumnName="Description" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Detalle_Factura">
+          <EntitySetMapping Name="Consecutivo_Factura">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Consecutivo_Factura">
+              <MappingFragment StoreEntitySet="Consecutivos_Facturas">
+                <ScalarProperty Name="compania" ColumnName="compania" />
+                <ScalarProperty Name="consecutivo_factura" ColumnName="consecutivo_factura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Detalle_Facturas">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Detalle_Factura">
               <MappingFragment StoreEntitySet="Detalle_Facturas">
-                <ScalarProperty Name="TotalLinea" ColumnName="TotalLinea" />
-                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
-                <ScalarProperty Name="codigo_impuesto" ColumnName="codigo_impuesto" />
-                <ScalarProperty Name="MontoDescuento" ColumnName="MontoDescuento" />
-                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
-                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
-                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
-                <ScalarProperty Name="PartidaArancelaria" ColumnName="PartidaArancelaria" />
-                <ScalarProperty Name="LineaDetalle" ColumnName="LineaDetalle" />
-                <ScalarProperty Name="producto" ColumnName="producto" />
-                <ScalarProperty Name="NumeroLinea" ColumnName="NumeroLinea" />
                 <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
+                <ScalarProperty Name="NumeroLinea" ColumnName="NumeroLinea" />
+                <ScalarProperty Name="producto" ColumnName="producto" />
+                <ScalarProperty Name="LineaDetalle" ColumnName="LineaDetalle" />
+                <ScalarProperty Name="PartidaArancelaria" ColumnName="PartidaArancelaria" />
+                <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="PrecioUnitario" ColumnName="PrecioUnitario" />
+                <ScalarProperty Name="MontoDescuento" ColumnName="MontoDescuento" />
+                <ScalarProperty Name="codigo_impuesto" ColumnName="codigo_impuesto" />
+                <ScalarProperty Name="Impuesto" ColumnName="Impuesto" />
+                <ScalarProperty Name="TotalLinea" ColumnName="TotalLinea" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Distritos">
+          <EntitySetMapping Name="Distrito">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Distrito">
               <MappingFragment StoreEntitySet="Distritos">
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Facturas">
+          <EntitySetMapping Name="Factura">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Factura">
               <MappingFragment StoreEntitySet="Facturas">
-                <ScalarProperty Name="notas" ColumnName="notas" />
-                <ScalarProperty Name="total_comprobante" ColumnName="total_comprobante" />
-                <ScalarProperty Name="total_impuesto" ColumnName="total_impuesto" />
-                <ScalarProperty Name="total_venta_neta" ColumnName="total_venta_neta" />
-                <ScalarProperty Name="total_descuentos" ColumnName="total_descuentos" />
-                <ScalarProperty Name="total_venta" ColumnName="total_venta" />
-                <ScalarProperty Name="total_exonerado" ColumnName="total_exonerado" />
-                <ScalarProperty Name="total_exento" ColumnName="total_exento" />
-                <ScalarProperty Name="total_gravado" ColumnName="total_gravado" />
-                <ScalarProperty Name="total_mecaderia_exoneradas" ColumnName="total_mecaderia_exoneradas" />
-                <ScalarProperty Name="total_mecaderia_exentas" ColumnName="total_mecaderia_exentas" />
-                <ScalarProperty Name="total_mercaderia_gravados" ColumnName="total_mercaderia_gravados" />
-                <ScalarProperty Name="total_servicios_exonerados" ColumnName="total_servicios_exonerados" />
-                <ScalarProperty Name="total_servicios_exentos" ColumnName="total_servicios_exentos" />
-                <ScalarProperty Name="total_servicios_gravados" ColumnName="total_servicios_gravados" />
-                <ScalarProperty Name="detalle" ColumnName="detalle" />
-                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
-                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
-                <ScalarProperty Name="moneda" ColumnName="moneda" />
-                <ScalarProperty Name="cliente" ColumnName="cliente" />
-                <ScalarProperty Name="sucursal" ColumnName="sucursal" />
-                <ScalarProperty Name="Emisor" ColumnName="Emisor" />
-                <ScalarProperty Name="CodigoActividad" ColumnName="CodigoActividad" />
-                <ScalarProperty Name="clave" ColumnName="clave" />
-                <ScalarProperty Name="NumeroConsecutivo" ColumnName="NumeroConsecutivo" />
-                <ScalarProperty Name="forma_de_pago" ColumnName="forma_de_pago" />
-                <ScalarProperty Name="condicion_venta" ColumnName="condicion_venta" />
-                <ScalarProperty Name="monera" ColumnName="monera" />
-                <ScalarProperty Name="tipo_comprobante" ColumnName="tipo_comprobante" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
-                <ScalarProperty Name="compania" ColumnName="compania" />
                 <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
+                <ScalarProperty Name="compania" ColumnName="compania" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="tipo_comprobante" ColumnName="tipo_comprobante" />
+                <ScalarProperty Name="monera" ColumnName="monera" />
+                <ScalarProperty Name="condicion_venta" ColumnName="condicion_venta" />
+                <ScalarProperty Name="forma_de_pago" ColumnName="forma_de_pago" />
+                <ScalarProperty Name="NumeroConsecutivo" ColumnName="NumeroConsecutivo" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="CodigoActividad" ColumnName="CodigoActividad" />
+                <ScalarProperty Name="Emisor" ColumnName="Emisor" />
+                <ScalarProperty Name="sucursal" ColumnName="sucursal" />
+                <ScalarProperty Name="cliente" ColumnName="cliente" />
+                <ScalarProperty Name="moneda" ColumnName="moneda" />
+                <ScalarProperty Name="FechaEmision" ColumnName="FechaEmision" />
+                <ScalarProperty Name="FechaVencimiento" ColumnName="FechaVencimiento" />
+                <ScalarProperty Name="detalle" ColumnName="detalle" />
+                <ScalarProperty Name="total_servicios_gravados" ColumnName="total_servicios_gravados" />
+                <ScalarProperty Name="total_servicios_exentos" ColumnName="total_servicios_exentos" />
+                <ScalarProperty Name="total_servicios_exonerados" ColumnName="total_servicios_exonerados" />
+                <ScalarProperty Name="total_mercaderia_gravados" ColumnName="total_mercaderia_gravados" />
+                <ScalarProperty Name="total_mecaderia_exentas" ColumnName="total_mecaderia_exentas" />
+                <ScalarProperty Name="total_mecaderia_exoneradas" ColumnName="total_mecaderia_exoneradas" />
+                <ScalarProperty Name="total_gravado" ColumnName="total_gravado" />
+                <ScalarProperty Name="total_exento" ColumnName="total_exento" />
+                <ScalarProperty Name="total_exonerado" ColumnName="total_exonerado" />
+                <ScalarProperty Name="total_venta" ColumnName="total_venta" />
+                <ScalarProperty Name="total_descuentos" ColumnName="total_descuentos" />
+                <ScalarProperty Name="total_venta_neta" ColumnName="total_venta_neta" />
+                <ScalarProperty Name="total_impuesto" ColumnName="total_impuesto" />
+                <ScalarProperty Name="total_comprobante" ColumnName="total_comprobante" />
+                <ScalarProperty Name="notas" ColumnName="notas" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Formas_de_pagos">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Formas_de_pagos">
+          <EntitySetMapping Name="Forma_de_pago">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Forma_de_pago">
               <MappingFragment StoreEntitySet="Formas_de_pagos">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Identificacion_Tipos">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Identificacion_Tipos">
+          <EntitySetMapping Name="Identificacion_Tipo">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Identificacion_Tipo">
               <MappingFragment StoreEntitySet="Identificacion_Tipos">
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Inventarios">
+          <EntitySetMapping Name="Inventario">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Inventario">
               <MappingFragment StoreEntitySet="Inventarios">
-                <ScalarProperty Name="precio" ColumnName="precio" />
-                <ScalarProperty Name="exento" ColumnName="exento" />
-                <ScalarProperty Name="ventaMinima" ColumnName="ventaMinima" />
-                <ScalarProperty Name="minimo" ColumnName="minimo" />
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
-                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
-                <ScalarProperty Name="categoria" ColumnName="categoria" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="categoria" ColumnName="categoria" />
+                <ScalarProperty Name="proveedor" ColumnName="proveedor" />
+                <ScalarProperty Name="cantidad" ColumnName="cantidad" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="minimo" ColumnName="minimo" />
+                <ScalarProperty Name="ventaMinima" ColumnName="ventaMinima" />
+                <ScalarProperty Name="exento" ColumnName="exento" />
+                <ScalarProperty Name="precio" ColumnName="precio" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Mantenimientos">
+          <EntitySetMapping Name="Mantenimiento">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Mantenimiento">
               <MappingFragment StoreEntitySet="Mantenimientos">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Padron_Electoral">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Padron_Electoral">
               <MappingFragment StoreEntitySet="Padron_Electoral">
-                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
-                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="sexo" ColumnName="sexo" />
-                <ScalarProperty Name="codelec" ColumnName="codelec" />
                 <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="codelec" ColumnName="codelec" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellido1" ColumnName="apellido1" />
+                <ScalarProperty Name="apellido2" ColumnName="apellido2" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Padron_Electoral_codelec">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Padron_Electoral_codelec">
               <MappingFragment StoreEntitySet="Padron_Electoral_codelec">
-                <ScalarProperty Name="distrito" ColumnName="distrito" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
-                <ScalarProperty Name="provincia" ColumnName="provincia" />
                 <ScalarProperty Name="codelec" ColumnName="codelec" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Paises">
+          <EntitySetMapping Name="Pais">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Pais">
               <MappingFragment StoreEntitySet="Paises">
-                <ScalarProperty Name="iso3" ColumnName="iso3" />
-                <ScalarProperty Name="iso2" ColumnName="iso2" />
-                <ScalarProperty Name="country_name" ColumnName="country_name" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="country_name" ColumnName="country_name" />
+                <ScalarProperty Name="iso2" ColumnName="iso2" />
+                <ScalarProperty Name="iso3" ColumnName="iso3" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Proveedors">
+          <EntitySetMapping Name="Proveedor">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Proveedor">
               <MappingFragment StoreEntitySet="Proveedores">
-                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
-                <ScalarProperty Name="direccion" ColumnName="direccion" />
-                <ScalarProperty Name="distrito" ColumnName="distrito" />
-                <ScalarProperty Name="canton" ColumnName="canton" />
-                <ScalarProperty Name="provincia" ColumnName="provincia" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
-                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
-                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
-                <ScalarProperty Name="email2" ColumnName="email2" />
-                <ScalarProperty Name="email1" ColumnName="email1" />
-                <ScalarProperty Name="actividad_economica" ColumnName="actividad_economica" />
-                <ScalarProperty Name="tipo_dni" ColumnName="tipo_dni" />
-                <ScalarProperty Name="dni" ColumnName="dni" />
-                <ScalarProperty Name="nombre_comercial" ColumnName="nombre_comercial" />
-                <ScalarProperty Name="id_compania" ColumnName="id_compania" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="id_compania" ColumnName="id_compania" />
+                <ScalarProperty Name="nombre_comercial" ColumnName="nombre_comercial" />
+                <ScalarProperty Name="dni" ColumnName="dni" />
+                <ScalarProperty Name="tipo_dni" ColumnName="tipo_dni" />
+                <ScalarProperty Name="actividad_economica" ColumnName="actividad_economica" />
+                <ScalarProperty Name="email1" ColumnName="email1" />
+                <ScalarProperty Name="email2" ColumnName="email2" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Provincias">
+          <EntitySetMapping Name="Provincia">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Provincia">
               <MappingFragment StoreEntitySet="Provincias">
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
-                <ScalarProperty Name="pais" ColumnName="pais" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Roles">
+          <EntitySetMapping Name="Role">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Role">
               <MappingFragment StoreEntitySet="Roles">
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
-                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Sucursals">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Sucursal">
+          <EntitySetMapping Name="Sucursale">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Sucursale">
               <MappingFragment StoreEntitySet="Sucursales">
-                <ScalarProperty Name="dirrecion" ColumnName="dirrecion" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="compania" ColumnName="compania" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="dirrecion" ColumnName="dirrecion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.sysdiagram">
-              <MappingFragment StoreEntitySet="sysdiagrams">
-                <ScalarProperty Name="definition" ColumnName="definition" />
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Tipo_Comprobantes">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Tipo_Comprobantes">
+          <EntitySetMapping Name="Tipo_Comprobante">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Tipo_Comprobante">
               <MappingFragment StoreEntitySet="Tipo_Comprobantes">
-                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tipo_de_cambio">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Tipo_de_cambio">
               <MappingFragment StoreEntitySet="Tipo_de_cambio">
-                <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
-                <ScalarProperty Name="venta" ColumnName="venta" />
-                <ScalarProperty Name="compra" ColumnName="compra" />
-                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="compra" ColumnName="compra" />
+                <ScalarProperty Name="venta" ColumnName="venta" />
+                <ScalarProperty Name="fecha_actualizacion" ColumnName="fecha_actualizacion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UnidadMedidas">
+          <EntitySetMapping Name="UnidadMedida">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.UnidadMedida">
               <MappingFragment StoreEntitySet="UnidadMedidas">
-                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="value" ColumnName="value" />
-                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="User_Roles">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.User_Roles">
+          <EntitySetMapping Name="User_Role">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.User_Role">
               <MappingFragment StoreEntitySet="User_Roles">
-                <ScalarProperty Name="role" ColumnName="role" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="role" ColumnName="role" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios_Companias">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuarios_Companias">
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="salt" ColumnName="salt" />
+                <ScalarProperty Name="clave" ColumnName="clave" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="fecha_creacion" ColumnName="fecha_creacion" />
+                <ScalarProperty Name="ultimo_login" ColumnName="ultimo_login" />
+                <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="email1" ColumnName="email1" />
+                <ScalarProperty Name="email2" ColumnName="email2" />
+                <ScalarProperty Name="telefono1" ColumnName="telefono1" />
+                <ScalarProperty Name="telefono2" ColumnName="telefono2" />
+                <ScalarProperty Name="pais" ColumnName="pais" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
+                <ScalarProperty Name="distrito" ColumnName="distrito" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario_Compania">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario_Compania">
               <MappingFragment StoreEntitySet="Usuarios_Companias">
-                <ScalarProperty Name="creado" ColumnName="creado" />
-                <ScalarProperty Name="id_compania" ColumnName="id_compania" />
                 <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+                <ScalarProperty Name="id_compania" ColumnName="id_compania" />
+                <ScalarProperty Name="creado" ColumnName="creado" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Usuarios_Logins">
+          <EntitySetMapping Name="Usuario_Login">
             <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuarios_Logins">
               <MappingFragment StoreEntitySet="Usuarios_Logins">
-                <ScalarProperty Name="fecha" ColumnName="fecha" />
-                <ScalarProperty Name="ip" ColumnName="ip" />
-                <ScalarProperty Name="nombre" ColumnName="nombre" />
-                <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="login_id" ColumnName="login_id" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ip" ColumnName="ip" />
+                <ScalarProperty Name="fecha" ColumnName="fecha" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <AssociationSetMapping Name="Role_Access" TypeName="FACTURA_DIGITALModel.Role_Access" StoreEntitySet="Role_Access">
-            <EndProperty Name="Role">
-              <ScalarProperty Name="id" ColumnName="rol" />
-            </EndProperty>
-            <EndProperty Name="Mantenimiento">
+            <EndProperty Name="Mantenimientos">
               <ScalarProperty Name="id" ColumnName="mantenimiento" />
             </EndProperty>
+            <EndProperty Name="Roles">
+              <ScalarProperty Name="id" ColumnName="rol" />
+            </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Consecutivos_Facturas">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Consecutivos_Facturas">
-              <MappingFragment StoreEntitySet="Consecutivos_Facturas">
-                <ScalarProperty Name="consecutivo_factura" ColumnName="consecutivo_factura" />
-                <ScalarProperty Name="compania" ColumnName="compania" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -2199,7 +2147,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
     <Options>
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
-        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />

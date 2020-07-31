@@ -160,7 +160,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="categoria" Type="int" Nullable="false" />
     <Property Name="proveedor" Type="int" Nullable="false" />
     <Property Name="cantidad" Type="int" Nullable="false" />
@@ -174,7 +174,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="120" />
   </EntityType>
   <EntityType Name="Padron_Electoral">
@@ -247,27 +247,17 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="descripcion" Type="varchar" MaxLength="200" Nullable="false" />
   </EntityType>
   <EntityType Name="Sucursales">
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="compania" Type="int" Nullable="false" />
     <Property Name="nombre" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="dirrecion" Type="text" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Tipo_Comprobantes">
     <Key>
@@ -298,7 +288,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="usuario" Type="int" Nullable="false" />
     <Property Name="role" Type="int" Nullable="false" />
   </EntityType>
@@ -315,16 +305,16 @@
     <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
     <Property Name="ultimo_login" Type="datetime" />
     <Property Name="identificacion" Type="varchar" MaxLength="50" />
-    <Property Name="nombre" Type="varchar" MaxLength="90" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="120" Nullable="false" />
     <Property Name="email1" Type="varchar" MaxLength="120" Nullable="false" />
     <Property Name="email2" Type="varchar" MaxLength="120" />
     <Property Name="telefono1" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="telefono2" Type="varchar" MaxLength="15" />
     <Property Name="pais" Type="int" Nullable="false" />
-    <Property Name="provincia" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="canton" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="distrito" Type="nchar" MaxLength="10" Nullable="false" />
-    <Property Name="direccion" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="provincia" Type="int" Nullable="false" />
+    <Property Name="canton" Type="int" Nullable="false" />
+    <Property Name="distrito" Type="int" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="500" Nullable="false" />
   </EntityType>
   <EntityType Name="Usuarios_Companias">
     <Key>
@@ -744,7 +734,6 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
     <EntitySet Name="Role_Access" EntityType="Self.Role_Access" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Comprobantes" EntityType="Self.Tipo_Comprobantes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_de_cambio" EntityType="Self.Tipo_de_cambio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UnidadMedidas" EntityType="Self.UnidadMedidas" Schema="dbo" store:Type="Tables" />

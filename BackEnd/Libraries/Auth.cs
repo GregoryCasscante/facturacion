@@ -280,7 +280,7 @@ namespace BackEnd.Libraries
                 iterationCount: 10000,
                 numBytesRequested: 256 / 8));
 
-            Console.WriteLine("Hashed Password: " + hashed);
+            //Console.WriteLine("Hashed Password: " + hashed);
 
             return hashed;
         }

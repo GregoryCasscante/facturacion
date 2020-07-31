@@ -12,7 +12,7 @@ namespace BackEnd.DAL
 
         private BDContext context;
 
-        public bool Add(Usuario Usuario)
+        public bool Add(Usuarios Usuario)
         {
             try
             {
@@ -36,7 +36,7 @@ namespace BackEnd.DAL
         {
             try
             {
-                Usuario Usuario = this.Get(idCategory);
+                Usuarios Usuario = this.Get(idCategory);
                 using (context = new BDContext())
                 {
                     context.Usuarios.Attach(Usuario);
@@ -54,9 +54,9 @@ namespace BackEnd.DAL
 
         }
 
-        public List<Usuario> Get()
+        public List<Usuarios> Get()
         {
-            List<Usuario> result;
+            List<Usuarios> result;
             using (context = new BDContext())
             {
                 result = (from c in context.Usuarios
@@ -66,10 +66,10 @@ namespace BackEnd.DAL
             return result;
         }
 
-        public Usuario Get(int id)
+        public Usuarios Get(int id)
         {
 
-            Usuario result;
+            Usuarios result;
             using (context = new BDContext())
             {
                 result = (from c in context.Usuarios
@@ -79,7 +79,7 @@ namespace BackEnd.DAL
             return result;
         }
 
-        public bool Update(Usuario Usuario)
+        public bool Update(Usuarios Usuario)
         {
             try
             {

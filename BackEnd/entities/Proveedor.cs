@@ -37,9 +37,8 @@ namespace BackEnd.Entities
         public string direccion { get; set; }
         public Nullable<System.DateTime> fecha_creacion { get; set; }
     
-        public virtual Compania Compania { get; set; }
+        public virtual Compania Companias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Inventario> Inventarios { get; set; }
-        public virtual Compania Compania1 { get; set; }
     }
 }

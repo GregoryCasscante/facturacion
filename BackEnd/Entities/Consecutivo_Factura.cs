@@ -12,12 +12,11 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagram
+    public partial class Consecutivo_Factura
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public int compania { get; set; }
+        public int consecutivo_factura { get; set; }
+    
+        public virtual Compania Companias { get; set; }
     }
 }
