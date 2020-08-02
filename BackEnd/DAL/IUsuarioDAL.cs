@@ -14,5 +14,6 @@ namespace BackEnd.DAL
         bool Update(Usuario usuario);
         List<Usuario> Get();
         Usuario Get(int id);
+        Usuario Get(string usuario);
     }
 }

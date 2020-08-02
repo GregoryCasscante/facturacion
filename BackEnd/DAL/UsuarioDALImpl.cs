@@ -77,6 +77,19 @@ namespace BackEnd.DAL
             return result;
         }
 
+        public Usuario Get(string usurio)
+        {
+
+            Usuario result;
+            using (context = new BDContext())
+            {
+                result = (from c in context.Usuarios
+                          where c.usuario == usurio
+                          select c).FirstOrDefault();
+            }
+            return result;
+        }
+
         public bool Update(Usuario Usuario)
         {
             try

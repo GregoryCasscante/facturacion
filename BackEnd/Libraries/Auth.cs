@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+﻿using BackEnd.DAL;
+using BackEnd.Entities;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Runtime.Remoting.Messaging;
 using System.Security.Cryptography;
 using System.Text;
 using System.Web;
@@ -20,44 +24,41 @@ namespace BackEnd.Libraries
         }
 
 
-        /*
-                private ProyWebContext db = new DBContext();
+        public Boolean Login(string cod_usuario, string clave)
+        {
 
+            //Crear Objeto Modelo
+            IUsuarioDAL usuarioDAL = new UsuarioDALImpl();
 
+            //Traer informacion de usurio. 
+            Usuario usuario = usuarioDAL.Get(cod_usuario);
 
-                public Boolean Login(string cod_usuario, string clave)
+            Console.WriteLine("Usuario:" + usuario.usuario + ", Clave:" + usuario.clave);
+
+            if (usuario == null)
+            {
+                return false;
+            }
+            else
+            {
+                if (String.Equals(cod_usuario, usuario.usuario) & String.Equals(clave, usuario.clave))
                 {
-
-                    // Query for the Blog named ADO.NET Blog
-                    var user = db.usuarios
-                                    .Where(b => b.cod_usuario == cod_usuario)
-                                    .FirstOrDefault();
-
-                    if (user == null)
-                    {
-                        return false;
-                    }
-                    else
-                    {
-                        if (String.Equals(cod_usuario, user.cod_usuario) & String.Equals(clave, user.clave))
-                        {
-                            return true;
-                        }
-                        else
-                        {
-                            return false;
-                        }
-                    }
-
-
+                    return true;
                 }
-        */
+                else
+                {
+                    return false;
+                }
+            }
 
-        public string Encrypt()
+
+        }
+
+
+        public string Encrypt(string textToEncrypt)
         {
             try
             {
-                string textToEncrypt = "Water";
                 string ToReturn = "";
                 string publickey = "3zeSRY0DWPZmcwVf54LZRBoZ3AuJHyoX";
                 string secretkey = "VzFExWZ50kRwiY7laXBu6aey13PYct13";
@@ -84,11 +85,10 @@ namespace BackEnd.Libraries
             }
         }
 
-        public string Decrypt()
+        public string Decrypt(string textToDecrypt)
         {
             try
             {
-                string textToDecrypt = "VtbM/yjSA2Q=";
                 string ToReturn = "";
                 string publickey = "3zeSRY0DWPZmcwVf54LZRBoZ3AuJHyoX";
                 string privatekey = "VzFExWZ50kRwiY7laXBu6aey13PYct13";
@@ -242,7 +242,7 @@ namespace BackEnd.Libraries
         {
 
             // generate a 128-bit salt using a secure PRNG
-            byte[] salt = new byte[128 / 8];
+            byte[] salt = new byte[256 / 8];
             using (var rng = RandomNumberGenerator.Create())
             {
                 rng.GetBytes(salt);

@@ -26,30 +26,28 @@ namespace PruebasBackEnd
             Auth auth = new Auth();
             string salt = auth.generarSalt();
             Console.WriteLine("Salt:" + auth.generarSalt());
-            string clave = auth.hash_password("12345678", salt);
+            string clave = auth.hash_password("e9CfS1apYG", salt);
             Console.WriteLine("Hashed Password :" + clave);
 
 
             Usuario usuario = new Usuario()
             {
-                estado = 1,
-                usuario = "gcascante",
-                salt = salt,
-                clave = clave,
-                tipo = 1,
+                estado         = 1,
+                usuario        = "jbrenes",
+                salt           = salt,
+                clave          = clave,
+                tipo           = 1,
                 fecha_creacion = DateTime.Now,
-                ultimo_login = DateTime.Now,
-                identificacion = "112560518",
-                nombre = "Gregory Cascante Aviles",
-                email1 = "gregory@santafe.co.cr",
-                email2 = "gregory@santafe.co.cr",
-                telefono1 = "88493551",
-                telefono2 = "88493551",
-                pais = 53,
-                provincia = 1,
-                canton = 101,
-                distrito = 10201,
-                direccion = "Escazu"
+                ultimo_login   = DateTime.Now,
+                identificacion = "305110621",
+                nombre         = "Jeferson Brenes Navarro",
+                email1         = "jefersonbn2010@hotmail.com",
+                telefono1      = "72978244",
+                pais           = 53,
+                provincia      = 3,
+                canton         = 102,
+                distrito       = 10107,
+                direccion      = "Guadalupe"
 
             };
 
