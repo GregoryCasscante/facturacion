@@ -41,7 +41,11 @@ namespace BackEnd.Libraries
             }
             else
             {
-                if (String.Equals(cod_usuario, usuario.usuario) & String.Equals(clave, usuario.clave))
+                //Generar clave con salt+clave ingresada
+                string salt_password = hash_password(clave, usuario.salt);
+
+
+                if (String.Equals(cod_usuario, usuario.usuario) & String.Equals(usuario.clave, salt_password))
                 {
                     return true;
                 }
@@ -274,10 +278,10 @@ namespace BackEnd.Libraries
 
             // derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
             string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-                password: password,
-                salt: salt,
-                prf: KeyDerivationPrf.HMACSHA512,
-                iterationCount: 10000,
+                password:          password,
+                salt:              salt,
+                prf:               KeyDerivationPrf.HMACSHA512,
+                iterationCount:    10000,
                 numBytesRequested: 256 / 8));
 
             //Console.WriteLine("Hashed Password: " + hashed);

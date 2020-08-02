@@ -12,7 +12,8 @@ namespace FrontEnd.Controllers
     public class LoginController : Controller
     {
         // Instanciar la Clase de Autentificacion 
-        private Auth Autentificacion = new Auth();
+        private Auth Autentificacion   = new Auth();
+        private IUsuarioDAL usuarioDAL = new UsuarioDALImpl();
 
         // GET: Login
         public ActionResult Index()
@@ -35,19 +36,18 @@ namespace FrontEnd.Controllers
 
             if (Autentificacion.Login(cod_usuario, clave))
             {
-                /*
-                var user = db.usuarios.Where(b => b.cod_usuario == cod_usuario).FirstOrDefault();
+                Usuario usuario = usuarioDAL.Get(cod_usuario);
 
-                Session["user.cod_usuario"] = user.cod_usuario;
-                Session["user.nombre"] = user.cod_usuario;
-                Session["user.email"] = user.email;
-                Session["user.tipo_usuario"] = user.tipo_usuario;
-                Session["user.indica_activo"] = user.indica_activo;
+                Session["user.id"]      = usuario.id;
+                Session["user.usuario"] = usuario.usuario;
+                Session["user.tipo"]    = usuario.tipo;
+                Session["user.email1"]  = usuario.email1;
+                
 
                 //Variable de Autentificacion
                 Session["Autentificado"] = "Yes";
 
-
+                /*
                 //Guardar IP y fecha de cada Login
                 var ClientIP = Autentificacion.GetIPAddress();
 
@@ -58,9 +58,10 @@ namespace FrontEnd.Controllers
 
                 db.User_Logins.Add(Login_data);
                 db.SaveChanges();
+                */
 
                 Response.Redirect("/Home/index");
-                */
+             
             }
             else
             {
