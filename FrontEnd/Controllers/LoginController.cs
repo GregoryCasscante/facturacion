@@ -4,6 +4,7 @@ using BackEnd.Libraries;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,8 +13,9 @@ namespace FrontEnd.Controllers
     public class LoginController : Controller
     {
         // Instanciar la Clase de Autentificacion 
-        private Auth Autentificacion   = new Auth();
-        private IUsuarioDAL usuarioDAL = new UsuarioDALImpl();
+        private Auth Autentificacion               = new Auth();
+        private IUsuarioDAL usuarioDAL             = new UsuarioDALImpl();
+        private IUsuario_LoginDAL usuario_loginDAL = new Usuario_LoginDALImpl();
 
         // GET: Login
         public ActionResult Index()
@@ -48,18 +50,20 @@ namespace FrontEnd.Controllers
                 //Variable de Autentificacion
                 Session["Autentificado"] = "Yes";
 
-                /*
+                
                 //Guardar IP y fecha de cada Login
                 var ClientIP = Autentificacion.GetIPAddress();
 
-                User_Logins Login_data = new User_Logins();
-                Login_data.usuario = user.cod_usuario;
-                Login_data.tdate = DateTime.Now.ToString();
-                Login_data.ip = ClientIP;
+                Usuario_Login usuario_Login = new Usuario_Login()
+                {
+                    usuario = usuario.id,
+                    nombre  = usuario.usuario,
+                    ip      = ClientIP,
+                    fecha   = DateTime.Now
+                };
 
-                db.User_Logins.Add(Login_data);
-                db.SaveChanges();
-                */
+                //Crear el log de Login
+                usuario_loginDAL.Add(usuario_Login);
 
                 Response.Redirect("/Home/index");
              

@@ -53,6 +53,6 @@ namespace BackEnd.Entities
         public virtual DbSet<User_Role> User_Roles { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Usuario_Compania> Usuarios_Companias { get; set; }
-        public virtual DbSet<Usuarios_Logins> Usuarios_Logins { get; set; }
+        public virtual DbSet<Usuario_Login> Usuarios_Logins { get; set; }
     }
 }

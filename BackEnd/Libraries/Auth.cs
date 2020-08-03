@@ -289,6 +289,40 @@ namespace BackEnd.Libraries
             return hashed;
         }
 
+        public string GetIPAddress()
+        {
+            System.Web.HttpContext context = System.Web.HttpContext.Current;
+            string ipAddress = context.Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
+
+            if (!string.IsNullOrEmpty(ipAddress))
+            {
+                string[] addresses = ipAddress.Split(',');
+                if (addresses.Length != 0)
+                {
+                    return addresses[0];
+                }
+            }
+
+            ipAddress = context.Request.ServerVariables["REMOTE_ADDR"];
+
+            if (!string.IsNullOrEmpty(ipAddress))
+            {
+                if (ipAddress == "::1")
+                {
+                    return "127.0.0.1";
+                }   else
+                {
+                    return ipAddress;
+                }
+            }
+
+            //Notthing 
+
+            ipAddress = context.Request.ServerVariables["SERVER_NAME"];
+
+            return ipAddress;
+        }
+
 
 
     }

@@ -344,7 +344,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Usuarios_Logins">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuarios_Logins">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario_Login">
         <MappingFragment StoreEntitySet="Usuarios_Logins">
           <ScalarProperty Name="login_id" ColumnName="login_id" />
           <ScalarProperty Name="usuario" ColumnName="usuario" />

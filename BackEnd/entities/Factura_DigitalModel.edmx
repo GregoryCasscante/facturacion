@@ -1251,7 +1251,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <NavigationProperty Name="Companias" Relationship="Self.FK_Usuarios_Companias_Companias" FromRole="Usuarios_Companias" ToRole="Companias" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Companias_Usuarios" FromRole="Usuarios_Companias" ToRole="Usuarios" />
         </EntityType>
-        <EntityType Name="Usuarios_Logins">
+        <EntityType Name="Usuario_Login">
           <Key>
             <PropertyRef Name="login_id" />
           </Key>
@@ -1600,7 +1600,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Usuarios_Logins_Usuarios1">
           <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
-          <End Role="Usuarios_Logins" Type="Self.Usuarios_Logins" Multiplicity="*" />
+          <End Role="Usuarios_Logins" Type="FACTURA_DIGITALModel.Usuario_Login" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="id" />
@@ -1643,7 +1643,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <EntitySet Name="User_Roles" EntityType="FACTURA_DIGITALModel.User_Role" />
           <EntitySet Name="Usuarios" EntityType="FACTURA_DIGITALModel.Usuario" />
           <EntitySet Name="Usuarios_Companias" EntityType="FACTURA_DIGITALModel.Usuario_Compania" />
-          <EntitySet Name="Usuarios_Logins" EntityType="Self.Usuarios_Logins" />
+          <EntitySet Name="Usuarios_Logins" EntityType="FACTURA_DIGITALModel.Usuario_Login" />
           <AssociationSet Name="FK_Clientes_Act_Econo" Association="Self.FK_Clientes_Act_Econo">
             <End Role="Actividades_Economicas" EntitySet="Actividades_Economicas" />
             <End Role="Clientes" EntitySet="Clientes" />
@@ -2114,7 +2114,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Usuarios_Logins">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuarios_Logins">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Usuario_Login">
               <MappingFragment StoreEntitySet="Usuarios_Logins">
                 <ScalarProperty Name="login_id" ColumnName="login_id" />
                 <ScalarProperty Name="usuario" ColumnName="usuario" />

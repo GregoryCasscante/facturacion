@@ -14,18 +14,26 @@ function LlenaSelectJson(ObjetoJSON) {
     }		
 }//Fin LlenaSelectJson ================================================ 
 
-// Inicialisar Javascrip Para examen. 
+// Inicialisar Javascrip Para Proyecto. 
 $( document ).ready(function() {
     
 	console.log( "ready!" );
     
     //alert ( "Cargo" );
-	
-	
 	//$('#loginform').validate();
     
     // Validacion del login Principal
     $("#loginform").validate({
+
+        submitHandler: function (form) {
+            // do other things for a valid form
+            $("#loading_button").show();
+            form.submit();
+        }, 
+
+        invalidHandler: function (event, validator) {
+            $("#loading_button").hide();
+        },
         
         rules: {
             

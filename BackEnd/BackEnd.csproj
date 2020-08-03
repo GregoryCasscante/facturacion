@@ -51,6 +51,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,7 +63,9 @@
     <Compile Include="DAL\DALGenericoImpl.cs" />
     <Compile Include="DAL\IDALGenerico.cs" />
     <Compile Include="DAL\IUsuarioDAL.cs" />
+    <Compile Include="DAL\IUsuario_LoginDAL.cs" />
     <Compile Include="DAL\UsuarioDALImpl.cs" />
+    <Compile Include="DAL\Usuario_LoginDALImpl.cs" />
     <Compile Include="Entities\Actividad_Economica.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
@@ -159,10 +162,10 @@
     <Compile Include="Entities\Usuario.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Usuarios_Logins.cs">
+    <Compile Include="Entities\Usuario_Compania.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Usuario_Compania.cs">
+    <Compile Include="Entities\Usuario_Login.cs">
       <DependentUpon>Factura_DigitalModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Libraries\Auth.cs" />

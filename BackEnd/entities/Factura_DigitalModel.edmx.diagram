@@ -33,7 +33,7 @@
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.User_Role" Width="1.5" PointX="6" PointY="10.625" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Usuario" Width="1.5" PointX="0.75" PointY="8.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Usuario_Compania" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Usuarios_Logins" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Usuario_Login" Width="1.5" PointX="3" PointY="25.75" IsExpanded="true" />
         <AssociationConnector Association="FACTURA_DIGITALModel.FK_Clientes_Act_Econo" ManuallyRouted="false" />
         <AssociationConnector Association="FACTURA_DIGITALModel.FK_Companias_act_ecom" ManuallyRouted="false" />
         <AssociationConnector Association="FACTURA_DIGITALModel.FK_Facturas_Actividad_ecom" ManuallyRouted="false" />

@@ -12,7 +12,7 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuarios_Logins
+    public partial class Usuario_Login
     {
         public int login_id { get; set; }
         public int usuario { get; set; }

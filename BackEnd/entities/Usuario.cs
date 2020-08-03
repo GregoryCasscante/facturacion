@@ -20,7 +20,7 @@ namespace BackEnd.Entities
             this.Facturas = new HashSet<Factura>();
             this.User_Roles = new HashSet<User_Role>();
             this.Usuarios_Companias = new HashSet<Usuario_Compania>();
-            this.Usuarios_Logins = new HashSet<Usuarios_Logins>();
+            this.Usuarios_Logins = new HashSet<Usuario_Login>();
         }
     
         public int id { get; set; }
@@ -50,6 +50,6 @@ namespace BackEnd.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuario_Compania> Usuarios_Companias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuarios_Logins> Usuarios_Logins { get; set; }
+        public virtual ICollection<Usuario_Login> Usuarios_Logins { get; set; }
     }
 }

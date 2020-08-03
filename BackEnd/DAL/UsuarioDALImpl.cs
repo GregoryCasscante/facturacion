@@ -30,11 +30,11 @@ namespace BackEnd.DAL
 
         }
 
-        public bool Delete(int idCategory)
+        public bool Delete(int id)
         {
             try
             {
-                Usuario Usuario = this.Get(idCategory);
+                Usuario Usuario = this.Get(id);
                 using (context = new BDContext())
                 {
                     context.Usuarios.Attach(Usuario);
