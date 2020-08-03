@@ -34,6 +34,7 @@ namespace FrontEnd.Controllers
                 Response.Redirect("/login?error=Usuario_Clave_Invalido");
             }
 
+
             if (Autentificacion.Login(cod_usuario, clave))
             {
                 Usuario usuario = usuarioDAL.Get(cod_usuario);
