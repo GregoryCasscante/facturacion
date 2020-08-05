@@ -27,6 +27,10 @@ namespace FrontEnd.Controllers
         [HttpPost]
         public ActionResult Auth()
         {
+
+            //For Testing
+            Thread.Sleep(1000);
+
             var CMD         = Request["CMD"];
             var cod_usuario = Request["cod_usuario"];
             var clave       = Request["clave"];

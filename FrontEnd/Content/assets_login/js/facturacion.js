@@ -3,6 +3,8 @@
 *
 *
 */
+
+
 function LlenaSelectJson(ObjetoJSON) {		
     var elValor;
     var elHTML;
@@ -647,10 +649,14 @@ $( document ).ready(function() {
           formatCurrency($(this), "blur");
         }
     });
-
 	
 	
 });
 
+$(document).ready(function() {
+    
+    $("#loader-wrapper").hide();
+
+});
 
 

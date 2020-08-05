@@ -27,12 +27,16 @@ $( document ).ready(function() {
 
         submitHandler: function (form) {
             // do other things for a valid form
-            $("#loading_button").show();
+            //$("#loading_button").show();
+            $.blockUI({ message: null }); 
+            $("#loader-wrapper").show();
             form.submit();
         }, 
 
         invalidHandler: function (event, validator) {
+            $.unblockUI();
             $("#loading_button").hide();
+            $("#loader-wrapper").hide();
         },
         
         rules: {
@@ -561,3 +565,8 @@ $( document ).ready(function() {
 
 
 
+$(document).ready(function() {
+    
+    $("#loader-wrapper").hide();
+
+});
