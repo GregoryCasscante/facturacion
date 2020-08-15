@@ -18,9 +18,9 @@ namespace FrontEnd.Controllers
             return new UsuarioViewModel
             {
 
-                 id = usuario.id
+                 id      = usuario.id,
+                 estado  = usuario.estado
                  /*
-                 estado 
                  usuario 
                  salt 
                  clave 
@@ -47,7 +47,26 @@ namespace FrontEnd.Controllers
         // GET: Usuario
         public ActionResult Index()
         {
-            return View();
+
+
+            List<Usuario> usuarios;
+            using (UnidadDeTrabajo<Usuario> Unidad = new UnidadDeTrabajo<Usuario>(new BDContext()))
+            {
+                usuarios = Unidad.genericDAL.GetAll().ToList();
+            }
+            List<UsuarioViewModel> UsuariosVM = new List<UsuarioViewModel>();
+
+
+            UsuarioViewModel UsuarioViewModel;
+            foreach (var item in usuarios)
+            {
+                UsuarioViewModel = this.Convertir(item);
+
+                UsuariosVM.Add(UsuarioViewModel);
+
+            }
+
+                return View(UsuariosVM);
         }
     }
 }
