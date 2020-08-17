@@ -23,7 +23,9 @@ namespace FrontEnd.Models
 
 
         //public string salt { get; set; }
-        //public string clave { get; set; }
+        [Display(Name = "Clave")]
+        [Required(ErrorMessage = "Debe de selecionar una Clave")]
+        public string clave { get; set; }
 
         [Display(Name = "Tipo de Usuario")]
         [Required(ErrorMessage = "Debe de selecionar un tipo de usuario")]

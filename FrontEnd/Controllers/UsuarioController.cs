@@ -66,7 +66,70 @@ namespace FrontEnd.Controllers
 
             }
 
-                return View(UsuariosVM);
+            return View(UsuariosVM);
         }
+
+
+        /*
+         *************************************************************************************************************************** 
+         *************************************************************************************************************************** 
+         *************************************************************************************************************************** 
+         ***************************************************************************************************************************  
+         ***************************************************************************************************************************
+         */
+
+        // GET: Create
+        public ActionResult Create()
+        {
+
+            UsuarioViewModel Usuario = new UsuarioViewModel { };
+
+            /*
+            //Traer Información de Finca
+            using (UnidadDeTrabajo<Finca> unidad = new UnidadDeTrabajo<Finca>(new BDContext()))
+            {
+                propietario.Finca = unidad.genericDAL.GetAll().ToList();
+            }
+            */
+
+            /*
+            //Traer Información de Persona
+            using (UnidadDeTrabajo<Persona> unidad = new UnidadDeTrabajo<Persona>(new BDContext()))
+            {
+                propietario.Persona = unidad.genericDAL.GetAll().ToList();
+            }
+            */
+
+            return View(Usuario);
+        }
+
+        /*
+        [HttpPost]
+        public ActionResult Create(Propietario propietario)
+        {
+
+            //Serializar el arreglo POST
+            NameValueCollection nvc = Request.Form;
+
+            //Actualizar porcentage. 
+
+            IPropietarioDAL propietarioDB = new PropietariosDALImpl();
+
+            int p = propietarioDB.Actualizar_Porcentage(propietario.FincaId, 1);
+
+            propietario.Porcentaje = p;
+
+            using (UnidadDeTrabajo<Propietario> unidad = new UnidadDeTrabajo<Propietario>(new BDContext()))
+            {
+                unidad.genericDAL.Add(propietario);
+                unidad.Complete();
+            }
+
+
+            return RedirectToAction("Index");
+        }
+        */
+
+
     }
 }
