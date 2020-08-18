@@ -18,27 +18,25 @@ namespace FrontEnd.Controllers
             return new UsuarioViewModel
             {
 
-                 id      = usuario.id,
-                 estado  = usuario.estado
-                 /*
-                 usuario 
-                 salt 
-                 clave 
-                 tipo 
-                 fecha_creacion 
-                 ultimo_login 
-                 string identificacion 
-                 string nombre 
-                 string email1 
-                 string email2 
-                 string telefono1 
-                 string telefono2 
-                 int pais 
-                 int provincia 
-                 int canton 
-                 int distrito 
-                 string direccion 
-                 */
+                 id             = usuario.id,
+                 estado         = usuario.estado,
+                 usuario        = usuario.usuario,
+                 salt           = usuario.salt,
+                 clave          = usuario.clave,
+                 tipo           = usuario.tipo,
+                 fecha_creacion = usuario.fecha_creacion,
+                 ultimo_login   = usuario.ultimo_login,
+                 identificacion = usuario.identificacion,
+                 nombre = usuario.nombre,
+                 email1 = usuario.email1,
+                 email2 = usuario.email2,
+                 telefono1 = usuario.telefono1,
+                 telefono2 = usuario.telefono2,
+                 pais = usuario.pais,
+                 provincia = usuario.provincia,
+                 canton = usuario.canton,
+                 distrito = usuario.distrito,
+                 direccion = usuario.direccion
 
               };
 
@@ -84,21 +82,26 @@ namespace FrontEnd.Controllers
 
             UsuarioViewModel Usuario = new UsuarioViewModel { };
 
-            /*
-            //Traer Información de Finca
-            using (UnidadDeTrabajo<Finca> unidad = new UnidadDeTrabajo<Finca>(new BDContext()))
+            
+            //Traer Secundaria
+            using (UnidadDeTrabajo<Pais> unidad = new UnidadDeTrabajo<Pais>(new BDContext()))
             {
-                propietario.Finca = unidad.genericDAL.GetAll().ToList();
+                Usuario.Paises = unidad.genericDAL.GetAll().ToList();
             }
-            */
+            using (UnidadDeTrabajo<Provincia> unidad = new UnidadDeTrabajo<Provincia>(new BDContext()))
+            {
+                Usuario.Provincias = unidad.genericDAL.GetAll().ToList();
+            }
+            using (UnidadDeTrabajo<Canton> unidad = new UnidadDeTrabajo<Canton>(new BDContext()))
+            {
+                Usuario.Cantones = unidad.genericDAL.GetAll().ToList();
+            }
+            using (UnidadDeTrabajo<Distrito> unidad = new UnidadDeTrabajo<Distrito>(new BDContext()))
+            {
+                Usuario.Distritos = unidad.genericDAL.GetAll().ToList();
+            }
 
-            /*
-            //Traer Información de Persona
-            using (UnidadDeTrabajo<Persona> unidad = new UnidadDeTrabajo<Persona>(new BDContext()))
-            {
-                propietario.Persona = unidad.genericDAL.GetAll().ToList();
-            }
-            */
+
 
             return View(Usuario);
         }

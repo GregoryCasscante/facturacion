@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using BackEnd.DAL;
+using FrontEnd.Models;
+using System.ComponentModel.DataAnnotations;
+using BackEnd.Entities;
 
 namespace FrontEnd.Models
 {
@@ -17,12 +21,12 @@ namespace FrontEnd.Models
         [Required(ErrorMessage = "Debe de selecionar una opción")]
         public int estado { get; set; }
 
-        [Display(Name = "Nombre de Usuario")]
+        [Display(Name = "Usuario")]
         [Required(ErrorMessage = "Debe de selecionar un usuario")]
         public string usuario { get; set; }
 
 
-        //public string salt { get; set; }
+        public string salt { get; set; }
         [Display(Name = "Clave")]
         [Required(ErrorMessage = "Debe de selecionar una Clave")]
         public string clave { get; set; }
@@ -32,8 +36,8 @@ namespace FrontEnd.Models
         public int tipo { get; set; }
 
 
-        //public System.DateTime fecha_creacion { get; set; }
-        //public Nullable<System.DateTime> ultimo_login { get; set; }
+        public System.DateTime fecha_creacion { get; set; }
+        public Nullable<System.DateTime> ultimo_login { get; set; }
 
         [Display(Name = "Cédula o identificación")]
         [Required(ErrorMessage = "Debe de selecionar una Cédula o tipo de Identificación")]
@@ -78,6 +82,13 @@ namespace FrontEnd.Models
         [Display(Name = "Dirección")]
         [Required(ErrorMessage = "Debe de digitar una dirección")]
         public string direccion { get; set; }
+
+        /* Valores secundarios de Listas  */
+        public IEnumerable<Pais> Paises { get; set; }
+        public IEnumerable<Provincia> Provincias { get; set; }
+        public IEnumerable<Canton> Cantones { get; set; }
+        public IEnumerable<Distrito> Distritos { get; set; }
+
 
     }
 }
