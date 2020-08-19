@@ -12,33 +12,34 @@ namespace FrontEnd.Controllers
 {
     public class UsuarioController : Controller
     {
+        private BDContext context;
 
         private UsuarioViewModel Convertir(Usuario usuario)
         {
             return new UsuarioViewModel
             {
 
-                 id             = usuario.id,
-                 estado         = usuario.estado,
-                 usuario        = usuario.usuario,
-                 salt           = usuario.salt,
-                 clave          = usuario.clave,
-                 tipo           = usuario.tipo,
-                 fecha_creacion = usuario.fecha_creacion,
-                 ultimo_login   = usuario.ultimo_login,
-                 identificacion = usuario.identificacion,
-                 nombre = usuario.nombre,
-                 email1 = usuario.email1,
-                 email2 = usuario.email2,
-                 telefono1 = usuario.telefono1,
-                 telefono2 = usuario.telefono2,
-                 pais = usuario.pais,
-                 provincia = usuario.provincia,
-                 canton = usuario.canton,
-                 distrito = usuario.distrito,
-                 direccion = usuario.direccion
+                id = usuario.id,
+                estado = usuario.estado,
+                usuario = usuario.usuario,
+                salt = usuario.salt,
+                clave = usuario.clave,
+                tipo = usuario.tipo,
+                fecha_creacion = usuario.fecha_creacion,
+                ultimo_login = usuario.ultimo_login,
+                identificacion = usuario.identificacion,
+                nombre = usuario.nombre,
+                email1 = usuario.email1,
+                email2 = usuario.email2,
+                telefono1 = usuario.telefono1,
+                telefono2 = usuario.telefono2,
+                pais = usuario.pais,
+                provincia = usuario.provincia,
+                canton = usuario.canton,
+                distrito = usuario.distrito,
+                direccion = usuario.direccion
 
-              };
+            };
 
         }
 
@@ -82,7 +83,7 @@ namespace FrontEnd.Controllers
 
             UsuarioViewModel Usuario = new UsuarioViewModel { };
 
-            
+
             //Traer Secundaria
             using (UnidadDeTrabajo<Pais> unidad = new UnidadDeTrabajo<Pais>(new BDContext()))
             {
@@ -134,5 +135,48 @@ namespace FrontEnd.Controllers
         */
 
 
+        [AcceptVerbs(HttpVerbs.Get)]
+
+        public JsonResult GetProvincias(string pais)
+        {
+            var provincias = GetProvinciasList(Convert.ToInt32(pais));
+            return Json(provincias, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetCantones(string pais)
+        {
+            var provincias = GetProvinciasList(Convert.ToInt32(pais));
+            return Json(provincias, JsonRequestBehavior.AllowGet);
+        }
+
+        [NonAction]
+        public IEnumerable<SelectListItem> GetProvinciasList(int pais)
+        {
+            //generate empty list
+            var selectList = new List<SelectListItem>();
+
+            using (context = new BDContext())
+            {
+                var provincias = from p in context.Provincias
+                                 where p.pais == pais
+                                 select p;
+
+                foreach (var subcategory in provincias)
+                {
+                    //add elements in dropdown
+                    selectList.Add(new SelectListItem
+                    {
+                        Value = subcategory.id.ToString(),
+                        Text = subcategory.Nombre.ToString()
+                    });
+                }
+            }
+
+
+            return selectList;
+        }
+       
+
+        //End Public Classs
     }
 }
