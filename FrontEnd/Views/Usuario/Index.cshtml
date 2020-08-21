@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Lista de Usuarios</h2>
 
 <p>
     @Html.ActionLink("Crear Usuarios", "Create")
@@ -13,16 +13,13 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.estado)
+            Estado
         </th>
         <th>
             @Html.DisplayNameFor(model => model.usuario)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.identificacion)
+            Cédula
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nombre)
@@ -31,13 +28,7 @@
             @Html.DisplayNameFor(model => model.email1)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.email2)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.telefono1)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.telefono2)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.pais)
@@ -45,16 +36,7 @@
         <th>
             @Html.DisplayNameFor(model => model.provincia)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.canton)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.distrito)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.direccion)
-        </th>
-        <th></th>
+        <th align="center">Acción</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -66,9 +48,6 @@
             @Html.DisplayFor(modelItem => item.usuario)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.tipo)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.identificacion)
         </td>
         <td>
@@ -78,28 +57,13 @@
             @Html.DisplayFor(modelItem => item.email1)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.email2)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.telefono1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono2)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.pais)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.provincia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.canton)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.distrito)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccion)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
