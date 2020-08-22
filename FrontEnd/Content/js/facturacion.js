@@ -1,4 +1,4 @@
-/* Proyecto Final
+/* Proyecto Final Programacion
 *
 *
 *
@@ -19,10 +19,14 @@ function LlenaSelectJson(ObjetoJSON) {
 function formatNumber(n) {
     // format number 1000000 to 1,234,567
     return n.replace(/\D/g, "").replace(/\B(?=(\d{3})+(?!\d))/g, ",")
-  }
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
   
   
-  function formatCurrency(input, blur) {
+function formatCurrency(input, blur) {
     // appends $ to value, validates decimal side
     // and puts cursor back in right position.
     
@@ -41,43 +45,43 @@ function formatNumber(n) {
     // check for decimal
     if (input_val.indexOf(".") >= 0) {
   
-      // get position of first decimal
-      // this prevents multiple decimals from
-      // being entered
-      var decimal_pos = input_val.indexOf(".");
+        // get position of first decimal
+        // this prevents multiple decimals from
+        // being entered
+        var decimal_pos = input_val.indexOf(".");
   
-      // split number by decimal point
-      var left_side = input_val.substring(0, decimal_pos);
-      var right_side = input_val.substring(decimal_pos);
+        // split number by decimal point
+        var left_side = input_val.substring(0, decimal_pos);
+        var right_side = input_val.substring(decimal_pos);
   
-      // add commas to left side of number
-      left_side = formatNumber(left_side);
+        // add commas to left side of number
+        left_side = formatNumber(left_side);
   
-      // validate right side
-      right_side = formatNumber(right_side);
+        // validate right side
+        right_side = formatNumber(right_side);
       
-      // On blur make sure 2 numbers after decimal
-      if (blur === "blur") {
+        // On blur make sure 2 numbers after decimal
+        if (blur === "blur") {
         right_side += "00";
-      }
+        }
       
-      // Limit decimal to only 2 digits
-      right_side = right_side.substring(0, 2);
+        // Limit decimal to only 2 digits
+        right_side = right_side.substring(0, 2);
   
-      // join number by .
-      input_val = "$" + left_side + "." + right_side;
+        // join number by .
+        input_val = "$" + left_side + "." + right_side;
   
     } else {
-      // no decimal entered
-      // add commas to number
-      // remove all non-digits
-      input_val = formatNumber(input_val);
-      input_val = "$" + input_val;
+        // no decimal entered
+        // add commas to number
+        // remove all non-digits
+        input_val = formatNumber(input_val);
+        input_val = "$" + input_val;
       
-      // final formatting
-      if (blur === "blur") {
+        // final formatting
+        if (blur === "blur") {
         input_val += ".00";
-      }
+        }
     }
     
     // send updated string to input
@@ -87,50 +91,201 @@ function formatNumber(n) {
     var updated_len = input_val.length;
     caret_pos = updated_len - original_len + caret_pos;
     input[0].setSelectionRange(caret_pos, caret_pos);
-  }
+}
 
 // Inicialisar Javascrip Para examen. 
 $( document ).ready(function() {
     
-    console.log("ready!");
-
+    console.log("Facturacion ready!");
 
 
     //Para DropDown de Pais. 
     $("#pais").change(function () {
 
-        console.log("Call GetProvincias");
+        console.log("Pais onChange");
         var pID = $(this).val();
+        console.log("Pais:" + pID);
 
-        $.ajax("/Usuario/GetProvincias", {
-            type: "GET",
-            async: false,
-            data: { pais: pID },
-            success: function (result) {
-                console.log(result);
-                var select = $("#provincia");
-                select.empty();
-
-                /*
-                select.append($('<option/>', {
-                    value: 0,
-                    text: "--Select--"
-                }));
-                */
-
-                $.each(result, function (index, itemData) {
-                    select.append($('<option/>', {
-                        value: itemData.Value,
-                        text: itemData.Text
-                    }));
-                });
-            }
-        });
-        
+        //Update Provincia
+        update_Provincias(pID);
 
     });
 
+    //Para DropDown de Provincias. 
+    $("#provincia").change(function () {
+
+        console.log("Provincias onChange");
+        var pID = $(this).val();
+        console.log("Provincia:" + pID);
+
+        //Update Canton
+        update_Cantones(pID);
+
+    });
+
+    //Para DropDown de Cantones. 
+    $("#canton").change(function () {
+
+        console.log("Canton onChange");
+        var pID = $(this).val();
+        console.log("Canton:" + pID);
+
+        //Update Provincia
+        update_Distritos(pID);
+
+    });
+
+
+    function update_Provincias(pais) {
+
+        if (isEmpty(pais)) {
+
+            console.log("Pais es NULL");
+            //Remplazar todos los otros con --Select--
+            var select = $("#provincia");
+            select.empty();
+
+            select.append($('<option/>', { value: "", text: "--Select--" }));
+
+            $("#provincia").trigger("change");
+
+        } else {
+
+            $.ajax("/Usuario/GetProvincias", {
+                type: "GET",
+                async: false,
+                data: { pais: pais },
+                success: function (result) {
+                    //console.log(result);
+
+                    //########################################################
+                    //
+                    var select = $("#provincia");
+                    select.empty();
+
+                    if (result.length == 0) {
+                        select.append($('<option/>', { value: 0, text: "Extrangero" }));
+                    }
+
+                    $.each(result, function (index, itemData) {
+                        select.append($('<option/>', {
+                            value: itemData.Value,
+                            text: itemData.Text
+                        }));
+                    });
+
+                    $("#provincia").trigger("change");
+
+                }
+            });
+
+        }
+    }
+    //End update_Provincias
+
+
+
+    //#################################################################
+    //Procedimiento para actualizar Cantones
+    //
+    function update_Cantones(provincia) {
+
+        if (isEmpty(provincia)) {
+            console.log("Provincia es NULL");
+            //Remplazar todos los otros con --Select--
+            var select = $("#canton");
+            select.empty();
+
+            select.append($('<option/>', { value: "", text: "--Select--" }));
+
+            $("#canton").trigger("change");
+
+        } else {
+
+            $.ajax("/Usuario/GetCantones", {
+                type: "GET",
+                async: false,
+                data: { provincia: provincia },
+                success: function (result) {
+                    console.log(result);
+
+                    //########################################################
+                    //
+                    var select = $("#canton");
+                    select.empty();
+
+                    if (result.length == 0) {
+                        select.append($('<option/>', { value: 0, text: "Extrangero" }));
+                    }
+
+                    $.each(result, function (index, itemData) {
+                        select.append($('<option/>', {
+                            value: itemData.Value,
+                            text: itemData.Text
+                        }));
+                    });
+
+                    $("#canton").trigger("change");
+
+
+                }
+            });
+
+        }
+    }
+    //End update_Cantones
+
     
+    //#################################################################
+    //Procedimiento para actualizar Distritos
+    //
+    function update_Distritos(canton) {
+
+        if (isEmpty(canton)) {
+            console.log("Canton es NULL");
+            //Remplazar todos los otros con --Select--
+            var select = $("#distrito");
+            select.empty();
+
+            select.append($('<option/>', { value: "", text: "--Select--" }));
+
+        } else {
+
+            $.ajax("/Usuario/GetDistritos", {
+                type: "GET",
+                async: false,
+                data: { canton: canton },
+                success: function (result) {
+                    console.log(result);
+
+                    //########################################################
+                    //
+                    var select = $("#distrito");
+                    select.empty();
+
+                    if (result.length == 0) {
+                        select.append($('<option/>', { value: 0, text: "Extrangero" }));
+                    }
+
+                    $.each(result, function (index, itemData) {
+                        select.append($('<option/>', {
+                            value: itemData.Value,
+                            text: itemData.Text
+                        }));
+                    });
+
+
+
+                }
+            });
+
+        }
+    }
+    //End update_Distritos
+
+
+
+
     //alert ( "Cargo" );
 	//$('#loginform').validate();
     

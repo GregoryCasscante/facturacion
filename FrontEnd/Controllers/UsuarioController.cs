@@ -136,18 +136,32 @@ namespace FrontEnd.Controllers
 
 
         [AcceptVerbs(HttpVerbs.Get)]
-
         public JsonResult GetProvincias(string pais)
         {
-            var provincias = GetProvinciasList(Convert.ToInt32(pais));
+            if ( !pais.Equals("") )
+            {
+                var provincias = GetProvinciasList(Convert.ToInt32(pais));
+                return Json(provincias, JsonRequestBehavior.AllowGet);
+            } else  {
+                var selectList = new List<SelectListItem>();
+                return Json(selectList, JsonRequestBehavior.AllowGet);
+            }
+        }
+
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetCantones(string provincia)
+        {
+            var provincias = GetCantonesList(Convert.ToInt32(provincia));
             return Json(provincias, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetCantones(string pais)
+        [AcceptVerbs(HttpVerbs.Get)]
+        public JsonResult GetDistritos(string canton)
         {
-            var provincias = GetProvinciasList(Convert.ToInt32(pais));
-            return Json(provincias, JsonRequestBehavior.AllowGet);
+            var distritos = GetDistritosList(Convert.ToInt32(canton));
+            return Json(distritos, JsonRequestBehavior.AllowGet);
         }
+
 
         [NonAction]
         public IEnumerable<SelectListItem> GetProvinciasList(int pais)
@@ -175,7 +189,64 @@ namespace FrontEnd.Controllers
 
             return selectList;
         }
-       
+
+
+        [NonAction]
+        public IEnumerable<SelectListItem> GetCantonesList(int provincia)
+        {
+            //generate empty list
+            var selectList = new List<SelectListItem>();
+
+            using (context = new BDContext())
+            {
+                var cantones = from c in context.Cantones
+                               where c.provincia == provincia
+                               select c;
+
+                foreach (var subcategory in cantones)
+                {
+                    //add elements in dropdown
+                    selectList.Add(new SelectListItem
+                    {
+                        Value = subcategory.canton.ToString(),
+                        Text = subcategory.Nombre.ToString()
+                    });
+                }
+            }
+
+
+            return selectList;
+        }
+
+        [NonAction]
+        public IEnumerable<SelectListItem> GetDistritosList(int canton)
+        {
+            //generate empty list
+            var selectList = new List<SelectListItem>();
+
+            using (context = new BDContext())
+            {
+                var distritos = from d in context.Distritos
+                               where d.canton == canton
+                               select d;
+
+                foreach (var subcategory in distritos)
+                {
+                    //add elements in dropdown
+                    selectList.Add(new SelectListItem
+                    {
+                        Value = subcategory.canton.ToString(),
+                        Text = subcategory.nombre.ToString()
+                    });
+                }
+            }
+
+
+            return selectList;
+        }
+
+        
+
 
         //End Public Classs
     }
