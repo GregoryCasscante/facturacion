@@ -2,6 +2,7 @@
 using BackEnd.Libraries;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace BackEnd.DAL
@@ -97,7 +98,7 @@ namespace BackEnd.DAL
             {
                 using (context = new DBContext())
                 {
-                    context.Entry(Usuario).State = System.Data.Entity.EntityState.Modified;
+                    context.Entry(Usuario).State = EntityState.Modified;
                     context.SaveChanges();
                 }
                 return true;

@@ -186,38 +186,87 @@ namespace FrontEnd.Controllers
 
             UsuarioViewModel usuario = this.Convertir(usuarioEntity);
 
-            /*
-            //Traer Información de Finca
-            using (UnidadDeTrabajo<Finca> unidad = new UnidadDeTrabajo<Finca>(new DBContext()))
+            //Traer Datos Secundarios
+            using (UnidadDeTrabajo<Pais> unidad = new UnidadDeTrabajo<Pais>(new DBContext()))
             {
-                propietario.Finca = unidad.genericDAL.GetAll().ToList();
+                usuario.Paises = unidad.genericDAL.GetAll().ToList();
             }
-
-            //Traer Información de Persona
-            using (UnidadDeTrabajo<Persona> unidad = new UnidadDeTrabajo<Persona>(new DBContext()))
+            using (UnidadDeTrabajo<Provincia> unidad = new UnidadDeTrabajo<Provincia>(new DBContext()))
             {
-                propietario.Persona = unidad.genericDAL.GetAll().ToList();
-            }*/
+                usuario.Provincias = unidad.genericDAL.GetAll().ToList();
+            }
+            using (UnidadDeTrabajo<Canton> unidad = new UnidadDeTrabajo<Canton>(new DBContext()))
+            {
+                usuario.Cantones = unidad.genericDAL.GetAll().ToList();
+            }
+            using (UnidadDeTrabajo<Distrito> unidad = new UnidadDeTrabajo<Distrito>(new DBContext()))
+            {
+                usuario.Distritos = unidad.genericDAL.GetAll().ToList();
+            }
 
             return View(usuario);
         }
 
         [HttpPost]
-        public ActionResult Edit(Usuario usuario)
+        public ActionResult Edit(Usuario u)
         {
+
+            //Serializar el arreglo POST
+            NameValueCollection r = Request.Form;
+            Usuario usuario = u;
+            /*
+            Usuario usuario = new Usuario
+            {
+
+                id              = Convert.ToInt32(Request["id"]),
+                estado          = Convert.ToInt32(Request["estado"]),
+                usuario         = Request["usuario"],
+                salt            = Request["salt"],
+                clave           = Request["clave"],
+                tipo            = 1,
+                fecha_creacion  = Convert.ToDateTime(Request["fecha_creacion"]),
+                ultimo_login    = Convert.ToDateTime(Request["ultimo_login"]),
+                identificacion  = Request["identificacion"],
+                nombre          = Request["nombre"],
+                email1          = Request["email1"],
+                email2          = Request["email2"],
+                telefono1       = Request["telefono1"],
+                telefono2       = Request["telefono2"],
+                pais            = Convert.ToInt32(Request["pais"]),
+                provincia       = Convert.ToInt32(Request["provincia"]),
+                canton          = Convert.ToInt32(Request["canton"]),
+                distrito        = Convert.ToInt32(Request["distrito"]),
+                direccion       = Request["direccion"]
+
+            };
+            */
 
             using (UnidadDeTrabajo<Usuario> unidad = new UnidadDeTrabajo<Usuario>(new DBContext()))
             {
-                unidad.genericDAL.Update(usuario);
 
+
+                Usuario usuario_temp;
+                usuario_temp = unidad.genericDAL.Get(usuario.id);
+
+                if (usuario.clave != "--------")
+                {
+                    //Update the Password. 
+                    Auth auth = new Auth();
+                    usuario.clave = auth.hash_password(usuario.clave, usuario_temp.salt);
+                } else
+                {
+                    usuario.clave = usuario_temp.clave;
+                }
+
+
+
+                unidad.genericDAL.Update(usuario);
                 unidad.Complete();
 
-               
+
+                IUsuarioDAL usuarioDB = new UsuarioDALImpl();
+                usuarioDB.Update(usuario);
             }
-
-            //Serializar el arreglo POST
-            NameValueCollection nvc = Request.Form;
-
 
             return RedirectToAction("Index");
         }
