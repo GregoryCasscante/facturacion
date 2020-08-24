@@ -33,7 +33,7 @@ namespace PruebasBackEnd
             Usuario usuario = new Usuario()
             {
                 estado         = 1,
-                usuario        = "jbrenes",
+                usuario        = "prueba1",
                 salt           = salt,
                 clave          = clave,
                 tipo           = 1,

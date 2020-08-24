@@ -10,7 +10,6 @@ namespace BackEnd.DAL
     public interface IDALGenerico<TEntity> where TEntity : class
     {
         TEntity Get(int id);
-        TEntity Get(string id);
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
@@ -23,6 +22,8 @@ namespace BackEnd.DAL
         bool Update(TEntity entity);
         bool Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
+
+
 
     }
 }

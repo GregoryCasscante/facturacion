@@ -12,21 +12,23 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Sucursale
+    public partial class Categorias_Productos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sucursale()
+        public Categorias_Productos()
         {
-            this.Facturas = new HashSet<Factura>();
+            this.Inventarios = new HashSet<Inventarios>();
         }
     
         public int id { get; set; }
-        public int compania { get; set; }
         public string nombre { get; set; }
-        public string dirrecion { get; set; }
+        public string detalle { get; set; }
+        public int minimo { get; set; }
+        public int ventaMinimo { get; set; }
+        public int execento { get; set; }
+        public decimal precio { get; set; }
     
-        public virtual Compania Companias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<Inventarios> Inventarios { get; set; }
     }
 }

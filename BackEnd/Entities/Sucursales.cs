@@ -12,20 +12,21 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Pais
+    public partial class Sucursales
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Pais()
+        public Sucursales()
         {
-            this.Provincias = new HashSet<Provincia>();
+            this.Facturas = new HashSet<Facturas>();
         }
     
         public int id { get; set; }
-        public string country_name { get; set; }
-        public string iso2 { get; set; }
-        public string iso3 { get; set; }
+        public int compania { get; set; }
+        public string nombre { get; set; }
+        public string dirrecion { get; set; }
     
+        public virtual Companias Companias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Provincia> Provincias { get; set; }
+        public virtual ICollection<Facturas> Facturas { get; set; }
     }
 }

@@ -12,18 +12,19 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Tipo_Comprobante
+    public partial class UnidadMedidas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Tipo_Comprobante()
+        public UnidadMedidas()
         {
-            this.Facturas = new HashSet<Factura>();
+            this.Detalle_Facturas = new HashSet<Detalle_Facturas>();
         }
     
         public int id { get; set; }
-        public string Descripcion { get; set; }
+        public string value { get; set; }
+        public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<Detalle_Facturas> Detalle_Facturas { get; set; }
     }
 }

@@ -12,24 +12,24 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Actividad_Economica
+    public partial class Actividades_Economicas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Actividad_Economica()
+        public Actividades_Economicas()
         {
-            this.Clientes = new HashSet<Cliente>();
-            this.Companias = new HashSet<Compania>();
-            this.Facturas = new HashSet<Factura>();
+            this.Clientes = new HashSet<Clientes>();
+            this.Companias = new HashSet<Companias>();
+            this.Facturas = new HashSet<Facturas>();
         }
     
         public int id { get; set; }
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Clientes> Clientes { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Compania> Companias { get; set; }
+        public virtual ICollection<Companias> Companias { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<Facturas> Facturas { get; set; }
     }
 }

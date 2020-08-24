@@ -1,4 +1,5 @@
 ﻿using BackEnd.Entities;
+
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,15 +8,14 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace BackEnd.DAL
 {
     public class DALGenericoImpl<TEntity> : IDALGenerico<TEntity> where TEntity : class
     {
 
-        protected readonly BDContext Context;
+        protected readonly DBContext Context;
 
-        public DALGenericoImpl(BDContext context)
+        public DALGenericoImpl(DBContext context)
         {
             Context = context;
         }
@@ -62,20 +62,6 @@ namespace BackEnd.DAL
         }
 
         public TEntity Get(int id)
-        {
-            try
-            {
-                return Context.Set<TEntity>().Find(id);
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-        }
-
-        /*Utilizando Polimorfismo y Overloading*/
-        public TEntity Get(string id)
         {
             try
             {

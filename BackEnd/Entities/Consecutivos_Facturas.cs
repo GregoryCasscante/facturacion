@@ -12,14 +12,11 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuario_Login
+    public partial class Consecutivos_Facturas
     {
-        public int login_id { get; set; }
-        public int usuario { get; set; }
-        public string nombre { get; set; }
-        public string ip { get; set; }
-        public Nullable<System.DateTime> fecha { get; set; }
+        public int compania { get; set; }
+        public int consecutivo_factura { get; set; }
     
-        public virtual Usuario Usuarios { get; set; }
+        public virtual Companias Companias { get; set; }
     }
 }

@@ -12,18 +12,21 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Condicion_de_Venta
+    public partial class Roles
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Condicion_de_Venta()
+        public Roles()
         {
-            this.Facturas = new HashSet<Factura>();
+            this.User_Roles = new HashSet<User_Roles>();
+            this.Mantenimientos = new HashSet<Mantenimientos>();
         }
     
         public int id { get; set; }
-        public string Description { get; set; }
+        public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Factura> Facturas { get; set; }
+        public virtual ICollection<User_Roles> User_Roles { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Mantenimientos> Mantenimientos { get; set; }
     }
 }

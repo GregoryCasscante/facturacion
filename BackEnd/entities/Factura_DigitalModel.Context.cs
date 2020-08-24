@@ -13,10 +13,10 @@ namespace BackEnd.Entities
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BDContext : DbContext
+    public partial class DBContext : DbContext
     {
-        public BDContext()
-            : base("name=BDContext")
+        public DBContext()
+            : base("name=DBContext")
         {
         }
     
@@ -25,34 +25,35 @@ namespace BackEnd.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Actividad_Economica> Actividades_Economicas { get; set; }
+        public virtual DbSet<Actividades_Economicas> Actividades_Economicas { get; set; }
         public virtual DbSet<Canton> Cantones { get; set; }
-        public virtual DbSet<Categoria_Producto> Categorias_Productos { get; set; }
-        public virtual DbSet<Cliente> Clientes { get; set; }
-        public virtual DbSet<Codigo_Impuesto> Codigo_Impuestos { get; set; }
-        public virtual DbSet<Compania> Companias { get; set; }
-        public virtual DbSet<Condicion_de_Venta> Condiciones_de_Ventas { get; set; }
-        public virtual DbSet<Consecutivo_Factura> Consecutivos_Facturas { get; set; }
-        public virtual DbSet<Detalle_Factura> Detalle_Facturas { get; set; }
+        public virtual DbSet<Categorias_Productos> Categorias_Productos { get; set; }
+        public virtual DbSet<Clientes> Clientes { get; set; }
+        public virtual DbSet<Codigo_Impuestos> Codigo_Impuestos { get; set; }
+        public virtual DbSet<Companias> Companias { get; set; }
+        public virtual DbSet<Condiciones_de_Ventas> Condiciones_de_Ventas { get; set; }
+        public virtual DbSet<Consecutivos_Facturas> Consecutivos_Facturas { get; set; }
+        public virtual DbSet<Detalle_Facturas> Detalle_Facturas { get; set; }
         public virtual DbSet<Distrito> Distritos { get; set; }
-        public virtual DbSet<Factura> Facturas { get; set; }
-        public virtual DbSet<Forma_de_pago> Formas_de_pagos { get; set; }
-        public virtual DbSet<Identificacion_Tipo> Identificacion_Tipos { get; set; }
-        public virtual DbSet<Inventario> Inventarios { get; set; }
-        public virtual DbSet<Mantenimiento> Mantenimientos { get; set; }
+        public virtual DbSet<Facturas> Facturas { get; set; }
+        public virtual DbSet<Formas_de_pagos> Formas_de_pagos { get; set; }
+        public virtual DbSet<Identificacion_Tipos> Identificacion_Tipos { get; set; }
+        public virtual DbSet<Inventarios> Inventarios { get; set; }
+        public virtual DbSet<Mantenimientos> Mantenimientos { get; set; }
         public virtual DbSet<Padron_Electoral> Padron_Electoral { get; set; }
         public virtual DbSet<Padron_Electoral_codelec> Padron_Electoral_codelec { get; set; }
         public virtual DbSet<Pais> Paises { get; set; }
-        public virtual DbSet<Proveedor> Proveedores { get; set; }
+        public virtual DbSet<Proveedores> Proveedores { get; set; }
         public virtual DbSet<Provincia> Provincias { get; set; }
-        public virtual DbSet<Role> Roles { get; set; }
-        public virtual DbSet<Sucursale> Sucursales { get; set; }
-        public virtual DbSet<Tipo_Comprobante> Tipo_Comprobantes { get; set; }
+        public virtual DbSet<Roles> Roles { get; set; }
+        public virtual DbSet<Sucursales> Sucursales { get; set; }
+        public virtual DbSet<Tipo_Compania> Tipo_Compania { get; set; }
+        public virtual DbSet<Tipo_Comprobantes> Tipo_Comprobantes { get; set; }
         public virtual DbSet<Tipo_de_cambio> Tipo_de_cambio { get; set; }
-        public virtual DbSet<UnidadMedida> UnidadMedidas { get; set; }
-        public virtual DbSet<User_Role> User_Roles { get; set; }
+        public virtual DbSet<UnidadMedidas> UnidadMedidas { get; set; }
+        public virtual DbSet<User_Roles> User_Roles { get; set; }
         public virtual DbSet<Usuario> Usuarios { get; set; }
-        public virtual DbSet<Usuario_Compania> Usuarios_Companias { get; set; }
-        public virtual DbSet<Usuario_Login> Usuarios_Logins { get; set; }
+        public virtual DbSet<Usuarios_Companias> Usuarios_Companias { get; set; }
+        public virtual DbSet<Usuarios_Login> Usuarios_Logins { get; set; }
     }
 }

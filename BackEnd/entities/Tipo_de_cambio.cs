@@ -20,6 +20,6 @@ namespace BackEnd.Entities
         public decimal venta { get; set; }
         public Nullable<System.DateTime> fecha_actualizacion { get; set; }
     
-        public virtual Factura Facturas { get; set; }
+        public virtual Facturas Facturas { get; set; }
     }
 }

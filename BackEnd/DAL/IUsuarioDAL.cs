@@ -12,6 +12,7 @@ namespace BackEnd.DAL
         bool Add(Usuario usuario);
         bool Delete(int id);
         bool Update(Usuario usuario);
+        bool Create(Usuario usuario);
         List<Usuario> Get();
         Usuario Get(int id);
         Usuario Get(string usuario);

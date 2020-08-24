@@ -19,7 +19,7 @@ namespace FrontEnd.Models
 
         [Display(Name = "Estado (Activo/Desactivado)")]
         [Required(ErrorMessage = "Debe de selecionar una opción")]
-        public int estado { get; set; }
+        public Nullable<int> estado { get; set; }
 
         [Display(Name = "Usuario")]
         [Required(ErrorMessage = "Debe de selecionar un usuario")]
@@ -33,10 +33,10 @@ namespace FrontEnd.Models
 
         [Display(Name = "Tipo de Usuario")]
         [Required(ErrorMessage = "Debe de selecionar un tipo de usuario")]
-        public int tipo { get; set; }
+        public Nullable<int> tipo { get; set; }
 
 
-        public System.DateTime fecha_creacion { get; set; }
+        public Nullable<System.DateTime> fecha_creacion { get; set; }
         public Nullable<System.DateTime> ultimo_login { get; set; }
 
         [Display(Name = "Cédula o identificación")]
@@ -51,6 +51,7 @@ namespace FrontEnd.Models
         [Required(ErrorMessage = "Debe de digitar un email")]
         public string email1 { get; set; }
 
+        [DataType(DataType.EmailAddress)]
         [Display(Name = "Email")]
         [Required(ErrorMessage = "Debe de digitar un email")]
         public string email2 { get; set; }
@@ -65,23 +66,29 @@ namespace FrontEnd.Models
 
         [Display(Name = "País")]
         [Required(ErrorMessage = "Debe de digitar un país")]
-        public int pais { get; set; }
+        public Nullable<int> pais { get; set; }
 
         [Display(Name = "Provincia")]
         [Required(ErrorMessage = "Debe de digitar una provincia")]
-        public int provincia { get; set; }
+        public Nullable<int> provincia { get; set; }
 
         [Display(Name = "Cantón")]
         [Required(ErrorMessage = "Debe de digitar un cantón")]
-        public int canton { get; set; }
+        public Nullable<int> canton { get; set; }
 
         [Display(Name = "Distrito")]
         [Required(ErrorMessage = "Debe de digitar un distrito")]
-        public int distrito { get; set; }
+        public Nullable<int> distrito { get; set; }
 
         [Display(Name = "Dirección")]
         [Required(ErrorMessage = "Debe de digitar una dirección")]
         public string direccion { get; set; }
+
+
+        public Pais      UsuarioPais { get; set; }
+        public Provincia UsuarioProvincia { get; set; }
+        public Canton    UsuarioCanton { get; set; }
+        public Distrito  UsuarioDistrito { get; set; }
 
         /* Valores secundarios de Listas  */
         public IEnumerable<Pais> Paises { get; set; }

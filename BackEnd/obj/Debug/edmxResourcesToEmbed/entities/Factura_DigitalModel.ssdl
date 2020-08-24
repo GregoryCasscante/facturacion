@@ -63,7 +63,17 @@
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="actividad_economica" Type="int" Nullable="false" />
-    <Property Name="nombre" Type="int" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="tipo_identificacion" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="identificacion" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="tipo_compania" Type="int" Nullable="false" />
+    <Property Name="telefono" Type="varchar" MaxLength="100" />
+    <Property Name="nombre_contacto" Type="varchar" MaxLength="50" />
+    <Property Name="apellido1_contacto" Type="varchar" MaxLength="50" />
+    <Property Name="apellido2_contacto" Type="varchar" MaxLength="50" />
+    <Property Name="email_contacto" Type="varchar" MaxLength="100" />
+    <Property Name="pais" Type="int" Nullable="false" />
+    <Property Name="direccion" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="Condiciones_de_Ventas">
     <Key>
@@ -259,6 +269,13 @@
     <Property Name="nombre" Type="varchar" MaxLength="150" Nullable="false" />
     <Property Name="dirrecion" Type="text" />
   </EntityType>
+  <EntityType Name="Tipo_Compania">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="Tipo_Comprobantes">
     <Key>
       <PropertyRef Name="id" />
@@ -297,24 +314,24 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="estado" Type="int" Nullable="false" />
-    <Property Name="usuario" Type="varchar" MaxLength="256" Nullable="false" />
-    <Property Name="salt" Type="varchar" MaxLength="256" Nullable="false" />
-    <Property Name="clave" Type="varchar" MaxLength="256" Nullable="false" />
-    <Property Name="tipo" Type="int" Nullable="false" />
-    <Property Name="fecha_creacion" Type="datetime" Nullable="false" />
+    <Property Name="estado" Type="int" />
+    <Property Name="usuario" Type="varchar" MaxLength="256" />
+    <Property Name="salt" Type="varchar" MaxLength="256" />
+    <Property Name="clave" Type="varchar" MaxLength="256" />
+    <Property Name="tipo" Type="int" />
+    <Property Name="fecha_creacion" Type="datetime" />
     <Property Name="ultimo_login" Type="datetime" />
     <Property Name="identificacion" Type="varchar" MaxLength="50" />
-    <Property Name="nombre" Type="varchar" MaxLength="120" Nullable="false" />
-    <Property Name="email1" Type="varchar" MaxLength="120" Nullable="false" />
+    <Property Name="nombre" Type="varchar" MaxLength="120" />
+    <Property Name="email1" Type="varchar" MaxLength="120" />
     <Property Name="email2" Type="varchar" MaxLength="120" />
-    <Property Name="telefono1" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="telefono1" Type="varchar" MaxLength="15" />
     <Property Name="telefono2" Type="varchar" MaxLength="15" />
-    <Property Name="pais" Type="int" Nullable="false" />
-    <Property Name="provincia" Type="int" Nullable="false" />
-    <Property Name="canton" Type="int" Nullable="false" />
-    <Property Name="distrito" Type="int" Nullable="false" />
-    <Property Name="direccion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="pais" Type="int" />
+    <Property Name="provincia" Type="int" />
+    <Property Name="canton" Type="int" />
+    <Property Name="distrito" Type="int" />
+    <Property Name="direccion" Type="varchar" MaxLength="500" />
   </EntityType>
   <EntityType Name="Usuarios_Companias">
     <Key>
@@ -392,6 +409,30 @@
       </Principal>
       <Dependent Role="Companias">
         <PropertyRef Name="actividad_economica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Companias_Tipo_Compania">
+    <End Role="Tipo_Compania" Type="Self.Tipo_Compania" Multiplicity="1" />
+    <End Role="Companias" Type="Self.Companias" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tipo_Compania">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Companias">
+        <PropertyRef Name="tipo_compania" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Companias_tipo_ident">
+    <End Role="Identificacion_Tipos" Type="Self.Identificacion_Tipos" Multiplicity="1" />
+    <End Role="Companias" Type="Self.Companias" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Identificacion_Tipos">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Companias">
+        <PropertyRef Name="id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -604,13 +645,13 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
   </Association>
   <Association Name="FK_Provincias_Paises">
     <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
-    <End Role="Provincias" Type="Self.Provincias" Multiplicity="0..1" />
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Paises">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Provincias">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="pais" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -640,13 +681,13 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
   </Association>
   <Association Name="FK_Sucursales_Companias">
     <End Role="Companias" Type="Self.Companias" Multiplicity="1" />
-    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="0..1" />
+    <End Role="Sucursales" Type="Self.Sucursales" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Companias">
         <PropertyRef Name="id" />
       </Principal>
       <Dependent Role="Sucursales">
-        <PropertyRef Name="id" />
+        <PropertyRef Name="compania" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -734,6 +775,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
     <EntitySet Name="Role_Access" EntityType="Self.Role_Access" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Sucursales" EntityType="Self.Sucursales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tipo_Compania" EntityType="Self.Tipo_Compania" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_Comprobantes" EntityType="Self.Tipo_Comprobantes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Tipo_de_cambio" EntityType="Self.Tipo_de_cambio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UnidadMedidas" EntityType="Self.UnidadMedidas" Schema="dbo" store:Type="Tables" />
@@ -759,6 +801,14 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
     </AssociationSet>
     <AssociationSet Name="FK_Companias_act_ecom" Association="Self.FK_Companias_act_ecom">
       <End Role="Actividades_Economicas" EntitySet="Actividades_Economicas" />
+      <End Role="Companias" EntitySet="Companias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Companias_Tipo_Compania" Association="Self.FK_Companias_Tipo_Compania">
+      <End Role="Tipo_Compania" EntitySet="Tipo_Compania" />
+      <End Role="Companias" EntitySet="Companias" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Companias_tipo_ident" Association="Self.FK_Companias_tipo_ident">
+      <End Role="Identificacion_Tipos" EntitySet="Identificacion_Tipos" />
       <End Role="Companias" EntitySet="Companias" />
     </AssociationSet>
     <AssociationSet Name="FK_Consecutivos_Facturas_Compania" Association="Self.FK_Consecutivos_Facturas_Compania">

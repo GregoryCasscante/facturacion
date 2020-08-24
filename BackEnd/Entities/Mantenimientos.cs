@@ -12,23 +12,18 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Categoria_Producto
+    public partial class Mantenimientos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Categoria_Producto()
+        public Mantenimientos()
         {
-            this.Inventarios = new HashSet<Inventario>();
+            this.Roles = new HashSet<Roles>();
         }
     
         public int id { get; set; }
-        public string nombre { get; set; }
-        public string detalle { get; set; }
-        public int minimo { get; set; }
-        public int ventaMinimo { get; set; }
-        public int execento { get; set; }
-        public decimal precio { get; set; }
+        public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inventario> Inventarios { get; set; }
+        public virtual ICollection<Roles> Roles { get; set; }
     }
 }

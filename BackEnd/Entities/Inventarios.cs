@@ -12,18 +12,19 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Codigo_Impuesto
+    public partial class Inventarios
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Codigo_Impuesto()
-        {
-            this.Detalle_Facturas = new HashSet<Detalle_Factura>();
-        }
-    
         public int id { get; set; }
+        public int categoria { get; set; }
+        public int proveedor { get; set; }
+        public int cantidad { get; set; }
         public string descripcion { get; set; }
+        public int minimo { get; set; }
+        public int ventaMinima { get; set; }
+        public int exento { get; set; }
+        public int precio { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detalle_Factura> Detalle_Facturas { get; set; }
+        public virtual Categorias_Productos Categorias_Productos { get; set; }
+        public virtual Proveedores Proveedores { get; set; }
     }
 }

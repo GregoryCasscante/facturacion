@@ -12,44 +12,45 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Usuario
+    public partial class Companias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Usuario()
+        public Companias()
         {
+            this.Clientes = new HashSet<Clientes>();
             this.Facturas = new HashSet<Facturas>();
-            this.User_Roles = new HashSet<User_Roles>();
+            this.Proveedores = new HashSet<Proveedores>();
+            this.Sucursales = new HashSet<Sucursales>();
             this.Usuarios_Companias = new HashSet<Usuarios_Companias>();
-            this.Usuarios_Logins = new HashSet<Usuarios_Login>();
         }
     
         public int id { get; set; }
-        public Nullable<int> estado { get; set; }
-        public string usuario { get; set; }
-        public string salt { get; set; }
-        public string clave { get; set; }
-        public Nullable<int> tipo { get; set; }
-        public Nullable<System.DateTime> fecha_creacion { get; set; }
-        public Nullable<System.DateTime> ultimo_login { get; set; }
-        public string identificacion { get; set; }
+        public int actividad_economica { get; set; }
         public string nombre { get; set; }
-        public string email1 { get; set; }
-        public string email2 { get; set; }
-        public string telefono1 { get; set; }
-        public string telefono2 { get; set; }
-        public Nullable<int> pais { get; set; }
-        public Nullable<int> provincia { get; set; }
-        public Nullable<int> canton { get; set; }
-        public Nullable<int> distrito { get; set; }
+        public string tipo_identificacion { get; set; }
+        public string identificacion { get; set; }
+        public int tipo_compania { get; set; }
+        public string telefono { get; set; }
+        public string nombre_contacto { get; set; }
+        public string apellido1_contacto { get; set; }
+        public string apellido2_contacto { get; set; }
+        public string email_contacto { get; set; }
+        public int pais { get; set; }
         public string direccion { get; set; }
     
+        public virtual Actividades_Economicas Actividades_Economicas { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Clientes> Clientes { get; set; }
+        public virtual Tipo_Compania Tipo_Compania1 { get; set; }
+        public virtual Identificacion_Tipos Identificacion_Tipos { get; set; }
+        public virtual Consecutivos_Facturas Consecutivos_Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Facturas> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User_Roles> User_Roles { get; set; }
+        public virtual ICollection<Proveedores> Proveedores { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Sucursales> Sucursales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuarios_Companias> Usuarios_Companias { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Usuarios_Login> Usuarios_Logins { get; set; }
     }
 }

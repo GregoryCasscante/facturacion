@@ -12,13 +12,13 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class User_Role
+    public partial class Usuarios_Companias
     {
-        public int id { get; set; }
-        public int usuario { get; set; }
-        public int role { get; set; }
+        public int id_usuario { get; set; }
+        public int id_compania { get; set; }
+        public System.DateTime creado { get; set; }
     
-        public virtual Role Roles { get; set; }
+        public virtual Companias Companias { get; set; }
         public virtual Usuario Usuarios { get; set; }
     }
 }

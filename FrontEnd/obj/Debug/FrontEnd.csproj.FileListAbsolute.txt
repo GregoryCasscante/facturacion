@@ -1,3 +1,5 @@
+D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csproj.CoreCompileInputs.cache
+D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csprojAssemblyReference.cache
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\FrontEnd.dll.config
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\FrontEnd.dll
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\FrontEnd.pdb
@@ -69,6 +71,8 @@ D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\M
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\Microsoft.AspNetCore.Cryptography.Internal.dll
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\BackEnd.pdb
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\BackEnd.dll.config
+D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\EntityFramework.xml
+D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\EntityFramework.SqlServer.xml
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\System.Web.Helpers.xml
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\System.Web.Mvc.xml
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\System.Web.Optimization.xml
@@ -81,10 +85,6 @@ D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\A
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\Microsoft.AspNetCore.Cryptography.Internal.xml
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csprojAssemblyReference.cache
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csproj.CoreCompileInputs.cache
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.csproj.CopyComplete
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.dll
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\obj\Debug\FrontEnd.pdb
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\EntityFramework.xml
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\FrontEnd\bin\EntityFramework.SqlServer.xml

@@ -17,7 +17,6 @@ namespace BackEnd.Libraries
     public class Auth
     {
 
-
         public Auth()
         {
 

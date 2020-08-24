@@ -29,7 +29,7 @@ namespace FrontEnd.Controllers
         {
 
             //For Testing
-            Thread.Sleep(1000);
+            //Thread.Sleep(500);
 
             var CMD         = Request["CMD"];
             var cod_usuario = Request["cod_usuario"];
@@ -58,7 +58,7 @@ namespace FrontEnd.Controllers
                 //Guardar IP y fecha de cada Login
                 var ClientIP = Autentificacion.GetIPAddress();
 
-                Usuario_Login usuario_Login = new Usuario_Login()
+                Usuarios_Login usuario_Login = new Usuarios_Login()
                 {
                     usuario = usuario.id,
                     nombre  = usuario.usuario,

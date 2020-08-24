@@ -9,9 +9,9 @@ namespace BackEnd.DAL
 {
     public interface IUsuario_LoginDAL : IDisposable
     {
-        bool Add(Usuario_Login Usuario_Login);
+        bool Add(Usuarios_Login Usuario_Login);
         bool Delete(int id);
-         List<Usuario_Login> Get();
-        Usuario_Login Get(int id);
+        List<Usuarios_Login> Get();
+        Usuarios_Login Get(int id);
     }
 }

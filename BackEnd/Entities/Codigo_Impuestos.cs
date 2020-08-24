@@ -12,18 +12,18 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Identificacion_Tipo
+    public partial class Codigo_Impuestos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Identificacion_Tipo()
+        public Codigo_Impuestos()
         {
-            this.Clientes = new HashSet<Cliente>();
+            this.Detalle_Facturas = new HashSet<Detalle_Facturas>();
         }
     
         public int id { get; set; }
-        public string Descripcion { get; set; }
+        public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Cliente> Clientes { get; set; }
+        public virtual ICollection<Detalle_Facturas> Detalle_Facturas { get; set; }
     }
 }
