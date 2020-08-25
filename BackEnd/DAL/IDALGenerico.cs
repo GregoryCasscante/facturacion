@@ -10,6 +10,7 @@ namespace BackEnd.DAL
     public interface IDALGenerico<TEntity> where TEntity : class
     {
         TEntity Get(int id);
+        TEntity GetCanton(int canton);
         IEnumerable<TEntity> GetAll();
         IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 

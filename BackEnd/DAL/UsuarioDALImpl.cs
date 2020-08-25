@@ -79,6 +79,19 @@ namespace BackEnd.DAL
             return result;
         }
 
+        public Canton GetCanton(int id)
+        {
+
+            Canton result;
+            using (context = new DBContext())
+            {
+                result = (from c in context.Cantones
+                          where c.canton == id
+                          select c).FirstOrDefault();
+            }
+            return result;
+        }
+
         public Usuario Get(string usurio)
         {
 

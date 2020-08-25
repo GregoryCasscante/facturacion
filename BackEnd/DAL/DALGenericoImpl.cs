@@ -74,6 +74,19 @@ namespace BackEnd.DAL
             }
         }
 
+        public TEntity GetCanton(int canton)
+        {
+            try
+            {
+                return Context.Set<TEntity>().Find(canton);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
         public IEnumerable<TEntity> GetAll()
         {
             try

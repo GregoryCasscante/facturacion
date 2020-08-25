@@ -16,5 +16,6 @@ namespace BackEnd.DAL
         List<Usuario> Get();
         Usuario Get(int id);
         Usuario Get(string usuario);
+        Canton GetCanton(int id);
     }
 }

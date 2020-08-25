@@ -1,0 +1,86 @@
+﻿@model FrontEnd.Models.UsuarioViewModel
+
+@{ 
+    var u = Model;
+}
+
+<h3>Está seguro que desea borrar el usuario? </h3>
+<div>
+    <h4>Usuario (@u.id)</h4>
+    <hr />
+
+
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="estado">Estado</label>
+                <input type="text" disabled class="form-control" id="estado" placeholder="Estado" value="@( u.estado == 0 ? "Desactivado" : "Activado" )">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="usuario">Usuario</label>
+                <input type="text" class="form-control" id="usuario" disabled placeholder="Usuario" value="@u.usuario">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="fecha_creacion">Creado</label>
+                <input type="fecha_creacion" class="form-control" disabled id="fecha_creacion" placeholder="@u.fecha_creacion">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="ultimo_login">Último Login</label>
+                <input type="ultimo_login" class="form-control" disabled id="ultimo_login" placeholder="@u.ultimo_login">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="cedula">Cédula</label>
+                <input type="cedula" class="form-control" disabled id="cedula" placeholder="@u.identificacion">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="nombre">Nombre</label>
+                <input type="nombre" class="form-control" disabled id="nombre" placeholder="@u.nombre">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="email1">Email</label>
+                <input type="email1" class="form-control" disabled id="email1" placeholder="@u.email1">
+            </div>
+        </div>
+
+
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                <label for="telefono">Télefono</label>
+                <input type="telefono" class="form-control" disabled id="telefono" placeholder="@u.telefono1">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="pais">País</label>
+                <input type="nombre" class="form-control" disabled id="pais" placeholder="@u.UsuarioPais.country_name">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="provincia">Provincia</label>
+                <input type="provincia" class="form-control" disabled id="provincia" placeholder="@u.UsuarioProvincia.Nombre">
+            </div>
+            <div class="form-group col-md-3">
+                <label for="canton">Cantón</label>
+                <input type="canton" class="form-control" disabled id="canton" placeholder="@u.UsuarioCanton.Nombre">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-12">
+                <label for="dirrecion">Dirreción</label>
+                <input type="dirrecion" class="form-control" disabled id="dirrecion" placeholder="@u.direccion">
+            </div>
+        </div>
+
+    </form>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Borrar" class="btn btn-primary" /> |
+            @Html.ActionLink("Regresar", "Index")
+        </div>
+    }
+</div>

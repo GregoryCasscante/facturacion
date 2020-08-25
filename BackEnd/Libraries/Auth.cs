@@ -44,7 +44,7 @@ namespace BackEnd.Libraries
                 string salt_password = hash_password(clave, usuario.salt);
 
 
-                if (String.Equals(cod_usuario, usuario.usuario) & String.Equals(usuario.clave, salt_password))
+                if (String.Equals(cod_usuario, usuario.usuario) & String.Equals(usuario.clave, salt_password) & usuario.estado == 1 )
                 {
                     return true;
                 }
