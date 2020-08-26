@@ -2,7 +2,7 @@
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="FACTURA_DIGITALModelStoreContainer" CdmEntityContainer="DBContext">
     <EntitySetMapping Name="Actividades_Economicas">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividades_Economicas">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividades_Economica">
         <MappingFragment StoreEntitySet="Actividades_Economicas">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -32,7 +32,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Clientes">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Clientes">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Cliente">
         <MappingFragment StoreEntitySet="Clientes">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="id_compania" ColumnName="id_compania" />
@@ -63,13 +63,13 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Companias">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Companias">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Compania">
         <MappingFragment StoreEntitySet="Companias">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="actividad_economica" ColumnName="actividad_economica" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="tipo_identificacion" ColumnName="tipo_identificacion" />
-          <ScalarProperty Name="identificacion" ColumnName="identificacion" />
+          <ScalarProperty Name="cedula_juridica" ColumnName="identificacion" />
           <ScalarProperty Name="tipo_compania" ColumnName="tipo_compania" />
           <ScalarProperty Name="telefono" ColumnName="telefono" />
           <ScalarProperty Name="nombre_contacto" ColumnName="nombre_contacto" />
@@ -82,7 +82,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Condiciones_de_Ventas">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Condiciones_de_Ventas">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Condiciones_de_Venta">
         <MappingFragment StoreEntitySet="Condiciones_de_Ventas">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="Description" ColumnName="Description" />
@@ -98,7 +98,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Detalle_Facturas">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Detalle_Facturas">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Detalle_Factura">
         <MappingFragment StoreEntitySet="Detalle_Facturas">
           <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
           <ScalarProperty Name="NumeroLinea" ColumnName="NumeroLinea" />
@@ -125,7 +125,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Facturas">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Facturas">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Factura">
         <MappingFragment StoreEntitySet="Facturas">
           <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
           <ScalarProperty Name="compania" ColumnName="compania" />
@@ -163,7 +163,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Formas_de_pagos">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Formas_de_pagos">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Formas_de_pago">
         <MappingFragment StoreEntitySet="Formas_de_pagos">
           <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -234,7 +234,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Proveedores">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Proveedores">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Proveedor">
         <MappingFragment StoreEntitySet="Proveedores">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="id_compania" ColumnName="id_compania" />
@@ -273,7 +273,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Sucursales">
-      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Sucursales">
+      <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Sucursal">
         <MappingFragment StoreEntitySet="Sucursales">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="compania" ColumnName="compania" />

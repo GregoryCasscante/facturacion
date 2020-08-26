@@ -63,9 +63,11 @@
     <Compile Include="DAL\ClienteDALImpl.cs" />
     <Compile Include="DAL\CompaniaDALImpl.cs" />
     <Compile Include="DAL\DALGenericoImpl.cs" />
+    <Compile Include="DAL\FacturaDALImpl.cs" />
     <Compile Include="DAL\IClienteDAL.cs" />
     <Compile Include="DAL\ICompaniaDAL.cs" />
     <Compile Include="DAL\IDALGenerico.cs" />
+    <Compile Include="DAL\IFacturaDAL.cs" />
     <Compile Include="DAL\IProveedorDAL.cs" />
     <Compile Include="DAL\ISucursalDAL.cs" />
     <Compile Include="DAL\IUsuarioDAL.cs" />
@@ -75,7 +77,7 @@
     <Compile Include="DAL\UnidadDeTrabajo.cs" />
     <Compile Include="DAL\UsuarioDALImpl.cs" />
     <Compile Include="DAL\Usuario_LoginDALImpl.cs" />
-    <Compile Include="Entities\Actividades_Economicas.cs">
+    <Compile Include="Entities\Actividades_Economica.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Canton.cs">
@@ -93,19 +95,19 @@
     <Compile Include="Entities\Compania.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Condiciones_de_Ventas.cs">
+    <Compile Include="Entities\Condiciones_de_Venta.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Consecutivos_Facturas.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Detalle_Facturas.cs">
+    <Compile Include="Entities\Detalle_Factura.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Distrito.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Facturas.cs">
+    <Compile Include="Entities\Factura.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\FACTURA_DIGITALModel.Context.cs">
@@ -123,7 +125,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FACTURA_DIGITALModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Formas_de_pagos.cs">
+    <Compile Include="Entities\Formas_de_pago.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Identificacion_Tipos.cs">

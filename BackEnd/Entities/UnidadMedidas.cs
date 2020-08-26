@@ -17,7 +17,7 @@ namespace BackEnd.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public UnidadMedidas()
         {
-            this.Detalle_Facturas = new HashSet<Detalle_Facturas>();
+            this.Detalle_Facturas = new HashSet<Detalle_Factura>();
         }
     
         public int id { get; set; }
@@ -25,6 +25,6 @@ namespace BackEnd.Entities
         public string descripcion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Detalle_Facturas> Detalle_Facturas { get; set; }
+        public virtual ICollection<Detalle_Factura> Detalle_Facturas { get; set; }
     }
 }

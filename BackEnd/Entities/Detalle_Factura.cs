@@ -12,7 +12,7 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Detalle_Facturas
+    public partial class Detalle_Factura
     {
         public int numero_factura { get; set; }
         public int NumeroLinea { get; set; }
@@ -29,6 +29,6 @@ namespace BackEnd.Entities
     
         public virtual Codigo_Impuestos Codigo_Impuestos { get; set; }
         public virtual UnidadMedidas UnidadMedidas { get; set; }
-        public virtual Facturas Facturas { get; set; }
+        public virtual Factura Facturas { get; set; }
     }
 }

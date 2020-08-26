@@ -926,7 +926,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FACTURA_DIGITALModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Actividades_Economicas">
+        <EntityType Name="Actividades_Economica">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -1020,7 +1020,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <NavigationProperty Name="Sucursales" Relationship="Self.FK_Sucursales_Companias" FromRole="Companias" ToRole="Sucursales" />
           <NavigationProperty Name="Usuarios_Companias" Relationship="Self.FK_Usuarios_Companias_Companias" FromRole="Companias" ToRole="Usuarios_Companias" />
         </EntityType>
-        <EntityType Name="Condiciones_de_Ventas">
+        <EntityType Name="Condiciones_de_Venta">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -1036,7 +1036,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="consecutivo_factura" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Companias" Relationship="Self.FK_Consecutivos_Facturas_Compania" FromRole="Consecutivos_Facturas" ToRole="Companias" />
         </EntityType>
-        <EntityType Name="Detalle_Facturas">
+        <EntityType Name="Detalle_Factura">
           <Key>
             <PropertyRef Name="numero_factura" />
             <PropertyRef Name="NumeroLinea" />
@@ -1065,7 +1065,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <Property Name="canton" Type="Int32" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
         </EntityType>
-        <EntityType Name="Facturas">
+        <EntityType Name="Factura">
           <Key>
             <PropertyRef Name="numero_factura" />
           </Key>
@@ -1112,7 +1112,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <NavigationProperty Name="Tipo_de_cambio" Relationship="Self.FK_Facturas_Tipo_Cambio" FromRole="Facturas" ToRole="Tipo_de_cambio" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Facturas_Usuarios" FromRole="Facturas" ToRole="Usuarios" />
         </EntityType>
-        <EntityType Name="Formas_de_pagos">
+        <EntityType Name="Formas_de_pago">
           <Key>
             <PropertyRef Name="id_forma_pago" />
           </Key>
@@ -1335,7 +1335,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Usuarios_Logins_Usuarios1" FromRole="Usuarios_Logins" ToRole="Usuarios" />
         </EntityType>
         <Association Name="FK_Clientes_Act_Econo">
-          <End Role="Actividades_Economicas" Type="Self.Actividades_Economicas" Multiplicity="1" />
+          <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividades_Economica" Multiplicity="1" />
           <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actividades_Economicas">
@@ -1347,7 +1347,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Companias_act_ecom">
-          <End Role="Actividades_Economicas" Type="Self.Actividades_Economicas" Multiplicity="1" />
+          <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividades_Economica" Multiplicity="1" />
           <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actividades_Economicas">
@@ -1359,8 +1359,8 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Actividad_ecom">
-          <End Role="Actividades_Economicas" Type="Self.Actividades_Economicas" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Actividades_Economicas" Type="FACTURA_DIGITALModel.Actividades_Economica" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Actividades_Economicas">
               <PropertyRef Name="id" />
@@ -1420,7 +1420,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Facturas_Clientes">
           <End Role="Clientes" Type="FACTURA_DIGITALModel.Cliente" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Clientes">
               <PropertyRef Name="id" />
@@ -1432,7 +1432,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Detalle_Facturas_Cod_Impuesto">
           <End Role="Codigo_Impuestos" Type="Self.Codigo_Impuestos" Multiplicity="1" />
-          <End Role="Detalle_Facturas" Type="Self.Detalle_Facturas" Multiplicity="*" />
+          <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Codigo_Impuestos">
               <PropertyRef Name="id" />
@@ -1480,7 +1480,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Facturas_Companias">
           <End Role="Companias" Type="FACTURA_DIGITALModel.Compania" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Companias">
               <PropertyRef Name="id" />
@@ -1527,8 +1527,8 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Cond_Venta">
-          <End Role="Condiciones_de_Ventas" Type="Self.Condiciones_de_Ventas" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Condiciones_de_Ventas" Type="FACTURA_DIGITALModel.Condiciones_de_Venta" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Condiciones_de_Ventas">
               <PropertyRef Name="id" />
@@ -1540,7 +1540,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Detalle_Facturas_UnidadMedidas">
           <End Role="UnidadMedidas" Type="Self.UnidadMedidas" Multiplicity="1" />
-          <End Role="Detalle_Facturas" Type="Self.Detalle_Facturas" Multiplicity="*" />
+          <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="UnidadMedidas">
               <PropertyRef Name="id" />
@@ -1551,8 +1551,8 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_detalle_Facturas">
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="1" />
-          <End Role="Detalle_Facturas" Type="Self.Detalle_Facturas" Multiplicity="*" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="1" />
+          <End Role="Detalle_Facturas" Type="FACTURA_DIGITALModel.Detalle_Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Facturas">
               <PropertyRef Name="numero_factura" />
@@ -1564,7 +1564,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Facturas_Comprobante">
           <End Role="Tipo_Comprobantes" Type="Self.Tipo_Comprobantes" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tipo_Comprobantes">
               <PropertyRef Name="id" />
@@ -1575,8 +1575,8 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Facturas_Facturas">
-          <End Role="Formas_de_pagos" Type="Self.Formas_de_pagos" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Formas_de_pagos" Type="FACTURA_DIGITALModel.Formas_de_pago" Multiplicity="1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Formas_de_pagos">
               <PropertyRef Name="id_forma_pago" />
@@ -1588,7 +1588,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Facturas_Sucursal">
           <End Role="Sucursales" Type="FACTURA_DIGITALModel.Sucursal" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Sucursales">
               <PropertyRef Name="id" />
@@ -1600,7 +1600,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Facturas_Tipo_Cambio">
           <End Role="Tipo_de_cambio" Type="Self.Tipo_de_cambio" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="0..1" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="0..1" />
           <ReferentialConstraint>
             <Principal Role="Tipo_de_cambio">
               <PropertyRef Name="id" />
@@ -1612,7 +1612,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
         </Association>
         <Association Name="FK_Facturas_Usuarios">
           <End Role="Usuarios" Type="FACTURA_DIGITALModel.Usuario" Multiplicity="1" />
-          <End Role="Facturas" Type="Self.Facturas" Multiplicity="*" />
+          <End Role="Facturas" Type="FACTURA_DIGITALModel.Factura" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Usuarios">
               <PropertyRef Name="id" />
@@ -1711,18 +1711,18 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
           <End Role="Roles" Type="Self.Roles" Multiplicity="*" />
         </Association>
         <EntityContainer Name="DBContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Actividades_Economicas" EntityType="Self.Actividades_Economicas" />
+          <EntitySet Name="Actividades_Economicas" EntityType="FACTURA_DIGITALModel.Actividades_Economica" />
           <EntitySet Name="Cantones" EntityType="FACTURA_DIGITALModel.Canton" />
           <EntitySet Name="Categorias_Productos" EntityType="Self.Categorias_Productos" />
           <EntitySet Name="Clientes" EntityType="FACTURA_DIGITALModel.Cliente" />
           <EntitySet Name="Codigo_Impuestos" EntityType="Self.Codigo_Impuestos" />
           <EntitySet Name="Companias" EntityType="FACTURA_DIGITALModel.Compania" />
-          <EntitySet Name="Condiciones_de_Ventas" EntityType="Self.Condiciones_de_Ventas" />
+          <EntitySet Name="Condiciones_de_Ventas" EntityType="FACTURA_DIGITALModel.Condiciones_de_Venta" />
           <EntitySet Name="Consecutivos_Facturas" EntityType="Self.Consecutivos_Facturas" />
-          <EntitySet Name="Detalle_Facturas" EntityType="Self.Detalle_Facturas" />
+          <EntitySet Name="Detalle_Facturas" EntityType="FACTURA_DIGITALModel.Detalle_Factura" />
           <EntitySet Name="Distritos" EntityType="FACTURA_DIGITALModel.Distrito" />
-          <EntitySet Name="Facturas" EntityType="Self.Facturas" />
-          <EntitySet Name="Formas_de_pagos" EntityType="Self.Formas_de_pagos" />
+          <EntitySet Name="Facturas" EntityType="FACTURA_DIGITALModel.Factura" />
+          <EntitySet Name="Formas_de_pagos" EntityType="FACTURA_DIGITALModel.Formas_de_pago" />
           <EntitySet Name="Identificacion_Tipos" EntityType="Self.Identificacion_Tipos" />
           <EntitySet Name="Inventarios" EntityType="Self.Inventarios" />
           <EntitySet Name="Mantenimientos" EntityType="Self.Mantenimientos" />
@@ -1877,7 +1877,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FACTURA_DIGITALModelStoreContainer" CdmEntityContainer="DBContext">
           <EntitySetMapping Name="Actividades_Economicas">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividades_Economicas">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Actividades_Economica">
               <MappingFragment StoreEntitySet="Actividades_Economicas">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
@@ -1957,7 +1957,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Condiciones_de_Ventas">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Condiciones_de_Ventas">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Condiciones_de_Venta">
               <MappingFragment StoreEntitySet="Condiciones_de_Ventas">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -1973,7 +1973,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Detalle_Facturas">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Detalle_Facturas">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Detalle_Factura">
               <MappingFragment StoreEntitySet="Detalle_Facturas">
                 <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
                 <ScalarProperty Name="NumeroLinea" ColumnName="NumeroLinea" />
@@ -2000,7 +2000,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Facturas">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Facturas">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Factura">
               <MappingFragment StoreEntitySet="Facturas">
                 <ScalarProperty Name="numero_factura" ColumnName="numero_factura" />
                 <ScalarProperty Name="compania" ColumnName="compania" />
@@ -2038,7 +2038,7 @@ warning 6035: The relationship 'FK_Distritos_Cantones' has columns that are not 
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Formas_de_pagos">
-            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Formas_de_pagos">
+            <EntityTypeMapping TypeName="FACTURA_DIGITALModel.Formas_de_pago">
               <MappingFragment StoreEntitySet="Formas_de_pagos">
                 <ScalarProperty Name="id_forma_pago" ColumnName="id_forma_pago" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />

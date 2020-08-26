@@ -5,18 +5,18 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="963ae6aedc2d4eca85bf96c5c9796c12" Name="Diagram1">
-        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Actividades_Economicas" Width="1.5" PointX="1.5" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Actividades_Economica" Width="1.5" PointX="1.5" PointY="4.125" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Canton" Width="1.5" PointX="10.25" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Categorias_Productos" Width="1.5" PointX="6" PointY="26" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Cliente" Width="1.5" PointX="0.75" PointY="23.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Codigo_Impuestos" Width="1.5" PointX="6" PointY="14.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Compania" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Condiciones_de_Ventas" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Condiciones_de_Venta" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Consecutivos_Facturas" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Detalle_Facturas" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Detalle_Factura" Width="1.5" PointX="8.25" PointY="10.375" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Distrito" Width="1.5" PointX="10.75" PointY="9.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Facturas" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Formas_de_pagos" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Factura" Width="1.5" PointX="3" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="FACTURA_DIGITALModel.Formas_de_pago" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Identificacion_Tipos" Width="1.5" PointX="1.5" PointY="17.875" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Inventarios" Width="1.5" PointX="8.25" PointY="20.75" IsExpanded="true" />
         <EntityTypeShape EntityType="FACTURA_DIGITALModel.Mantenimientos" Width="1.5" PointX="1.5" PointY="39.625" IsExpanded="true" />

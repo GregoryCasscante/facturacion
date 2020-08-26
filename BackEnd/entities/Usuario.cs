@@ -17,7 +17,7 @@ namespace BackEnd.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Usuario()
         {
-            this.Facturas = new HashSet<Facturas>();
+            this.Facturas = new HashSet<Factura>();
             this.User_Roles = new HashSet<User_Roles>();
             this.Usuarios_Companias = new HashSet<Usuarios_Companias>();
             this.Usuarios_Logins = new HashSet<Usuarios_Login>();
@@ -44,7 +44,7 @@ namespace BackEnd.Entities
         public string direccion { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User_Roles> User_Roles { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

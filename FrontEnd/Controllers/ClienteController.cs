@@ -9,7 +9,7 @@ using FrontEnd.Models;
 
 namespace FrontEnd.Controllers
 {
-    public class ClienteController : Controller
+    public class ClienteController : MyBaseController
     {
         // GET: Cliente
         private ClienteViewModel Convertir(Cliente cliente)
@@ -100,7 +100,7 @@ namespace FrontEnd.Controllers
                 cliente.identificacion_tipos = unidad.genericDAL.GetAll().ToList();
             }
 
-            using (UnidadDeTrabajo<Actividades_Economicas> unidad = new UnidadDeTrabajo<Actividades_Economicas>(new DBContext()))
+            using (UnidadDeTrabajo<Actividades_Economica> unidad = new UnidadDeTrabajo<Actividades_Economica>(new DBContext()))
             {
                 cliente.actividades_economicas = unidad.genericDAL.GetAll().ToList();
             }
@@ -171,7 +171,7 @@ namespace FrontEnd.Controllers
                 clienteVM.identificacion_tipos = unidad.genericDAL.GetAll().ToList();
             }
 
-            using (UnidadDeTrabajo<Actividades_Economicas> unidad = new UnidadDeTrabajo<Actividades_Economicas>(new DBContext()))
+            using (UnidadDeTrabajo<Actividades_Economica> unidad = new UnidadDeTrabajo<Actividades_Economica>(new DBContext()))
             {
                 clienteVM.actividades_economicas = unidad.genericDAL.GetAll().ToList();
             }

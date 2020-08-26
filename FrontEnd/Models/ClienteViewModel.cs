@@ -27,7 +27,7 @@ namespace FrontEnd.Models
         [Display(Name = "Activadad Económica")]
         [Required]
         public int actividad_economica { get; set; }
-        public IEnumerable<Actividades_Economicas> actividades_economicas { get; set; }
+        public IEnumerable<Actividades_Economica> actividades_economicas { get; set; }
         [Display(Name = "Nombre")]
         [Required]
         public string nombre { get; set; }

@@ -30,7 +30,7 @@ namespace FrontEnd.Models
         [Display(Name = "Actividad Económica")]
         [Required]
         public int actividad_economica { get; set; }
-        public IEnumerable<Actividades_Economicas> actividades_economicas { get; set; }
+        public IEnumerable<Actividades_Economica> actividades_economicas { get; set; }
         [Display(Name = "E-mail primario")]
         [Required]
         public string email1 { get; set; }

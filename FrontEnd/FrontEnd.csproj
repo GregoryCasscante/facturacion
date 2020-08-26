@@ -129,6 +129,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CompaniaController.cs" />
+    <Compile Include="Controllers\FacturacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MyBaseController.cs" />
@@ -141,6 +142,7 @@
     </Compile>
     <Compile Include="Models\ClienteViewModel.cs" />
     <Compile Include="Models\CompaniaViewModel.cs" />
+    <Compile Include="Models\FacturaViewModel.cs" />
     <Compile Include="Models\ProveedorViewModel.cs" />
     <Compile Include="Models\SucursaleViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
@@ -209,6 +211,7 @@
     <Content Include="Views\Sucursale\Edit.cshtml" />
     <Content Include="Views\Sucursale\Details.cshtml" />
     <Content Include="Views\Sucursale\Delete.cshtml" />
+    <Content Include="Views\Facturacion\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

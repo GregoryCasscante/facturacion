@@ -9,7 +9,7 @@ using FrontEnd.Models;
 
 namespace FrontEnd.Controllers
 {
-    public class ProveedorController : Controller
+    public class ProveedorController : MyBaseController
     {
         // GET: Proveedor
         private ProveedorViewModel Convertir(Proveedor proveedor)
@@ -86,7 +86,7 @@ namespace FrontEnd.Controllers
         {
             ProveedorViewModel proveedor = new ProveedorViewModel { };
 
-            using (UnidadDeTrabajo<Actividades_Economicas> unidad = new UnidadDeTrabajo<Actividades_Economicas>(new DBContext()))
+            using (UnidadDeTrabajo<Actividades_Economica> unidad = new UnidadDeTrabajo<Actividades_Economica>(new DBContext()))
             {
                 proveedor.actividades_economicas = unidad.genericDAL.GetAll().ToList();
             }
@@ -148,7 +148,7 @@ namespace FrontEnd.Controllers
 
             ProveedorViewModel proveedorVM = this.Convertir(proveedor);
 
-            using (UnidadDeTrabajo<Actividades_Economicas> unidad = new UnidadDeTrabajo<Actividades_Economicas>(new DBContext()))
+            using (UnidadDeTrabajo<Actividades_Economica> unidad = new UnidadDeTrabajo<Actividades_Economica>(new DBContext()))
             {
                 proveedorVM.actividades_economicas = unidad.genericDAL.GetAll().ToList();
             }

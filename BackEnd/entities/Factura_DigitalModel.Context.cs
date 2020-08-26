@@ -25,18 +25,18 @@ namespace BackEnd.Entities
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Actividades_Economicas> Actividades_Economicas { get; set; }
+        public virtual DbSet<Actividades_Economica> Actividades_Economicas { get; set; }
         public virtual DbSet<Canton> Cantones { get; set; }
         public virtual DbSet<Categorias_Productos> Categorias_Productos { get; set; }
         public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Codigo_Impuestos> Codigo_Impuestos { get; set; }
         public virtual DbSet<Compania> Companias { get; set; }
-        public virtual DbSet<Condiciones_de_Ventas> Condiciones_de_Ventas { get; set; }
+        public virtual DbSet<Condiciones_de_Venta> Condiciones_de_Ventas { get; set; }
         public virtual DbSet<Consecutivos_Facturas> Consecutivos_Facturas { get; set; }
-        public virtual DbSet<Detalle_Facturas> Detalle_Facturas { get; set; }
+        public virtual DbSet<Detalle_Factura> Detalle_Facturas { get; set; }
         public virtual DbSet<Distrito> Distritos { get; set; }
-        public virtual DbSet<Facturas> Facturas { get; set; }
-        public virtual DbSet<Formas_de_pagos> Formas_de_pagos { get; set; }
+        public virtual DbSet<Factura> Facturas { get; set; }
+        public virtual DbSet<Formas_de_pago> Formas_de_pagos { get; set; }
         public virtual DbSet<Identificacion_Tipos> Identificacion_Tipos { get; set; }
         public virtual DbSet<Inventarios> Inventarios { get; set; }
         public virtual DbSet<Mantenimientos> Mantenimientos { get; set; }

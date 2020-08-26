@@ -12,18 +12,18 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Condiciones_de_Ventas
+    public partial class Condiciones_de_Venta
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Condiciones_de_Ventas()
+        public Condiciones_de_Venta()
         {
-            this.Facturas = new HashSet<Facturas>();
+            this.Facturas = new HashSet<Factura>();
         }
     
         public int id { get; set; }
         public string Description { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
     }
 }

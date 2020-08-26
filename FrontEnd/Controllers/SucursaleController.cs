@@ -9,7 +9,7 @@ using FrontEnd.Models;
 
 namespace FrontEnd.Controllers
 {
-    public class SucursaleController : Controller
+    public class SucursaleController : MyBaseController
     {
         // GET: Sucursal
         private SucursaleViewModel Convertir(Sucursal Sucursal)

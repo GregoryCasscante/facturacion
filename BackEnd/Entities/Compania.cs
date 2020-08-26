@@ -18,7 +18,7 @@ namespace BackEnd.Entities
         public Compania()
         {
             this.Clientes = new HashSet<Cliente>();
-            this.Facturas = new HashSet<Facturas>();
+            this.Facturas = new HashSet<Factura>();
             this.Proveedores = new HashSet<Proveedor>();
             this.Sucursales = new HashSet<Sucursal>();
             this.Usuarios_Companias = new HashSet<Usuarios_Companias>();
@@ -38,14 +38,14 @@ namespace BackEnd.Entities
         public int pais { get; set; }
         public string direccion { get; set; }
     
-        public virtual Actividades_Economicas Actividades_Economicas { get; set; }
+        public virtual Actividades_Economica Actividades_Economicas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Cliente> Clientes { get; set; }
         public virtual Tipo_Compania Tipo_Compania1 { get; set; }
         public virtual Identificacion_Tipos Identificacion_Tipos { get; set; }
         public virtual Consecutivos_Facturas Consecutivos_Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Facturas> Facturas { get; set; }
+        public virtual ICollection<Factura> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Proveedor> Proveedores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

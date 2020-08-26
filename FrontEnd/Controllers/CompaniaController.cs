@@ -9,7 +9,7 @@ using FrontEnd.Models;
 
 namespace FrontEnd.Controllers
 {
-    public class CompaniaController : Controller
+    public class CompaniaController : MyBaseController
     {
 
         private CompaniaViewModel Convertir(Compania compania)
@@ -59,15 +59,15 @@ namespace FrontEnd.Controllers
         // GET: Compania
         public ActionResult Index()
         {
-            List<Compania> companias;
+            List<Compania> c;
             using (UnidadDeTrabajo<Compania> Unidad = new UnidadDeTrabajo<Compania>(new DBContext()))
             {
-                companias = Unidad.genericDAL.GetAll().ToList();
+                c = Unidad.genericDAL.GetAll().ToList();
             }
 
             List<CompaniaViewModel> lista = new List<CompaniaViewModel>();
 
-            foreach (var item in companias)
+            foreach (var item in c)
             {
                 lista.Add(this.Convertir(item));
             }
@@ -80,7 +80,7 @@ namespace FrontEnd.Controllers
 
             CompaniaViewModel compania = new CompaniaViewModel { };
 
-            using (UnidadDeTrabajo<Actividades_Economicas> unidad = new UnidadDeTrabajo<Actividades_Economicas>(new DBContext()))
+            using (UnidadDeTrabajo<Actividades_Economica> unidad = new UnidadDeTrabajo<Actividades_Economica>(new DBContext()))
             {
                 compania.actividades_economicas = unidad.genericDAL.GetAll().ToList();
             }
@@ -121,7 +121,7 @@ namespace FrontEnd.Controllers
 
             CompaniaViewModel companiaVM = this.Convertir(compania);
 
-            using (UnidadDeTrabajo<Actividades_Economicas> unidad = new UnidadDeTrabajo<Actividades_Economicas>(new DBContext()))
+            using (UnidadDeTrabajo<Actividades_Economica> unidad = new UnidadDeTrabajo<Actividades_Economica>(new DBContext()))
             {
                 companiaVM.actividades_economicas = unidad.genericDAL.GetAll().ToList();
             }

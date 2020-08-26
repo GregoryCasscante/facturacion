@@ -1,0 +1,176 @@
+﻿
+@model FrontEnd.Models.FacturaViewModel
+
+@{
+    ViewBag.Title = "Facturación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Facturación</h2>
+
+<div>
+    <h4>Crear Factura</h4>
+    <hr />
+
+    <!--
+     ######################################################################################################################
+     # Formulario de Facturación
+     #######################################################################################################################
+     -->
+
+    <form action="factura_creada.html" class="forms-sample" id="form-facturacion" nombre="form-facturacion" method="post">
+
+        <div class="form-row">
+
+            <div class="col-lg-6 col-6">
+
+                <div class="form-group">
+                    <label for="cliente">Cliente</label>
+                    <select class="form-control p-input" name="cliente" id="cliente">
+
+                        @foreach (var item in Model.F_lista_clientes)
+                        {
+                            <option value="@item.id">@item.nombre</option>
+                        }
+                        <!--
+                        <option value="1">Gregory Cascante</option>
+                        <option value="2">Juan Peres</option>
+                        <option value="3">Pedro Pares</option>
+                        <option value="4">Pablo Cabrera</option>
+                        -->
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-4">
+                <div class="form-group">
+                    <label for="cajero">Cajero</label>
+                    <select class="form-control p-input" name="cajero" id="cajero">
+                        <option value="1">Cajero 1</option>
+                        <option value="2">Cajero 2</option>
+                        <option value="3">Cajero 3</option>
+                        <option value="4">Cajero 4</option>
+                    </select>
+                </div>
+            </div>
+            <!-- end col 4 2 -->
+            <!-- 01 -------------------------------------------------------------------------------->
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <label for="cliente">Articulo</label>
+                    <select class="form-control p-input" name="producto" id="producto1">
+                        <option value="Producto 1|100.50">Producto 1</option>
+                        <option value="Producto 2|8.50">Producto 2</option>
+                        <option value="Producto 3|10.40">Producto 3</option>
+                        <option value="Producto 4|25.20">Producto 4</option>
+                    </select>
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <label for="cliente">Descripción</label>
+                    <input type="text" class="form-control p-input" name="descripcion1" id="descripcion1" placeholder="Descripción">
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <label for="cliente">Precio</label>
+                    <input type="text" class="form-control p-input" name="precio1" id="precio1" placeholder="Precio" value="0">
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <label for="cliente">Cantidad</label>
+                    <input type="text" class="form-control p-input" name="cantidad1" id="cantidad1" placeholder="Cantidad" value="0">
+                </div>
+            </div>
+            <!-- 02 -------------------------------------------------------------------------------->
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <select class="form-control p-input" name="producto" id="producto2">
+                        <option value="Producto 1|100.50">Producto 1</option>
+                        <option value="Producto 2|8.50">Producto 2</option>
+                        <option value="Producto 3|10.40">Producto 3</option>
+                        <option value="Producto 4|25.20">Producto 4</option>
+                    </select>
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="descripcion2" id="descripcion2" placeholder="Descripción">
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="precio2" id="precio2" placeholder="Precio" value="0">
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="cantidad2" id="cantidad2" placeholder="Cantidad" value="0">
+                </div>
+            </div>
+
+            <!-- 03 -------------------------------------------------------------------------------->
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <select class="form-control p-input" name="producto" id="producto3">
+                        <option value="Producto 1|100.50">Producto 1</option>
+                        <option value="Producto 2|8.50">Producto 2</option>
+                        <option value="Producto 3|10.40">Producto 3</option>
+                        <option value="Producto 4|25.20">Producto 4</option>
+                    </select>
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="descripcion3" id="descripcion3" placeholder="Descripción">
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="precio3" id="precio3" placeholder="Precio" value="0">
+                </div>
+            </div>
+            <!--  Linea Facturacion ------------------>
+            <div class="col-lg-3 col-3 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="cantidad3" id="cantidad3" placeholder="Cantidad" value="0">
+                </div>
+            </div>
+
+            <!-- Total -------------------------------------------------------------------------------->
+            <!--  Total ------------------>
+            <div class="col-lg-10 col-10 linea_factura">
+                <div class="form-group linea_factura" style="text-align: right; vertical-align: middle">
+                    <br>
+                    <div><span style="text-align: right ; vertical-align: middle"><strong>Total:</strong></span></div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="total" id="total" placeholder="Total" value="0">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </div>
+
+    </form>
+</div>
