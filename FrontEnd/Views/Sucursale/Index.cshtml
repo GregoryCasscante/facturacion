@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FrontEnd.Models.SucursaleViewModel>
+
+<title>Lista de Sucursales</title>
+
+<h1 class="mt-4">Lista de Sucursales</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create", null, htmlAttributes: new { @class = "btn btn-dark" })
+</p>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Lista de Sucursales
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.compania)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.nombre)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.dirrecion)
+                        </th>
+                        <th colspan="3"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.compania)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.dirrecion)
+                            </td>
+                            <td align="center">
+                                <a href="@Url.Action("Edit", "Sucursale", new { id = item.id })"><i class="fas fa-pencil-alt"></i></a>
+
+                            </td>
+                            <td align="center">
+
+                                <a href="@Url.Action("Details", "Sucursale", new { id = item.id })"><i class="fas fa-eye"></i></a>
+
+                            </td>
+                            <td align="center">
+
+                                <a href="@Url.Action("Delete", "Sucursale", new { id = item.id })"><i class="fas fa-trash-alt"></i></a>
+
+                            </td>
+
+                        </tr>
+
+
+
+                    }
+                </tbody>
+
+            </table>
+        </div>
+    </div>
+</div>
+

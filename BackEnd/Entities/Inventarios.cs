@@ -25,6 +25,6 @@ namespace BackEnd.Entities
         public int precio { get; set; }
     
         public virtual Categorias_Productos Categorias_Productos { get; set; }
-        public virtual Proveedores Proveedores { get; set; }
+        public virtual Proveedor Proveedores { get; set; }
     }
 }

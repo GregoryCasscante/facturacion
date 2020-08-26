@@ -1,0 +1,137 @@
+﻿@model FrontEnd.Models.ProveedorViewModel
+
+<title>Eliminar Proveedor</title>
+
+<h1 class="mt-4">Eliminar proveedor</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<h3>Seguro que desea eliminar el siguiente proveedor?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_compania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_compania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_comercial)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_comercial)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_dni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_dni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actividad_economica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad_economica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.canton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

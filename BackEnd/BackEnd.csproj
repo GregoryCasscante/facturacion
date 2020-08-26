@@ -60,10 +60,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\ClienteDALImpl.cs" />
+    <Compile Include="DAL\CompaniaDALImpl.cs" />
     <Compile Include="DAL\DALGenericoImpl.cs" />
+    <Compile Include="DAL\IClienteDAL.cs" />
+    <Compile Include="DAL\ICompaniaDAL.cs" />
     <Compile Include="DAL\IDALGenerico.cs" />
+    <Compile Include="DAL\IProveedorDAL.cs" />
+    <Compile Include="DAL\ISucursalDAL.cs" />
     <Compile Include="DAL\IUsuarioDAL.cs" />
     <Compile Include="DAL\IUsuario_LoginDAL.cs" />
+    <Compile Include="DAL\ProveedorDALImpl.cs" />
+    <Compile Include="DAL\SucursalDALImpl.cs" />
     <Compile Include="DAL\UnidadDeTrabajo.cs" />
     <Compile Include="DAL\UsuarioDALImpl.cs" />
     <Compile Include="DAL\Usuario_LoginDALImpl.cs" />
@@ -76,13 +84,13 @@
     <Compile Include="Entities\Categorias_Productos.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Clientes.cs">
+    <Compile Include="Entities\Cliente.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Codigo_Impuestos.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Companias.cs">
+    <Compile Include="Entities\Compania.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Condiciones_de_Ventas.cs">
@@ -136,7 +144,7 @@
     <Compile Include="Entities\Pais.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Proveedores.cs">
+    <Compile Include="Entities\Proveedor.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Provincia.cs">
@@ -145,7 +153,7 @@
     <Compile Include="Entities\Roles.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Entities\Sucursales.cs">
+    <Compile Include="Entities\Sucursal.cs">
       <DependentUpon>FACTURA_DIGITALModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\Tipo_Compania.cs">

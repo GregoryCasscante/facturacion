@@ -18,7 +18,7 @@ namespace BackEnd.Entities
         public int id_compania { get; set; }
         public System.DateTime creado { get; set; }
     
-        public virtual Companias Companias { get; set; }
+        public virtual Compania Companias { get; set; }
         public virtual Usuario Usuarios { get; set; }
     }
 }

@@ -54,14 +54,14 @@ namespace BackEnd.Entities
         public string notas { get; set; }
     
         public virtual Actividades_Economicas Actividades_Economicas { get; set; }
-        public virtual Clientes Clientes { get; set; }
-        public virtual Companias Companias { get; set; }
+        public virtual Cliente Clientes { get; set; }
+        public virtual Compania Companias { get; set; }
         public virtual Condiciones_de_Ventas Condiciones_de_Ventas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Detalle_Facturas> Detalle_Facturas { get; set; }
         public virtual Tipo_Comprobantes Tipo_Comprobantes { get; set; }
         public virtual Formas_de_pagos Formas_de_pagos { get; set; }
-        public virtual Sucursales Sucursales { get; set; }
+        public virtual Sucursal Sucursales { get; set; }
         public virtual Tipo_de_cambio Tipo_de_cambio { get; set; }
         public virtual Usuario Usuarios { get; set; }
     }

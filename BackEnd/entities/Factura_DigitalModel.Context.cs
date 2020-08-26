@@ -28,9 +28,9 @@ namespace BackEnd.Entities
         public virtual DbSet<Actividades_Economicas> Actividades_Economicas { get; set; }
         public virtual DbSet<Canton> Cantones { get; set; }
         public virtual DbSet<Categorias_Productos> Categorias_Productos { get; set; }
-        public virtual DbSet<Clientes> Clientes { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }
         public virtual DbSet<Codigo_Impuestos> Codigo_Impuestos { get; set; }
-        public virtual DbSet<Companias> Companias { get; set; }
+        public virtual DbSet<Compania> Companias { get; set; }
         public virtual DbSet<Condiciones_de_Ventas> Condiciones_de_Ventas { get; set; }
         public virtual DbSet<Consecutivos_Facturas> Consecutivos_Facturas { get; set; }
         public virtual DbSet<Detalle_Facturas> Detalle_Facturas { get; set; }
@@ -43,10 +43,10 @@ namespace BackEnd.Entities
         public virtual DbSet<Padron_Electoral> Padron_Electoral { get; set; }
         public virtual DbSet<Padron_Electoral_codelec> Padron_Electoral_codelec { get; set; }
         public virtual DbSet<Pais> Paises { get; set; }
-        public virtual DbSet<Proveedores> Proveedores { get; set; }
+        public virtual DbSet<Proveedor> Proveedores { get; set; }
         public virtual DbSet<Provincia> Provincias { get; set; }
         public virtual DbSet<Roles> Roles { get; set; }
-        public virtual DbSet<Sucursales> Sucursales { get; set; }
+        public virtual DbSet<Sucursal> Sucursales { get; set; }
         public virtual DbSet<Tipo_Compania> Tipo_Compania { get; set; }
         public virtual DbSet<Tipo_Comprobantes> Tipo_Comprobantes { get; set; }
         public virtual DbSet<Tipo_de_cambio> Tipo_de_cambio { get; set; }

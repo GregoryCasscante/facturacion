@@ -1,0 +1,42 @@
+﻿@model FrontEnd.Models.SucursaleViewModel
+
+<title>Detalles de la Sucursal</title>
+
+<h1 class="mt-4">Detalles de la Sucursal</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.compania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dirrecion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dirrecion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-primary" })
+</p>

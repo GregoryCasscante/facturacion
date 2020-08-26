@@ -1,0 +1,49 @@
+﻿@model FrontEnd.Models.SucursaleViewModel
+
+<title>Eliminar Sucursal</title>
+
+<h1 class="mt-4">Eliminar Sucursal</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<h3>Seguro que desea eliminar la siguiente sucursal?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.compania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dirrecion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dirrecion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

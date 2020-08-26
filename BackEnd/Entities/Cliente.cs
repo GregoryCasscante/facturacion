@@ -12,20 +12,35 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Sucursales
+    public partial class Cliente
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Sucursales()
+        public Cliente()
         {
             this.Facturas = new HashSet<Facturas>();
         }
     
         public int id { get; set; }
-        public int compania { get; set; }
+        public int id_compania { get; set; }
+        public string identificacion { get; set; }
+        public int tipo_identificacion { get; set; }
+        public int actividad_economica { get; set; }
         public string nombre { get; set; }
+        public string genero { get; set; }
+        public string email1 { get; set; }
+        public string email2 { get; set; }
+        public string telefono1 { get; set; }
+        public string telefono2 { get; set; }
+        public int pais { get; set; }
+        public int provincia { get; set; }
+        public int canton { get; set; }
+        public int distrito { get; set; }
         public string dirrecion { get; set; }
+        public System.DateTime fecha_creacion { get; set; }
     
-        public virtual Companias Companias { get; set; }
+        public virtual Actividades_Economicas Actividades_Economicas { get; set; }
+        public virtual Compania Companias { get; set; }
+        public virtual Identificacion_Tipos Identificacion_Tipos { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Facturas> Facturas { get; set; }
     }

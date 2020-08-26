@@ -12,15 +12,15 @@ namespace BackEnd.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Companias
+    public partial class Compania
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Companias()
+        public Compania()
         {
-            this.Clientes = new HashSet<Clientes>();
+            this.Clientes = new HashSet<Cliente>();
             this.Facturas = new HashSet<Facturas>();
-            this.Proveedores = new HashSet<Proveedores>();
-            this.Sucursales = new HashSet<Sucursales>();
+            this.Proveedores = new HashSet<Proveedor>();
+            this.Sucursales = new HashSet<Sucursal>();
             this.Usuarios_Companias = new HashSet<Usuarios_Companias>();
         }
     
@@ -28,7 +28,7 @@ namespace BackEnd.Entities
         public int actividad_economica { get; set; }
         public string nombre { get; set; }
         public string tipo_identificacion { get; set; }
-        public string identificacion { get; set; }
+        public string cedula_juridica { get; set; }
         public int tipo_compania { get; set; }
         public string telefono { get; set; }
         public string nombre_contacto { get; set; }
@@ -40,16 +40,16 @@ namespace BackEnd.Entities
     
         public virtual Actividades_Economicas Actividades_Economicas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Clientes> Clientes { get; set; }
+        public virtual ICollection<Cliente> Clientes { get; set; }
         public virtual Tipo_Compania Tipo_Compania1 { get; set; }
         public virtual Identificacion_Tipos Identificacion_Tipos { get; set; }
         public virtual Consecutivos_Facturas Consecutivos_Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Facturas> Facturas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Proveedores> Proveedores { get; set; }
+        public virtual ICollection<Proveedor> Proveedores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Sucursales> Sucursales { get; set; }
+        public virtual ICollection<Sucursal> Sucursales { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Usuarios_Companias> Usuarios_Companias { get; set; }
     }

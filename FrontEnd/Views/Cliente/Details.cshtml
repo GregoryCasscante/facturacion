@@ -1,0 +1,138 @@
+﻿@model FrontEnd.Models.ClienteViewModel
+
+<title>Detalles del Cliente</title>
+
+<h1 class="mt-4">Detalles del Cliente</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.id_compania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.id_compania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_identificacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_identificacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.actividad_economica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad_economica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.genero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.genero)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pais)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pais)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.provincia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.provincia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.canton)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.canton)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.distrito)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.distrito)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.dirrecion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.dirrecion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-primary" })
+</p>

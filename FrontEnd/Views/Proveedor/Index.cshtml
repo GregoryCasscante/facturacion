@@ -1,0 +1,132 @@
+﻿@model IEnumerable<FrontEnd.Models.ProveedorViewModel>
+
+<title>Lista de Proveedores</title>
+
+<h1 class="mt-4">Proveedores</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create", null, htmlAttributes: new { @class = "btn btn-dark" })
+</p>
+<div class="card mb-4">
+    <div class="card-header">
+        <i class="fas fa-table mr-1"></i>
+        Lista de Proveedores
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.id_compania)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.nombre_comercial)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.dni)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.tipo_dni)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.actividad_economica)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.email2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.telefono1)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.telefono2)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.pais)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.provincia)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.canton)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.distrito)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.direccion)
+                    </th>
+                    <th colspan="3"></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.id_compania)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.nombre_comercial)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.tipo_dni)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.actividad_economica)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.email2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.telefono1)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.telefono2)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.pais)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.provincia)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.canton)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.distrito)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.direccion)
+                        </td>
+                        <td align="center">
+                            <a href="@Url.Action("Edit", "Proveedor", new { id = item.id })"><i class="fas fa-pencil-alt"></i></a>
+
+                        </td>
+                        <td align="center">
+
+                            <a href="@Url.Action("Details", "Proveedor", new { id = item.id })"><i class="fas fa-eye"></i></a>
+
+                        </td>
+                        <td align="center">
+
+                            <a href="@Url.Action("Delete", "Proveedor", new { id = item.id })"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
+
+                }
+
+            </table>
+        </div>
+    </div>
+</div>

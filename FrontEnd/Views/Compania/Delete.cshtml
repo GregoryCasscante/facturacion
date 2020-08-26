@@ -1,0 +1,108 @@
+﻿@model FrontEnd.Models.CompaniaViewModel
+
+
+
+<title>Eliminar Compañía</title>
+
+<h1 class="mt-4">Eliminar Compañía</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<h3>Seguro que desea eliminar la siguiente compañía?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.actividad_economica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.actividad_economica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cedula_juridica)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cedula_juridica)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_compania)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_compania)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre_contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre_contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido1_contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido1_contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellido2_contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellido2_contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_contacto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_contacto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>
+

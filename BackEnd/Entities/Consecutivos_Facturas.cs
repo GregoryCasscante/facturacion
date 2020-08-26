@@ -17,6 +17,6 @@ namespace BackEnd.Entities
         public int compania { get; set; }
         public int consecutivo_factura { get; set; }
     
-        public virtual Companias Companias { get; set; }
+        public virtual Compania Companias { get; set; }
     }
 }
