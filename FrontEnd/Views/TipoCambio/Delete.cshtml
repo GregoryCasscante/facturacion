@@ -1,0 +1,57 @@
+﻿@model FrontEnd.Models.TipoCambioViewModel
+
+<title>Eliminar Tipo de Cambio</title>
+
+<h1 class="mt-4">Eliminar Tipo de Cambio</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<h3>Seguro que desea eliminar el siguiente Tipo de Cambio?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.compra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.venta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_actualizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_actualizacion)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.id)
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+            @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-primary" })
+        </div>
+    }
+</div>

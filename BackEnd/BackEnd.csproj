@@ -60,10 +60,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\CategoriaProductoDALImpl.cs" />
     <Compile Include="DAL\ClienteDALImpl.cs" />
     <Compile Include="DAL\CompaniaDALImpl.cs" />
     <Compile Include="DAL\DALGenericoImpl.cs" />
     <Compile Include="DAL\FacturaDALImpl.cs" />
+    <Compile Include="DAL\ICategoriaProductoDAL.cs" />
     <Compile Include="DAL\IClienteDAL.cs" />
     <Compile Include="DAL\ICompaniaDAL.cs" />
     <Compile Include="DAL\IDALGenerico.cs" />

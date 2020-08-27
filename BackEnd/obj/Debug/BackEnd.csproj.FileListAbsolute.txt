@@ -13,4 +13,3 @@ D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\obj\De
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\obj\Debug\BackEnd.csproj.CopyComplete
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\obj\Debug\BackEnd.dll
 D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\obj\Debug\BackEnd.pdb
-D:\Universidad\Programación Avanzada en Web\Proyecto\Facturacion\BackEnd\obj\Debug\BackEnd.csprojAssemblyReference.cache

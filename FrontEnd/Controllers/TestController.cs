@@ -11,7 +11,7 @@ using FrontEnd.Models;
 
 namespace FrontEnd.Controllers
 {
-    public class TestController : Controller
+    public class TestController : MyBaseController
     {
         // GET: Test
         public ActionResult Index()

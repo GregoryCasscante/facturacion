@@ -1,0 +1,50 @@
+﻿@model FrontEnd.Models.TipoCambioViewModel
+
+<title>Detalles del Tipo de Cambio</title>
+
+<h1 class="mt-4">Detalles del Tipo de Cambio</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active"></li>
+</ol>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.compra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.compra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.venta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.venta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_actualizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_actualizacion)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }, new { @class = "btn btn-primary" }) |
+    @Html.ActionLink("Volver a la lista", "Index", null, new { @class = "btn btn-primary" })
+</p>

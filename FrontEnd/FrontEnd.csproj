@@ -132,24 +132,35 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CategoriaProductoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
     <Compile Include="Controllers\CompaniaController.cs" />
     <Compile Include="Controllers\FacturacionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InventarioController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\MantenimientoController.cs" />
     <Compile Include="Controllers\MyBaseController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\SucursaleController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TipoCambioController.cs" />
+    <Compile Include="Controllers\UnidadMedidaController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\1-Greg.cs" />
+    <Compile Include="Models\CategoriaProductoViewModel.cs" />
+    <Compile Include="Models\Class1.cs" />
     <Compile Include="Models\ClienteViewModel.cs" />
     <Compile Include="Models\CompaniaViewModel.cs" />
     <Compile Include="Models\FacturaViewModel.cs" />
+    <Compile Include="Models\InventarioViewModel.cs" />
+    <Compile Include="Models\MantenimientoViewModel.cs" />
     <Compile Include="Models\ProveedorViewModel.cs" />
     <Compile Include="Models\SucursaleViewModel.cs" />
+    <Compile Include="Models\TipoCambioViewModel.cs" />
     <Compile Include="Models\UsuarioViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,11 +229,20 @@
     <Content Include="Views\Sucursale\Delete.cshtml" />
     <Content Include="Views\Facturacion\Index.cshtml" />
     <Content Include="Views\Facturacion\Create.cshtml" />
+    <Content Include="Views\CategoriaProducto\Index.cshtml" />
+    <Content Include="Views\CategoriaProducto\Create.cshtml" />
+    <Content Include="Views\CategoriaProducto\Edit.cshtml" />
+    <Content Include="Views\CategoriaProducto\Details.cshtml" />
+    <Content Include="Views\CategoriaProducto\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Librerias\" />
+    <Folder Include="Views\Inventario\" />
+    <Folder Include="Views\Mantenimiento\" />
     <Folder Include="Views\MyBase\" />
+    <Folder Include="Views\TipoCambio\" />
+    <Folder Include="Views\UnidadMedida\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
