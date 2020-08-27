@@ -4,6 +4,7 @@
 *
 */
 
+var iva_porcentaje = 0.13;
 
 function LlenaSelectJson(ObjetoJSON) {		
     var elValor;
@@ -675,25 +676,53 @@ $( document ).ready(function() {
     function linea_factura(linea) {
 
        if (linea==1) {
-            var data = $("#producto1").val();
-            var arr  = data.split('|');
-            $("#descripcion1").val(arr[1]);
-            $("#precio1").val(arr[2]);
+           var data      = $("#producto1").val();
+           var arr       = data.split('|');
+           var cantidad  = $("#cantidad1").val();
+           var precio    = arr[1];
+           var subtotal = (cantidad * precio);
+           var iva = (cantidad * precio) * iva_porcentaje;
+           iva = Math.round((iva + Number.EPSILON) * 100) / 100;
+           var total     = subtotal + iva;
+           console.log(arr[0] + ':' + arr[1] + ':' + arr[2] );
+           $("#subtotal1").val(subtotal);
+           $("#precio1").val(arr[1]);
+           $("#iva1").val(iva);
+           $("#ltotal1").val(total);
        }
 
        if (linea==2) {
-            var data = $("#producto2").val();
-            var arr  = data.split('|');
-            $("#descripcion2").val(arr[1]);
-            $("#precio2").val(arr[2]);
+           var data = $("#producto2").val();
+           var arr = data.split('|');
+           var cantidad = $("#cantidad2").val();
+           var precio = arr[1];
+           var subtotal = (cantidad * precio);
+           var iva = (cantidad * precio) * iva_porcentaje;
+           iva = Math.round((iva + Number.EPSILON) * 100) / 100;
+           var total = subtotal + iva;
+           console.log(arr[0] + ':' + arr[1] + ':' + arr[2]);
+           $("#subtotal2").val(subtotal);
+           $("#precio2").val(arr[1]);
+           $("#iva2").val(iva);
+           $("#ltotal2").val(total);
        }
 
        if (linea==3) {
-            var data = $("#producto3").val();
-            var arr  = data.split('|');
-            $("#descripcion3").val(arr[1]);
-            $("#precio3").val(arr[2]);
-       }        
+           var data = $("#producto3").val();
+           var arr = data.split('|');
+           var cantidad = $("#cantidad3").val();
+           var precio = arr[1];
+           var subtotal = (cantidad * precio);
+           var iva = (cantidad * precio) * iva_porcentaje;
+           iva = Math.round((iva + Number.EPSILON) * 100) / 100;
+           var total = subtotal + iva;
+           console.log(arr[0] + ':' + arr[1] + ':' + arr[2]);
+           $("#subtotal3").val(subtotal);
+           $("#precio3").val(arr[1]);
+           $("#iva3").val(iva);
+           $("#ltotal3").val(total);
+        }    
+
     }    
 
     function update_total() {
@@ -702,28 +731,58 @@ $( document ).ready(function() {
         var subtotal2 = 0;
         var subtotal3 = 0;
 
+        var ltotal1 = 0; //$("#precio1").val();
+        var ltotal2 = 0; //$("#precio2").val();
+        var ltotal3 = 0; //$("#precio3").val();
+
         var iva1 = 0;
         var iva2 = 0;
         var iva3 = 0;        
 
+        // Sub Total
+        if ($.isNumeric($("#subtotal1").val())) {
+            var subtotal1 = $("#subtotal1").val();
+        }
 
-        if (  $.isNumeric( $("#precio1").val()) & $.isNumeric( $("#cantidad1").val())  ) {
-            var subtotal1 = $("#precio1").val() * $("#cantidad1").val();
-            var iva1      = subtotal1*0.13;
+        if ($.isNumeric($("#subtotal2").val())) {
+            var subtotal2 = $("#subtotal2").val();
         }
-        
-        if (  $.isNumeric( $("#precio2").val()) & $.isNumeric( $("#cantidad1").val())  ) {
-            var subtotal2 = $("#precio2").val() * $("#cantidad2").val();
-            var iva2      = subtotal2*0.13;
+
+        if ($.isNumeric($("#subtotal3").val())) {
+            var subtotal3 = $("#subtotal3").val();
+        } 
+
+        // IVA
+        if ($.isNumeric($("#iva1").val())) {
+            var iva1 = $("#iva1").val();
         }
-        
-        if (  $.isNumeric( $("#precio3").val()) & $.isNumeric( $("#cantidad3").val())  ) {
-            var subtotal3 = $("#precio3").val() * $("#cantidad3").val();
-            var iva3      = subtotal3*0.13;
-        }        
-        
-        $("#iva").val(iva1+iva2+iva3);
-        $("#total").val(subtotal1+subtotal2+subtotal3);
+
+        if ($.isNumeric($("#iva2").val())) {
+            var iva2 = $("#iva2").val();
+        }
+
+        if ($.isNumeric($("#iva3").val())) {
+            var iva3 = $("#iva3").val();
+        } 
+
+        //Total
+        if ($.isNumeric($("#ltotal1").val())) {
+            var ltotal1 = $("#ltotal1").val();
+        }
+
+        if ($.isNumeric($("#ltotal2").val())) {
+            var ltotal2 = $("#ltotal2").val();
+        }
+
+        if ($.isNumeric($("#ltotal3").val())) {
+            var ltotal3 = $("#ltotal3").val();
+        } 
+
+        //$("#iva").val(iva1+iva2+iva3);
+
+        $("#subtotal").val(parseFloat(subtotal1) + parseFloat(subtotal2) + parseFloat(subtotal3));
+        $("#iva").val(parseFloat(iva1) + parseFloat(iva2) + parseFloat(iva3));
+        $("#total").val(parseFloat(ltotal1) + parseFloat(ltotal2) + parseFloat(ltotal3));
     
     }  
   

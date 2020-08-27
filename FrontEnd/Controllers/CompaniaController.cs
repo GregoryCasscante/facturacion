@@ -42,6 +42,7 @@ namespace FrontEnd.Controllers
                 id = companiaViewModel.id,
                 actividad_economica = companiaViewModel.actividad_economica,
                 nombre = companiaViewModel.nombre,
+                tipo_identificacion = "2",
                 cedula_juridica = companiaViewModel.cedula_juridica,
                 tipo_compania = companiaViewModel.tipo_compania,
                 telefono = companiaViewModel.telefono,
@@ -49,10 +50,10 @@ namespace FrontEnd.Controllers
                 apellido1_contacto = companiaViewModel.apellido1_contacto,
                 apellido2_contacto = companiaViewModel.apellido2_contacto,
                 email_contacto = companiaViewModel.email_contacto,
+                pais = 0,
                 direccion = companiaViewModel.direccion
 
-
-            };
+        };
             return compania;
         }
 
@@ -96,6 +97,7 @@ namespace FrontEnd.Controllers
         [HttpPost]
         public ActionResult Create(CompaniaViewModel companiaViewModel)
         {
+
             Compania compania = this.Convertir(companiaViewModel);
 
             using (UnidadDeTrabajo<Compania> unidad = new UnidadDeTrabajo<Compania>(new DBContext()))
@@ -103,6 +105,10 @@ namespace FrontEnd.Controllers
                 unidad.genericDAL.Add(compania);
                 unidad.Complete();
             }
+
+            IUsuarioDAL usuarioDB = new UsuarioDALImpl();
+            ICompaniaDAL c = new CompaniaDALImpl();
+            c.Add(compania);
 
             return RedirectToAction("Index");
         }

@@ -9,10 +9,11 @@ namespace BackEnd.DAL
 {
     public interface IFacturaDAL : IDisposable
     {
-        bool Add(Cliente cliente);
+        int Add(Factura cliente);
+        int Add_Linea(Detalle_Factura detalle);
         bool Delete(int id);
-        bool Update(Cliente cliente);
-        List<Cliente> Get();
-        Cliente Get(int id);
+        bool Update(Factura cliente);
+        List<Factura> Get();
+        Factura Get(int id);
     }
 }

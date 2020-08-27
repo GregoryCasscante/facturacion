@@ -26,6 +26,7 @@ namespace BackEnd.DAL
             try
             {
                 Context.Set<TEntity>().Add(entity);
+                Context.SaveChanges();
                 return true;
             }
             catch (Exception)

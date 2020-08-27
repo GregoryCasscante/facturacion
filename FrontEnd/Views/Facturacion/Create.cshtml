@@ -1,0 +1,99 @@
+﻿
+@model FrontEnd.Models.FacturaViewModel
+
+@{
+    ViewBag.Title = "Facturación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string factura = @"
+
+M E R C A D O - S.A 
+
+CEDULA JURIDICA: 3-101-007186
+San Rafael de Heredia. 
+TEL: 2588 - 1742 - FAX: 2588 - 1745
+
+TIQUETE ELECTRONICO: id_factura fecha_dia
+VENTA DE CONTADO: fecha_hora
+Clave: [CLAVE]
+       [CLAVE2]
+Consecutivo: [CONSE]
+
+Cliente: [CLIENTE]
+---------------------------------------
+
+
+CANT.DESCRIPCION                  TOTAL
+---------------------------------------
+
+[L1]
+[L2]
+[L3]
+
+              Subtotal           [SUB]
+              IVA              [IVA]
+---------------------------------------
+              TOTAL           [TOTAL]
+
+";
+
+
+    //Hacer los reemplasos necesarios. 
+    var cliente  = ViewBag.cliente;
+    var compania = ViewBag.compania;
+
+    factura = factura.Replace("id_factura", Convert.ToString(Model.numero_factura) );
+    factura = factura.Replace("fecha_dia", Convert.ToString( DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day));
+    factura = factura.Replace("fecha_hora", Convert.ToString(DateTime.Now.Year + "/" + DateTime.Now.Month + "/" + DateTime.Now.Day + " " + DateTime.Now.Hour + ":" + DateTime.Now.Minute + ":" + DateTime.Now.Second));
+    factura = factura.Replace("[CLIENTE]", cliente.nombre + " - " + cliente.identificacion);
+    factura = factura.Replace("[CLAVE]", Model.clave.Substring(0, 32));
+    factura = factura.Replace("[CLAVE2]", Model.clave.Substring(32,18));
+    factura = factura.Replace("[CONSE]", Model.NumeroConsecutivo);
+
+    factura = factura.Replace("[L1]", Convert.ToString(ViewBag.detalle1.Cantidad).PadLeft(4, '0') + ViewBag.detalle1.LineaDetalle.PadLeft(20, ' ') + "  ₡" + Convert.ToString(ViewBag.detalle1.PrecioUnitario* ViewBag.detalle1.Cantidad).PadLeft(10, ' '));
+    factura = factura.Replace("[L2]", Convert.ToString(ViewBag.detalle2.Cantidad).PadLeft(4, '0') + ViewBag.detalle2.LineaDetalle.PadLeft(20, ' ') + "  ₡" + Convert.ToString(ViewBag.detalle2.PrecioUnitario * ViewBag.detalle2.Cantidad).PadLeft(10, ' '));
+    factura = factura.Replace("[L3]", Convert.ToString(ViewBag.detalle3.Cantidad).PadLeft(4, '0') + ViewBag.detalle3.LineaDetalle.PadLeft(20, ' ') + "  ₡" + Convert.ToString(ViewBag.detalle3.PrecioUnitario * ViewBag.detalle3.Cantidad).PadLeft(10, ' '));
+
+
+    factura = factura.Replace("[SUB]", "₡"+Convert.ToString(Math.Round(Model.total_venta_neta,2)));
+    factura = factura.Replace("[IVA]", "₡" + Convert.ToString(Math.Round(Model.total_impuesto,2)));
+    factura = factura.Replace("[TOTAL]", "₡" + String.Format("{0:#.00}", Convert.ToString(Model.total_venta)));
+}
+<style>
+
+    #factura {
+        width: 370px;
+        border: 1px black solid;
+        border-top-color: black;
+        border-right-color: black;
+        border-bottom-color: black;
+        border-left-color: black;
+    }
+
+    pre {
+        padding-top: 0px;
+        margin-left: 9px;
+    }
+
+    #factura {
+        width: 370px;
+        border: 1px black solid;
+        border-top-color: black;
+        border-right-color: black;
+        border-bottom-color: black;
+        border-left-color: black;
+    }
+
+</style>
+
+<br />
+
+<h2>Factura</h2>
+
+<div id="factura">
+    
+    <pre>
+      @factura
+    </pre>
+
+</div>

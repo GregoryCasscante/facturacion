@@ -65,7 +65,11 @@ namespace FrontEnd.Models
         public virtual Usuario F_Usuario { get; set; }
 
         //Valores necesarios para dropdown menus. 
+        public IEnumerable<Compania> F_lista_companias { get; set; }
         public IEnumerable<Cliente> F_lista_clientes { get; set; }
+        public IEnumerable<Condiciones_de_Venta> F_lista_Condiciones_de_Venta { get; set; }
+        public IEnumerable<Inventarios> F_lista_Productos { get; set; }
+        public IEnumerable<Tipo_Comprobantes> F_lista_Tipo_Comprobante { get; set; }
 
     }
 }

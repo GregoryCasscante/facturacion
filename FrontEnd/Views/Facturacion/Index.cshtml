@@ -5,6 +5,22 @@
     ViewBag.Title = "Facturación";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+
+    label.error {
+        color: red !important;
+    }
+
+    .error {
+        color: red !important;
+    }
+
+    input.error {
+        background-color: #FFEBEE !important;
+    }
+
+</style>
+
 <h2>Facturación</h2>
 
 <div>
@@ -17,11 +33,50 @@
      #######################################################################################################################
      -->
 
-    <form action="factura_creada.html" class="forms-sample" id="form-facturacion" nombre="form-facturacion" method="post">
+    <form action="/Facturacion/Create" class="forms-sample" id="form-facturacion" nombre="form-facturacion" method="post">
+
+        <input type="hidden" name="usuario" value="@Session["user.id"]" />
+        <input type="hidden" name="tipo_comprobante" value="1" />
+        <input type="hidden" name="monera" value="1" />
+        <input type="hidden" name="moneda" value="1" />
+        <input type="hidden" name="forma_de_pago" value="1" />
+
+
 
         <div class="form-row">
 
-            <div class="col-lg-6 col-6">
+            <div class="col-lg-4 col-4">
+
+                <div class="form-group">
+                    <label for="cliente">Tipo de Comprobante</label>
+                    <select class="form-control p-input" name="tipo_comprobante" id="tipo_comprobante">
+                        @foreach (var item in Model.F_lista_Tipo_Comprobante)
+                        {
+                            <option value="@item.id">@item.Descripcion</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="form-row">
+
+            <div class="col-lg-4 col-4">
+
+                <div class="form-group">
+                    <label for="cliente">Emisor</label>
+                    <select class="form-control p-input" name="compania" id="compania">
+                        @foreach (var item in Model.F_lista_companias)
+                        {
+                            <option value="@item.id">@item.cedula_juridica - @item.nombre</option>
+                        }
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-4">
 
                 <div class="form-group">
                     <label for="cliente">Cliente</label>
@@ -29,139 +84,217 @@
 
                         @foreach (var item in Model.F_lista_clientes)
                         {
-                            <option value="@item.id">@item.nombre</option>
+                            <option value="@item.id">@item.identificacion - @item.nombre</option>
                         }
-                        <!--
-                        <option value="1">Gregory Cascante</option>
-                        <option value="2">Juan Peres</option>
-                        <option value="3">Pedro Pares</option>
-                        <option value="4">Pablo Cabrera</option>
-                        -->
+
                     </select>
                 </div>
-
             </div>
 
             <div class="col-lg-4 col-4">
+
                 <div class="form-group">
-                    <label for="cajero">Cajero</label>
-                    <select class="form-control p-input" name="cajero" id="cajero">
-                        <option value="1">Cajero 1</option>
-                        <option value="2">Cajero 2</option>
-                        <option value="3">Cajero 3</option>
-                        <option value="4">Cajero 4</option>
+                    <label for="cliente">Condición Venta</label>
+                    <select class="form-control p-input" name="condicion_venta" id="condicion_venta">
+
+                        @foreach (var item in Model.F_lista_Condiciones_de_Venta)
+                        {
+                            <option value="@item.id">@item.id - @item.Description</option>
+                        }
+
                     </select>
                 </div>
             </div>
+
+            <div class="col-lg-12 col-12"><hr /></div>
+
+
+
             <!-- end col 4 2 -->
             <!-- 01 -------------------------------------------------------------------------------->
             <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
                     <label for="cliente">Articulo</label>
-                    <select class="form-control p-input" name="producto" id="producto1">
-                        <option value="Producto 1|100.50">Producto 1</option>
-                        <option value="Producto 2|8.50">Producto 2</option>
-                        <option value="Producto 3|10.40">Producto 3</option>
-                        <option value="Producto 4|25.20">Producto 4</option>
+                    <select class="form-control p-input" name="producto1" id="producto1">
+                        @foreach (var item in Model.F_lista_Productos)
+                        {
+                            <option value="@item.descripcion|@item.precio|@item.id">@item.descripcion - ₡@item.precio</option>
+                        }
                     </select>
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
-                <div class="form-group linea_factura">
-                    <label for="cliente">Descripción</label>
-                    <input type="text" class="form-control p-input" name="descripcion1" id="descripcion1" placeholder="Descripción">
-                </div>
-            </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
                     <label for="cliente">Precio</label>
-                    <input type="text" class="form-control p-input" name="precio1" id="precio1" placeholder="Precio" value="0">
+                    <input type="text" class="form-control p-input" readonly name="precio1" id="precio1" placeholder="Precio" value="0">
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
                     <label for="cliente">Cantidad</label>
-                    <input type="text" class="form-control p-input" name="cantidad1" id="cantidad1" placeholder="Cantidad" value="0">
+                    <input type="text" class="form-control p-input" pattern="\d*" name="cantidad1" id="cantidad1" placeholder="Cantidad" value="0">
                 </div>
             </div>
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <label for="cliente">Sub Total</label>
+                    <input type="text" class="form-control p-input" readonly name="subtotal1" id="subtotal1" placeholder="Sub Total" value="0">
+                </div>
+            </div>
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <label for="cliente">IVA</label>
+                    <input type="text" class="form-control p-input" readonly name="iva1" id="iva1" placeholder="IVA" value="0">
+                </div>
+            </div>
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <label for="cliente">Total</label>
+                    <input type="text" class="form-control p-input" readonly name="ltotal1" id="ltotal1" placeholder="Total" value="0">
+                </div>
+            </div>
+
             <!-- 02 -------------------------------------------------------------------------------->
             <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <select class="form-control p-input" name="producto" id="producto2">
-                        <option value="Producto 1|100.50">Producto 1</option>
-                        <option value="Producto 2|8.50">Producto 2</option>
-                        <option value="Producto 3|10.40">Producto 3</option>
-                        <option value="Producto 4|25.20">Producto 4</option>
+                    <select class="form-control p-input" name="producto2" id="producto2">
+                        @foreach (var item in Model.F_lista_Productos)
+                        {
+                            <option value="@item.descripcion|@item.precio|@item.id">@item.descripcion - ₡@item.precio</option>
+                        }
                     </select>
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <!--
+        <div class="col-lg-2 col-2 linea_factura">
+            <div class="form-group linea_factura">
+                <input type="text" class="form-control p-input" readonly name="descripcion2" id="descripcion2" placeholder="Descripción">
+            </div>
+        </div>
+    -->
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <input type="text" class="form-control p-input" name="descripcion2" id="descripcion2" placeholder="Descripción">
+                    <input type="text" class="form-control p-input" readonly name="precio2" id="precio2" placeholder="Precio" value="0">
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <input type="text" class="form-control p-input" name="precio2" id="precio2" placeholder="Precio" value="0">
+                    <input type="text" class="form-control p-input" name="cantidad2" pattern="\d*" id="cantidad2" placeholder="Cantidad" value="0">
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <input type="text" class="form-control p-input" name="cantidad2" id="cantidad2" placeholder="Cantidad" value="0">
+                    <input type="text" class="form-control p-input" name="subtotal2" readonly id="subtotal2" placeholder="Sub Total" value="0">
+                </div>
+            </div>
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="iva2" id="iva2" readonly pattern="\d*" placeholder="IVA" value="0">
+                </div>
+            </div>
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="ltotal2" id="ltotal2" pattern="\d*" placeholder="Total" value="0">
                 </div>
             </div>
 
             <!-- 03 -------------------------------------------------------------------------------->
             <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <select class="form-control p-input" name="producto" id="producto3">
-                        <option value="Producto 1|100.50">Producto 1</option>
-                        <option value="Producto 2|8.50">Producto 2</option>
-                        <option value="Producto 3|10.40">Producto 3</option>
-                        <option value="Producto 4|25.20">Producto 4</option>
+                    <select class="form-control p-input" name="producto3" id="producto3">
+                        @foreach (var item in Model.F_lista_Productos)
+                        {
+                            <option value="@item.descripcion|@item.precio|@item.id">@item.descripcion - ₡@item.precio</option>
+                        }
                     </select>
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <!--
+    <div class="col-lg-2 col-2 linea_factura">
+        <div class="form-group linea_factura">
+            <input type="text" class="form-control p-input" readonly name="descripcion3" id="descripcion3" placeholder="Descripción">
+        </div>
+    </div>
+    -->
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <input type="text" class="form-control p-input" name="descripcion3" id="descripcion3" placeholder="Descripción">
+                    <input type="text" class="form-control p-input" readonly name="precio3" id="precio3" placeholder="Precio" value="0">
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <input type="text" class="form-control p-input" name="precio3" id="precio3" placeholder="Precio" value="0">
+                    <input type="text" class="form-control p-input" name="cantidad3" pattern="\d*" id="cantidad3" placeholder="Cantidad" value="0">
                 </div>
             </div>
-            <!--  Linea Facturacion ------------------>
-            <div class="col-lg-3 col-3 linea_factura">
+            <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <input type="text" class="form-control p-input" name="cantidad3" id="cantidad3" placeholder="Cantidad" value="0">
+                    <input type="text" class="form-control p-input" name="subtotal3" readonly id="subtotal3" placeholder="Sub Total" value="0">
+                </div>
+            </div>
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="iva3" readonly id="iva3" placeholder="IVA" value="0">
+                </div>
+            </div>
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" name="ltotal3" id="ltotal3" placeholder="Total" value="0">
                 </div>
             </div>
 
-            <!-- Total -------------------------------------------------------------------------------->
-            <!--  Total ------------------>
+            <!-- Sub Total -------------------------------------------------------------------------------->
             <div class="col-lg-10 col-10 linea_factura">
                 <div class="form-group linea_factura" style="text-align: right; vertical-align: middle">
-                    <br>
-                    <div><span style="text-align: right ; vertical-align: middle"><strong>Total:</strong></span></div>
+                    <div style="margin-top: 4px;"><span style="text-align: right ; vertical-align: middle"><strong>Sub Total:</strong></span></div>
                 </div>
             </div>
 
             <div class="col-lg-2 col-2 linea_factura">
                 <div class="form-group linea_factura">
-                    <input type="text" class="form-control p-input" name="total" id="total" placeholder="Total" value="0">
+                    <input type="text" class="form-control p-input" readonly name="subtotal" id="subtotal" placeholder="Sub Total" value="0">
+                </div>
+            </div>
+
+            <!-- Iva -------------------------------------------------------------------------------->
+            <div class="col-lg-10 col-10 linea_factura">
+                <div class="form-group linea_factura" style="text-align: right; vertical-align: middle">
+                    <div style="margin-top: 4px;"><span style="text-align: right ; vertical-align: middle"><strong>IVA:</strong></span></div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" readonly name="iva" id="iva" placeholder="IVA" value="0">
+                </div>
+            </div>
+
+            <!-- Total -------------------------------------------------------------------------------->
+            <div class="col-lg-10 col-10 linea_factura">
+                <div class="form-group linea_factura" style="text-align: right; vertical-align: middle">
+                    <div style="margin-top: 4px;"><span style="text-align: right ; vertical-align: middle"><strong>Total:</strong></span></div>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-2 linea_factura">
+                <div class="form-group linea_factura">
+                    <input type="text" class="form-control p-input" readonly name="total" id="total" placeholder="Total" value="0">
+                </div>
+            </div>
+
+
+
+            <div class="col-lg-4 col-4">
+                <div class="form-group ">
+                    <label for="cliente">Notas</label>
+                    <textarea class="form-control" id="notas" name="notas" rows="7"></textarea>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-8">
+                <div class="form-group ">
                 </div>
             </div>
 
@@ -170,7 +303,8 @@
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
 
+
         </div>
 
-    </form>
+</form>
 </div>
